@@ -40,6 +40,7 @@
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
             <mvc:exclude-mapping path="/loginIn"/>
+            <mvc:exclude-mapping path="/login"/>
             <mvc:exclude-mapping path="/loginOut"/>
             <mvc:exclude-mapping path="/captcha"/>
             <mvc:exclude-mapping path="/static/**"/>

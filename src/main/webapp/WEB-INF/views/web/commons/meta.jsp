@@ -3,6 +3,8 @@
 	String path = request.getContextPath().toString();
 %>
 <meta charset="utf-8">
+<meta HTTP-EQUIV="pragma" CONTENT="no-cache"> 
+<meta HTTP-EQUIV="Cache-Control" CONTENT="no-store, must-revalidate"> 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <!-- 移动设备 viewport -->
 <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui">

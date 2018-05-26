@@ -51,11 +51,11 @@
                     <form action="<%=path %>/loginIn" class="login-form" method="post" id="loginForm">
                         <div class="form-group">
                             <label class="sr-only" for="username">用户名</label>
-                            <input type="text" class="form-control" id="userCode" name="userCode" placeholder="请输入用户名">
+                            <input type="text" class="form-control" id="userCode" name="userCode" value="${user.userCode}" placeholder="请输入用户名">
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="password">密码</label>
-                            <input type="password" class="form-control" id="password" name="password" placeholder="请输入密码">
+                            <input type="password" class="form-control" id="password" name="password" value="${user.password}" placeholder="请输入密码">
                         </div>
                         <div class="form-group">
                             <label class="sr-only" for="password">验证码</label>
@@ -101,22 +101,20 @@
         </div>
     </div>
 </div>
-
-<!-- JS -->
 <script src="<%=path %>/static/admui/plugins/jquery/jquery.min.js"></script>
-<script src="<%=path %>/static/admui/plugins/bootstrap/bootstrap.min.js"></script>
-<script src="<%=path %>/static/admui/plugins/bootstrap-select/bootstrap-select.min.js"></script>
-<script src="<%=path %>/static/admui/plugins/formvalidation/formValidation.min.js" data-name="formValidation"></script>
-<script src="<%=path %>/static/admui/plugins/formvalidation/framework/bootstrap.min.js" data-deps="formValidation"></script>
-<script src="<%=path %>/static/admui/js/login.js"></script>
-<script>
-	$(function(){
-		var message = '${message}';
-		if(message){
-			$("#loginError").show();
-		}
-	});
-</script>
+	<script src="<%=path %>/static/admui/plugins/bootstrap/bootstrap.min.js"></script>
+	<script src="<%=path %>/static/admui/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+	<script src="<%=path %>/static/admui/plugins/formvalidation/formValidation.min.js" data-name="formValidation"></script>
+	<script src="<%=path %>/static/admui/plugins/formvalidation/framework/bootstrap.min.js" data-deps="formValidation"></script>
+	<script src="<%=path %>/static/admui/js/login.js"></script>
+    <script>
+		$(function(){
+			var message = '${message}';
+			console.log(message);
+			if(message){
+				$("#loginError").show();
+			}
+		});
+	</script>
 </body>
-
 </html>

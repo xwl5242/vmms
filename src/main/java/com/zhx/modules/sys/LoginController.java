@@ -1,10 +1,6 @@
 package com.zhx.modules.sys;
 
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
 import java.io.IOException;
-import java.util.List;
-import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,10 +10,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.zhx.captcha.Captcha;
 import com.zhx.captcha.GifCaptcha;
@@ -48,11 +45,12 @@ public class LoginController extends BaseController {
 	 * @param request
 	 * @param response
 	 * @param user
+	 * @throws IOException 
 	 */
 	@OpLog(optName="用户后台登录",optKey="用户登录",optType=Const.OPLOG_TYPE_SELECT)
 	@RequestMapping(value="/loginIn",method=RequestMethod.POST)
 	public String loginIn(HttpServletRequest request,HttpServletResponse response,
-			SysUser user,String validCode,Model model){
+			SysUser user,String validCode,RedirectAttributes model) {
 		logger.info("user login,user info:"+user);
 		String result = "";
 		try {
@@ -79,7 +77,7 @@ public class LoginController extends BaseController {
 //							session.setAttribute(Const.SESSION_RIGHT_CHANGED_MENU, "");//用户名称
 							logger.info("login success,user info:"+loginUser);
 							//登录成功跳转到首页
-							return "web/index";
+							return "redirect:/index";
 						}else{
 							//密码错误
 							result = "密码错误！";
@@ -95,9 +93,29 @@ public class LoginController extends BaseController {
 			result = e.getMessage();
 			logger.error(e.getMessage());
 		}
-		model.addAttribute("user",user);
-		model.addAttribute("message",result);
-		return "web/login";
+		model.addFlashAttribute("user",user);
+		model.addFlashAttribute("message",result);
+		return "redirect:/login";
+	}
+	
+	@RequestMapping(value="/index",method=RequestMethod.GET)
+	public String index(){
+		return "web/index";
+	}
+	
+	/**
+	 * 重定向到登录页面，改变浏览器地址栏的值，防止重复调用loginIn方法
+	 * @param user
+	 * @param message
+	 * @return
+	 */
+	@RequestMapping(value="/login",method=RequestMethod.GET)
+	public ModelAndView toLogin(@ModelAttribute("user") SysUser user,@ModelAttribute("message") String message){
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("user", user);
+		mv.addObject("message", message);
+		mv.setViewName("web/login");
+		return mv;
 	}
 	
 	/**
