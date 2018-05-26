@@ -11,8 +11,19 @@ public interface CrudDao<T> {
 	 */
 	T get(String id);
 	
+	/**
+	 * 根据where条件查询
+	 * @param where
+	 * @return
+	 */
 	T getByWhere(String where);
 	
+	/**
+	 * 根据where条件查询
+	 * @param where
+	 * @param args
+	 * @return
+	 */
 	T getByWhere(String where,Object[] args);
 	
 	/**
@@ -21,6 +32,14 @@ public interface CrudDao<T> {
 	 * @return
 	 */
 	List<T> findAllList(String where);
+	
+	/**
+	 * 获取列表
+	 * @param where
+	 * @param args
+	 * @return
+	 */
+	List<T> findAllList(String where,Object[] args);
 	
 	/**
 	 * 新增
@@ -49,4 +68,11 @@ public interface CrudDao<T> {
 	 * @return
 	 */
 	int batchDelete(String[] ids);
+	
+	/**
+	 * 批量删除
+	 * @param ids
+	 * @return
+	 */
+	int batchDelete(String ids);
 }

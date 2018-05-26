@@ -23,13 +23,14 @@ public class SysDicServiceImpl implements SysDicService {
 	@Transactional(readOnly=true)
 	@Override
 	public SysDic queryByNameAndK(String name, String key) {
-		return dicDao.selectByNameAndK(name,key);
+		return dicDao.getByWhere("dc_name='"+name+"' and dc_k='"+key+"'");
 	}
 
 	@Transactional(readOnly=true)
 	@Override
 	public Map<String, Object> queryDicList(Map<String, String> params) {
-		return dicDao.selectDicList(params);
+		return null;
+//		return dicDao.selectDicList(params);
 	}
 
 	@Transactional(rollbackFor=Exception.class,propagation=Propagation.REQUIRED)
@@ -39,7 +40,7 @@ public class SysDicServiceImpl implements SysDicService {
 		try {
 			dic.setId(UUIDGenerator.getUUID());
 			dic.setDcSeq("0");
-			insertRet = dicDao.insertDic(dic);
+			insertRet = dicDao.insert(dic);
 			if(insertRet==0){
 				throw new DBException();
 			}
@@ -52,7 +53,7 @@ public class SysDicServiceImpl implements SysDicService {
 	@Transactional(readOnly=true)
 	@Override
 	public SysDic queryById(String id) {
-		return dicDao.selectById(id);
+		return dicDao.get(id);
 	}
 
 	@Transactional(rollbackFor=Exception.class,propagation=Propagation.REQUIRED)
@@ -60,7 +61,7 @@ public class SysDicServiceImpl implements SysDicService {
 	public int editDic(SysDic dic) throws Exception{
 		int insertRet = 0;
 		try {
-			insertRet = dicDao.updateDic(dic);
+			insertRet = dicDao.update(dic);
 			if(insertRet==0){
 				throw new DBException();
 			}
@@ -73,7 +74,7 @@ public class SysDicServiceImpl implements SysDicService {
 	@Transactional(readOnly=true)
 	@Override
 	public SysDic queryByDicName(String dicName) {
-		return dicDao.selectByDicName(dicName);
+		return dicDao.getByWhere("dc_name like '%"+dicName+"%'");
 	}
 
 	@Transactional(rollbackFor=Exception.class,propagation=Propagation.REQUIRED)
@@ -82,7 +83,7 @@ public class SysDicServiceImpl implements SysDicService {
 		boolean result = false;
 		try{
 			String ids = params.get("ids");
-			int des = dicDao.deleteDics(ids);
+			int des = dicDao.batchDelete(ids);
 			result = (des==IdsUtil.idsStrTrans4Array(ids).length);
 			if(!result) throw new DBException();
 		}catch(Exception e){

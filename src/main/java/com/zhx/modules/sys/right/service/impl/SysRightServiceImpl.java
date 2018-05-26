@@ -37,7 +37,7 @@ public class SysRightServiceImpl implements SysRightService {
 			right.setIcon(Const.RIGHT_CION_HTML);
 			right.setCreateTime(DateUtils.date2yyyyMMddHHmmssStr(null));
 			right.setUpdateTime(DateUtils.date2yyyyMMddHHmmssStr(null));
-			insertRet = rightDao.insertRight(right);
+			insertRet = rightDao.insert(right);
 			if(insertRet==1){
 				//添加成功，修改父节点信息
 				rightDao.updateLeafAndIcon(right.getPid(),"0",Const.RIGHT_CION_DEFAULT);
@@ -61,7 +61,7 @@ public class SysRightServiceImpl implements SysRightService {
 		int insertRet = 0;
 		try {
 			right.setUpdateTime(DateUtils.date2yyyyMMddHHmmssStr(null));
-			insertRet = rightDao.updateRight(right);
+			insertRet = rightDao.update(right);
 			if(insertRet==1){
 				//更新menuList和orgTreeList
 				GlobalCacheUtils.updateGlobalCache(right, 1);
@@ -80,7 +80,7 @@ public class SysRightServiceImpl implements SysRightService {
 	@Transactional(readOnly=true)
 	@Override
 	public SysRight queryByRightName(String rightName) {
-		return rightDao.selectByRightName(rightName);
+		return rightDao.getByWhere("right_name = ?",new Object[]{rightName});
 	}
 
 	/**
@@ -102,11 +102,11 @@ public class SysRightServiceImpl implements SysRightService {
 		boolean result = false;
 		try{
 			String ids = params.get("ids");
-			SysRight right = rightDao.selectById(ids);
+			SysRight right = rightDao.get(ids);
 			int c = rightDao.selectRoleRightCountByRightId(ids);
-			int e = rightDao.deleteRights(ids);
+			int e = rightDao.batchDelete(ids);
 			if(e==c+1){
-				List<?> rlist = rightDao.selectByPid(right.getPid());
+				List<?> rlist = rightDao.findAllList("pid=?",new Object[]{right.getPid()});
 				if(null==rlist||rlist.size()<=0){
 					//添加成功，修改父节点信息
 					rightDao.updateLeafAndIcon(right.getPid(),"1",Const.RIGHT_CION_HTML);
@@ -129,7 +129,7 @@ public class SysRightServiceImpl implements SysRightService {
 	@Transactional(readOnly=true)
 	@Override
 	public SysRight queryById(String id) {
-		return rightDao.selectById(id);
+		return rightDao.get(id);
 	}
 
 }

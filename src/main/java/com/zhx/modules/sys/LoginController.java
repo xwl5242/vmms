@@ -95,6 +95,7 @@ public class LoginController extends BaseController {
 			result = e.getMessage();
 			logger.error(e.getMessage());
 		}
+		model.addAttribute("user",user);
 		model.addAttribute("message",result);
 		return "web/login";
 	}

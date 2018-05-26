@@ -33,7 +33,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 			role.setIsDel("0");
 			role.setCreateTime(DateUtils.date2yyyyMMddHHmmssStr(null));
 			role.setUpdateTime(DateUtils.date2yyyyMMddHHmmssStr(null));
-			insertRet = roleDao.insertRole(role);
+			insertRet = roleDao.insert(role);
 			if(insertRet==0){
 				throw new DBException();
 			}
@@ -52,7 +52,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 		int insertRet = 0;
 		try {
 			role.setUpdateTime(DateUtils.date2yyyyMMddHHmmssStr(null));
-			insertRet = roleDao.updateRole(role);
+			insertRet = roleDao.update(role);
 			if(insertRet==0){
 				throw new DBException();
 			}
@@ -82,7 +82,7 @@ public class SysRoleServiceImpl implements SysRoleService {
 			String ids = params.get("ids");
 			int ur = roleDao.selectUserRoleCountByRoleId(ids);
 			int rr = roleDao.selectRoleRightCountByRoleId(ids);
-			int dr = roleDao.deleteRoles(ids);
+			int dr = roleDao.batchDelete(ids);
 			result = (dr==ids.split(",").length+ur+rr);
 			if(!result) throw new DBException();
 		} catch (Exception e) {
@@ -103,13 +103,13 @@ public class SysRoleServiceImpl implements SysRoleService {
 	@Transactional(readOnly=true)
 	@Override
 	public SysRole queryById(String id) {
-		return roleDao.selectById(id);
+		return roleDao.get(id);
 	}
 
 	@Transactional(readOnly=true)
 	@Override
 	public SysRole queryByRoleName(String roleName) {
-		return roleDao.selectByRoleName(roleName);
+		return roleDao.getByWhere("role_name='"+roleName+"'");
 	}
 
 	/**

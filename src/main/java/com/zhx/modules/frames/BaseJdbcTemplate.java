@@ -26,6 +26,13 @@ import com.zhx.modules.utils.BeanMapUtils;
 import com.zhx.modules.utils.IdsUtil;
 import com.zhx.modules.utils.MyStringUtils;
 
+/**
+ * dao层的基础类，默认实现了CrudDao中的方法，dao的实现继承此类即可
+ * 此类中的方法只适合查询单个实体，关于复杂的业务逻辑查询请自行写sql调用JdbcTemplate中的方法
+ * @author xwl
+ *
+ * @param <T>
+ */
 @SuppressWarnings({"unchecked","rawtypes","hiding"})
 public class BaseJdbcTemplate<T> extends JdbcTemplate {
 	
@@ -60,6 +67,12 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
 		return classname.substring(classname.lastIndexOf(".")+1);
 	}
 	
+	/**
+	 * 获取业务表名称
+	 * 例如 sysUserService调用 返回 sys_user
+	 *    sysRoleService调用 返回 sys_role 
+	 * @return
+	 */
 	public String getTableName(){
 		return MyStringUtils.humpStrTo_Str(getType());
 	}
@@ -72,10 +85,21 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
 		return getByWhere("id='"+id+"'");
 	}
 	
+	/**
+	 * 根据where条件获取唯一的对象信息
+	 * @param where 字符串类型的，不能带?要传递实际值，例如： and user_code='1',最前面可带可不带and
+	 * @return
+	 */
 	public T getByWhere(String where){
 		return getByWhere(where, null);
 	}
 	
+	/**
+	 * 根据where条件获取唯一的对象信息
+	 * @param where 字符串类型的，带?。例如: and user_code=? and user_name=?,最前面可带可不带and
+	 * @param args 相对应?的实际值
+	 * @return
+	 */
 	public T getByWhere(String where,Object[] args){
 		log.info("根据主键获取对象信息：where="+where);
 		String w4 = where.substring(0,4).toLowerCase();
@@ -86,15 +110,25 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
 	
 	/**
 	 * 查询list
-	 * @param sql
+	 * @param where 查询语句不带?要传递实际值,最前面可带可不带and
 	 * @return
 	 */
 	public List<T> findAllList(String where) {
+		return queryForBeanList(where,null);
+	}
+	
+	/**
+	 * 查询list
+	 * @param where 查询语句带?,最前面可带可不带and
+	 * @param args 相对应?的实际值
+	 * @return
+	 */
+	public List<T> findAllList(String where,Object[] args){
 		log.info("根据主键获取对象信息,where条件:"+where);
 		String w4 = where.substring(0,4).toLowerCase();
 		String sql = GlobalCache.selectAllStrMap.get(getTableName())+(w4.startsWith("and ")?where:"and "+where);
 		log.info("根据主键获取对象信息,select sql:"+sql);
-		return queryForBeanList(sql);
+		return queryForBeanList(sql,args);
 	}
 	
 	/**
@@ -195,96 +229,15 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
 	}
 	
 	/**
-	 * 自定义查询对象方法
-	 * @param sql 查询语句
-	 * @param requiredType 要返回的类型
+	 * 批量删除
+	 * @param ids
 	 * @return
-	 * @throws DataAccessException
 	 */
-	public T queryForBean(String sql) {
-        return queryForBean(sql,null);
-	}
-	
-	public T queryForBean(String sql,Object[] args){
-		return (T) queryForObject(sql,args,new RowMapper<T>(){
-			@Override
-			public T mapRow(ResultSet rs, int rowNum) throws SQLException {
-				//查询结果集转为list<map>
-				List<Map<String,Object>> listmap = new ArrayList<Map<String,Object>>();
-		        ResultSetMetaData md = rs.getMetaData();
-		        int columnCount = md.getColumnCount();
-				Map rowData = new HashMap();
-	            for (int i = 1; i <= columnCount; i++) {
-	                rowData.put(MyStringUtils._StrToHumpStr(md.getColumnName(i)), rs.getObject(i));
-	            }
-	            listmap.add(rowData);
-				Map<String,Object> map = listmap.get(0);//只取唯一的结果
-				return (T) BeanMapUtils.mapToBean(map, getClazz());
-			}
-        	
-        });
+	public int batchDelete(String ids){
+		return batchDelete(ids.split(","));
 	}
 	
 	/**
-     * 重写JdbcTemplate里面的queryForObject方法源码调用的requiredSingleResult，当查询到的结果为空时返回null(原来是抛出异常)
-     */
-    @Override
-    public <T> T queryForObject(String sql, Class<T> requiredType) throws DataAccessException {
-        return queryForObject(sql, getSingleColumnRowMapper(requiredType));
-    }
-
-	public <T> T queryForObject(String sql, RowMapper<T> rowMapper) throws DataAccessException {
-        List<T> results = query(sql, rowMapper);
-        return requiredSingleResult(results);//防止异常
-    }
-	
-	@Override
-	public <T> T queryForObject(String sql, Object[] args, Class<T> requiredType)
-			throws DataAccessException {
-		return queryForObject(sql, args, getSingleColumnRowMapper(requiredType));
-	}
-	
-	public <T> T queryForObject(String sql, Object[] args, RowMapper<T> rowMapper) throws DataAccessException {
-		List<T> results = query(sql,args, rowMapper);
-        return requiredSingleResult(results);//防止异常
-	}
-
-    /**
-     * 需要返回单个结果，防止异常
-     * @param results
-     * @return
-     * @throws IncorrectResultSizeDataAccessException
-     */
-    protected <T> T requiredSingleResult(Collection<T> results) throws IncorrectResultSizeDataAccessException {
-        int size = (results != null ? results.size() : 0); 
-        if (size == 0) {
-            return null; 
-        } 
-        if (results.size() > 1) {
-            throw new IncorrectResultSizeDataAccessException(1, size); 
-        } 
-        return results.iterator().next(); 
-    }
-	
-    /**
-     * 查询列表，返回对应的类型
-     * @param sql
-     * @param clazz
-     * @return
-     */
-    public List<T> queryForBeanList(String sql){
-    	List<T> result = new ArrayList<T>();
-    	List<Map<String, Object>> list = queryForList(sql);
-    	if(null!=list&&list.size()>0){
-    		for(Map<String,Object> map:list){
-    			T t = BeanMapUtils.mapToBean(map, getClazz());
-    			result.add(t);
-    		}
-    	}
-    	return result;
-    }
-    
-    /**
      * 分页查询table数据
      * @param sql 分页查询语句
      * @param pageNo 页码
@@ -316,7 +269,113 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
 		return sb.toString();
 	}
 	
-	public String getSelectAllSql(String s){
-		return "";
+	/**
+	 * ==================分割线，下面是复写的内容，不要随意修改=======================
+	 */
+	
+	/**
+	 * 自定义查询对象方法
+	 * @param sql 查询语句
+	 * @return
+	 */
+	public T queryForBean(String sql) {
+        return queryForBean(sql,null);
 	}
+	
+	/**
+	 * 自定义查询对象方法
+	 * @param sql 查询语句
+	 * @param arg 相应的?
+	 * @return
+	 */
+	public T queryForBean(String sql,Object[] args){
+		return (T) queryForObject(sql,args,new RowMapper<T>(){
+			@Override
+			public T mapRow(ResultSet rs, int rowNum) throws SQLException {
+				//查询结果集转为list<map>
+				List<Map<String,Object>> listmap = new ArrayList<Map<String,Object>>();
+		        ResultSetMetaData md = rs.getMetaData();
+		        int columnCount = md.getColumnCount();
+				Map rowData = new HashMap();
+	            for (int i = 1; i <= columnCount; i++) {
+	                rowData.put(MyStringUtils._StrToHumpStr(md.getColumnName(i)), rs.getObject(i));
+	            }
+	            listmap.add(rowData);
+				Map<String,Object> map = listmap.get(0);//只取唯一的结果
+				return (T) BeanMapUtils.mapToBean(map, getClazz());
+			}
+        	
+        });
+	}
+	
+	/**
+     * 查询列表，返回对应的类型
+     * @param sql
+     * @return
+     */
+    public List<T> queryForBeanList(String sql){
+    	return queryForBeanList(sql, null);
+    }
+    
+    /**
+     * 查询列表，返回对应的类型
+     * @param sql
+     * @return
+     */
+    public List<T> queryForBeanList(String sql,Object[] args){
+    	List<T> result = new ArrayList<T>();
+    	List<Map<String, Object>> list = queryForList(sql,args);
+    	if(null!=list&&list.size()>0){
+    		for(Map<String,Object> map:list){
+    			T t = BeanMapUtils.mapToBean(map, getClazz());
+    			result.add(t);
+    		}
+    	}
+    	return result;
+    }
+	
+	/**
+     * 重写JdbcTemplate里面的queryForObject方法源码调用的requiredSingleResult，当查询到的结果为空时返回null(原来是抛出异常)
+     */
+    @Override
+    public <T> T queryForObject(String sql, Class<T> requiredType) throws DataAccessException {
+        return queryForObject(sql, getSingleColumnRowMapper(requiredType));
+    }
+
+	public <T> T queryForObject(String sql, RowMapper<T> rowMapper) throws DataAccessException {
+        List<T> results = query(sql, rowMapper);
+        return requiredSingleResult(results);//防止异常
+    }
+	
+	/**
+     * 重写JdbcTemplate里面的queryForObject方法源码调用的requiredSingleResult，当查询到的结果为空时返回null(原来是抛出异常)
+     */
+	@Override
+	public <T> T queryForObject(String sql, Object[] args, Class<T> requiredType)
+			throws DataAccessException {
+		return queryForObject(sql, args, getSingleColumnRowMapper(requiredType));
+	}
+	
+	public <T> T queryForObject(String sql, Object[] args, RowMapper<T> rowMapper) throws DataAccessException {
+		List<T> results = query(sql,args, rowMapper);
+        return requiredSingleResult(results);//防止异常
+	}
+
+    /**
+     * 需要返回单个结果，防止异常
+     * @param results
+     * @return
+     * @throws IncorrectResultSizeDataAccessException
+     */
+    protected <T> T requiredSingleResult(Collection<T> results) throws IncorrectResultSizeDataAccessException {
+        int size = (results != null ? results.size() : 0); 
+        if (size == 0) {
+            return null; 
+        } 
+        if (results.size() > 1) {
+            throw new IncorrectResultSizeDataAccessException(1, size); 
+        } 
+        return results.iterator().next(); 
+    }
+	
 }

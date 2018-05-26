@@ -18,51 +18,20 @@ import com.zhx.modules.utils.UUIDGenerator;
 public class SysRoleDaoImpl extends BaseJdbcTemplate<SysRole> implements SysRoleDao {
 	
 	/**
-	 * 新建角色
-	 */
-	@Override
-	public int insertRole(SysRole role) {
-//		String insertSql = CreateSqlTools.getCreateSql(role,SysRole.class,"sys_role");
-//		return update(insertSql);
-		return 0;
-	}
-
-	/**
-	 * 修改角色
-	 */
-	@Override
-	public int updateRole(SysRole role) {
-//		String updateSql = CreateSqlTools.getUpdateSql(role, SysRole.class, "sys_role");
-//		return update(updateSql);
-		return 0;
-	}
-	
-	/**
 	 * 分页查询
 	 */
 	@Override
 	public Map<String, Object> selectRoleList(Map<String, String> params) {
-		String sql="select "+getSelectAllSql("sys_role")+" from sys_role where 1=1";
-		if(!StringUtils.isEmpty(params.get("roleDesc"))){
-			sql += " and role_desc like '%"+params.get("roleDesc")+"%'";
-		}
-		if(!StringUtils.isEmpty(params.get("roleName"))){
-			sql += " and role_name like '%"+params.get("roleName")+"%'";
-		}
-		sql += " order by create_time desc";
-		return queryTableList(sql, Integer.valueOf(params.get("pageNumber")), Integer.valueOf(params.get("pageSize")));
-	}
-
-	/**
-	 * 删除角色
-	 */
-	@Override
-	public int deleteRoles(String ids) {
-		ids = IdsUtil.idsAddSingleQuotes(ids);
-		String sql = "delete from sys_role where id in ("+ids+")";
-		String ursql = "delete from sys_user_role where role_id in("+ids+")";
-		String rrsql = "delete from sys_role_right where role_id in("+ids+")";
-		return update(sql)+update(ursql)+update(rrsql);
+//		String sql="select "+getSelectAllSql("sys_role")+" from sys_role where 1=1";
+//		if(!StringUtils.isEmpty(params.get("roleDesc"))){
+//			sql += " and role_desc like '%"+params.get("roleDesc")+"%'";
+//		}
+//		if(!StringUtils.isEmpty(params.get("roleName"))){
+//			sql += " and role_name like '%"+params.get("roleName")+"%'";
+//		}
+//		sql += " order by create_time desc";
+//		return queryTableList(sql, Integer.valueOf(params.get("pageNumber")), Integer.valueOf(params.get("pageSize")));
+		return null;
 	}
 
 	/**
@@ -81,23 +50,6 @@ public class SysRoleDaoImpl extends BaseJdbcTemplate<SysRole> implements SysRole
 		return queryForList(sql);
 	}
 
-	/**
-	 * 主键查询
-	 */
-	@Override
-	public SysRole selectById(String id) {
-		String sql = "select "+getSelectAllSql("sys_role")+" from sys_role where id='"+id+"'";
-		return queryForBean(sql);
-	}
-
-	/**
-	 * 根据角色名称查询角色信息
-	 */
-	@Override
-	public SysRole selectByRoleName(String roleName) {
-		String sql = "select "+getSelectAllSql("sys_role")+" from sys_role where role_name='"+roleName+"'";
-		return queryForBean(sql);
-	}
 
 	/**
 	 * 根据角色id查询角色权限关联
