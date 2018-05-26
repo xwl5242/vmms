@@ -226,6 +226,7 @@
           <artifactId>mysql-connector-java</artifactId>
           <version>5.1.39</version>
       </dependency>
+      <!-- oracle数据源包 -->
       <dependency>
 		  <groupId>com.oracle</groupId>
 		  <artifactId>ojdbc14</artifactId>
@@ -233,12 +234,21 @@
 		  <scope>system</scope>
 		  <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/ojdbc14-10.2.0.4.0.jar</systemPath>
 	  </dependency>
+	  <!-- 微信支付 -->
       <dependency>
 		  <groupId>com.wxpay.sdk</groupId>
 		  <artifactId>wxpay-sdk</artifactId>
 		  <version>0.0.3</version>
 		  <scope>system</scope>
 		  <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/wxpay-sdk-0.0.3.jar</systemPath>
+	  </dependency>
+	  <!-- 图片验证码 -->
+	  <dependency>
+	  	<groupId>com.zhx</groupId>
+		  <artifactId>captcha</artifactId>
+		  <version>1.0</version>
+		  <scope>system</scope>
+		  <systemPath>${project.basedir}/src/main/webapp/WEB-INF/lib/captcha-1.0.jar</systemPath>
 	  </dependency>
       <!--阿里巴巴fastjson-->
       <dependency>

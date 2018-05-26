@@ -18,12 +18,13 @@ public class Const {
 	public static final String SESSION_RIGHT_CHANGED_MENU = "rightChangedMenu";//session中当前登录用户的操作哪个菜单导致权限的变化
 	
 	/**
-	 * session中web用户参数相关
+	 * 验证码相关
 	 */
-	public static final String SESSION_MEMBER = "member";
-	public static final String SESSION_MEMBER_ID = "memberId";
-	public static final String SESSION_MEMBER_NAME = "memberName";
-	public static final String SESSION_WX_MEMBER = "wxMember";
+	public static final String SESSION_CAPTCHA_CODE="captchaCode";//图片验证码
+	public static final String CAPTCHA_TYPE="captchaType";//配置文件中验证码类型属性(相当于key)
+	public static final String CAPTCHA_CHAR_NUM="captchaCharNum";//验证码中字母的个数
+	public static final String CAPTCHA_TYPE_GIF="gif";//验证码为gif动图
+	public static final String CAPTCHA_TYPE_PNG="png";//验证码为静态图片
 	
 	/**
 	 * jdbc配置文件相关
@@ -65,31 +66,4 @@ public class Const {
 	public static final String OPLOG_TYPE_UPDATE="2";//修改类型
 	public static final String OPLOG_TYPE_SELECT="3";//查询类型
 	
-	/**
-	 * 问题类型相关
-	 */
-	public static final String Q_TYPE_SINGLE = "0";//问题类型：单选
-	public static final String Q_TYPE_MUTIL = "1";//问题类型：多选
-	public static final String Q_TYPE_FILL_BLANK = "2";//问题类型：填空
-	public static final String Q_TYPE_QW = "3";//问题类型：问答
-	
-	
-	/**
-	 * 反射方法类型相关
-	 */
-	public static final String REFLECT_METHODTYPE_GET="get";
-	public static final String REFLECT_METHODTYPE_SET="set";
-	
-	/**
-	 * 微信操作类型
-	 */
-	public static final String WX_OPT_DEFAULT="wx_default";
-	public static final String WX_OPT_REGISTER="wx_register";
-	public static final String WX_OPT_UPDATE="wx_update";
-	public static final String WX_OPT_QUERY_EMPTY="wx_query_empty";
-	public static final String WX_OPT_OPEN_WXBRO="wx_open_wxbro";
-	
-	public static final String WX_RET_SUCCESS="success";
-	public static final String WX_RET_FAIL="fail";
-	public static final String WX_RET_PROMPT="prompt";
 }

@@ -16,3 +16,6 @@
 <meta name="apple-mobile-web-app-title" content="Admui">
 <link rel="apple-touch-icon-precomposed" href="<%=path %>/static/admui/images/apple-touch-icon.png"><!-- Win8标题栏及ICON图标 -->
 <meta name="msapplication-TileColor" content="#62a8ea">
+<!-- 样式 -->
+<link rel="stylesheet" href="<%=path %>/static/admui/themes/classic/base/css/site.css" id="siteStyle">
+<script>var root = '<%=path%>';</script>

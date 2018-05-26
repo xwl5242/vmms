@@ -79,8 +79,8 @@ public class SysUserServiceImpl implements SysUserService {
 	@Transactional(readOnly=true)
 	@Override
 	public SysUser queryByUserCode(String userCode) {
-		
-		return userDao.selectByUserCode(userCode);
+//		return userDao.getByWhere(" user_code='"+userCode+"'");
+		return userDao.getByWhere(" user_code=?",new Object[]{userCode});
 	}
 
 	/**

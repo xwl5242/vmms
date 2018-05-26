@@ -69,10 +69,19 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
 	 * @return
 	 */
 	public T get(String id){
-		log.info("根据主键获取对象信息：id="+id);
-		String sql = GlobalCache.selectAllStrMap.get(getTableName())+"and id='"+id+"'";
+		return getByWhere("id='"+id+"'");
+	}
+	
+	public T getByWhere(String where){
+		return getByWhere(where, null);
+	}
+	
+	public T getByWhere(String where,Object[] args){
+		log.info("根据主键获取对象信息：where="+where);
+		String w4 = where.substring(0,4).toLowerCase();
+		String sql = GlobalCache.selectAllStrMap.get(getTableName())+(w4.startsWith("and ")?where:"and "+where);
 		log.info("根据主键获取对象信息,select sql:"+sql);
-		return queryForBean(sql);
+		return queryForBean(sql,args);
 	}
 	
 	/**
@@ -82,8 +91,8 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
 	 */
 	public List<T> findAllList(String where) {
 		log.info("根据主键获取对象信息,where条件:"+where);
-		String tn = MyStringUtils.humpStrTo_Str(getType());
-		String sql = GlobalCache.selectAllStrMap.get(tn)+where;
+		String w4 = where.substring(0,4).toLowerCase();
+		String sql = GlobalCache.selectAllStrMap.get(getTableName())+(w4.startsWith("and ")?where:"and "+where);
 		log.info("根据主键获取对象信息,select sql:"+sql);
 		return queryForBeanList(sql);
 	}
@@ -193,7 +202,11 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
 	 * @throws DataAccessException
 	 */
 	public T queryForBean(String sql) {
-        return (T) queryForObject(sql, new RowMapper<T>(){
+        return queryForBean(sql,null);
+	}
+	
+	public T queryForBean(String sql,Object[] args){
+		return (T) queryForObject(sql,args,new RowMapper<T>(){
 			@Override
 			public T mapRow(ResultSet rs, int rowNum) throws SQLException {
 				//查询结果集转为list<map>
@@ -220,10 +233,21 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
         return queryForObject(sql, getSingleColumnRowMapper(requiredType));
     }
 
-    public <T> T queryForObject(String sql, RowMapper<T> rowMapper) throws DataAccessException {
+	public <T> T queryForObject(String sql, RowMapper<T> rowMapper) throws DataAccessException {
         List<T> results = query(sql, rowMapper);
         return requiredSingleResult(results);//防止异常
     }
+	
+	@Override
+	public <T> T queryForObject(String sql, Object[] args, Class<T> requiredType)
+			throws DataAccessException {
+		return queryForObject(sql, args, getSingleColumnRowMapper(requiredType));
+	}
+	
+	public <T> T queryForObject(String sql, Object[] args, RowMapper<T> rowMapper) throws DataAccessException {
+		List<T> results = query(sql,args, rowMapper);
+        return requiredSingleResult(results);//防止异常
+	}
 
     /**
      * 需要返回单个结果，防止异常

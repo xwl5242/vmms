@@ -127,6 +127,6 @@ public class DESUtils {
     }
     
     public static void main(String[] args) throws Exception {
-		System.out.println(encrypt("111"));
+		System.out.println(encrypt("111111"));
 	}
 }

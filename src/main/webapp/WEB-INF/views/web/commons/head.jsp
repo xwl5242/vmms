@@ -43,3 +43,5 @@
 <script src="<%=path %>/static/admui/themes/classic/base/js/site.js"></script>
 <script src="<%=path %>/static/admui/themes/classic/global/js/configs/site-configs.js"></script>
 <script src="<%=path %>/static/admui/themes/classic/global/js/components.js"></script>
+
+<script>var root = '<%=path%>';</script>

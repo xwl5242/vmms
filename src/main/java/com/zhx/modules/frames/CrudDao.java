@@ -11,6 +11,10 @@ public interface CrudDao<T> {
 	 */
 	T get(String id);
 	
+	T getByWhere(String where);
+	
+	T getByWhere(String where,Object[] args);
+	
 	/**
 	 * 获取列表
 	 * @param where where条件语句 
