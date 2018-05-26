@@ -69,7 +69,7 @@ public class SysRightController extends BaseController {
 	@ResponseBody
 	public String orgTree() throws Exception{
 		logger.info("获取组织机构树");
-		List<Map<?, ?>> rlist = BeanMapUtils.beanListToMapList(GlobalCache.rightsList);
+		List<Map<String, Object>> rlist = BeanMapUtils.beanListTrans4MapList(GlobalCache.rightsList);
 		return returnJson4Custom(GlobalCacheUtils.orgTreeList(rlist));
 	}
 	

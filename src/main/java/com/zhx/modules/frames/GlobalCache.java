@@ -65,7 +65,7 @@ public class GlobalCache {
 			if(null!=rights&&rights.size()>0){
 				for(Map<String,Object> rightMap:rights){
 					String rightId = rightMap.get("id").toString();
-					SysRight right = BeanMapUtils.mapToBean(rightMap, SysRight.class);
+					SysRight right = BeanMapUtils.mapTrans4Bean(rightMap, SysRight.class);
 					rightsMap.put(rightId, right);
 				}
 			}
@@ -79,7 +79,7 @@ public class GlobalCache {
 			rightList.addAll(rights);
 			if(null!=rightList&&rightList.size()>0){
 				for(Map<String,Object> rightMap:rightList){
-					SysRight right = BeanMapUtils.mapToBean(rightMap, SysRight.class);
+					SysRight right = BeanMapUtils.mapTrans4Bean(rightMap, SysRight.class);
 					rightsList.add(right);
 				}
 			}

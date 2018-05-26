@@ -160,7 +160,7 @@ public class BaseController {
 				for(Map<String,Object> map:listmap){
 					String rid = map.get("right_id").toString();
 					SysRight right = GlobalCache.rightsMap.get(rid);
-					Map<String,Object> rMap = (Map<String, Object>) BeanMapUtils.beanToMap(right);
+					Map<String,Object> rMap = (Map<String, Object>) BeanMapUtils.beanTrans4Map(right);
 					result.add(rMap);
 				}
 			}

@@ -4,12 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.beanutils.BeanMap;
 import org.apache.commons.beanutils.BeanUtils;
 
-public class BeanMapUtils {
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-	public static <T> T mapToBean(Map<String,Object> map,Class<?> clazz){
+public class BeanMapUtils {
+	
+	public static ObjectMapper om = new ObjectMapper();
+
+	/**
+	 * map 转为 bean
+	 * @param map
+	 * @param clazz
+	 * @return
+	 */
+	public static <T> T mapTrans4Bean(Map<String,Object> map,Class<?> clazz){
 		T bean = null;
 		try{
 			if(map!=null){
@@ -22,19 +31,34 @@ public class BeanMapUtils {
 		return bean;
 	}
 	
-	public static <T> Map<?, ?> beanToMap(T obj) {    
-        if(obj == null) return null;     
-        return new BeanMap(obj);    
-    }    
-	
-	public static <T> List<Map<?,?>> beanListToMapList(List<T> list){
-		List<Map<?,?>> result = new ArrayList<Map<?,?>>();
-		if(null!=list&&list.size()>0){
-			for(T t:list){
-				Map<?,?> map = beanToMap(t);
-				result.add(map);
-			}
+	/**
+	 * map转为javaBean
+	 * @param source 带转换的map
+	 * @param clazz javaBean 的class
+	 * @return
+	 */
+	public static <T> T beanTrans4Map(T bean){
+		T result = null;
+		try{
+			result = (T) om.readValue(om.writeValueAsBytes(bean), Map.class);
+		}catch(Exception e){
 		}
 		return result;
+	}
+	
+	/**
+	 * list<JavaBean> 转换为 list<map<K,V>>
+	 * @param list 带转换的list
+	 * @return 转换结果
+	 */
+	public static List<Map<String,Object>> beanListTrans4MapList(List<?> list){
+		List<Map<String,Object>> rlist = new ArrayList<Map<String,Object>>();
+		byte[] bytes;
+		try {
+			bytes = om.writeValueAsBytes(list);
+			rlist = (List<Map<String,Object>>)om.readValue(bytes, List.class);
+		} catch (Exception e) {
+		}
+		return rlist;
 	}
 }

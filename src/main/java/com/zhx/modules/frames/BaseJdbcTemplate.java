@@ -302,7 +302,7 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
 	            }
 	            listmap.add(rowData);
 				Map<String,Object> map = listmap.get(0);//只取唯一的结果
-				return (T) BeanMapUtils.mapToBean(map, getClazz());
+				return (T) BeanMapUtils.mapTrans4Bean(map, getClazz());
 			}
         	
         });
@@ -327,7 +327,7 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
     	List<Map<String, Object>> list = queryForList(sql,args);
     	if(null!=list&&list.size()>0){
     		for(Map<String,Object> map:list){
-    			T t = BeanMapUtils.mapToBean(map, getClazz());
+    			T t = BeanMapUtils.mapTrans4Bean(map, getClazz());
     			result.add(t);
     		}
     	}

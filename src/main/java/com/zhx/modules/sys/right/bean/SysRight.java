@@ -114,7 +114,7 @@ public class SysRight implements Serializable{
 	public void setIcon(String icon) {
 		this.icon = icon;
 	}
-
+	
 	@Override
 	public String toString() {
 		return "Right=[id:"+this.id+",rightName:"+this.rightName+",rightUrl:"+this.rightUrl

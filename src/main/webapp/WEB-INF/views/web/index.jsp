@@ -1,4 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%
 	String path = request.getContextPath().toString();
 %>
@@ -41,57 +43,21 @@
                 </li>
                 <li class="navbar-menu nav-tabs-horizontal nav-tabs-animate is-load" id="admui-navMenu">
                     <ul class="nav navbar-toolbar nav-tabs" role="tablist">
-                        <!-- 顶部菜单 -->
-                        <li role="presentation" class="active">
-                            <a data-toggle="tab" href="#admui-navTabsItem-1" aria-controls="admui-navTabsItem-1" role="tab" aria-expanded="false">
-                                <i class="icon wb-library"></i> <span>UI 示例</span>
-                            </a>
-                        </li>
-                        <li role="presentation" class="">
-                            <a data-toggle="tab" href="#admui-navTabsItem-2" aria-controls="admui-navTabsItem-2" role="tab" aria-expanded="false">
-                                <i class="icon wb-desktop"></i> <span>页面示例</span>
-                            </a>
-                        </li>
-                        <li role="presentation" class="">
-                            <a data-toggle="tab" href="#admui-navTabsItem-3" aria-controls="admui-navTabsItem-3" role="tab" aria-expanded="false">
-                                <i class="icon wb-table"></i> <span>表格示例</span>
-                            </a>
-                        </li>
-                        <li role="presentation" class="">
-                            <a data-toggle="tab" href="#admui-navTabsItem-4" aria-controls="admui-navTabsItem-4" role="tab" aria-expanded="false">
-                                <i class="icon wb-order"></i> <span>表单示例</span>
-                            </a>
-                        </li>
-                        <li role="presentation" class="">
-                            <a data-toggle="tab" href="#admui-navTabsItem-5" aria-controls="admui-navTabsItem-5" role="tab" aria-expanded="false">
-                                <i class="icon wb-pie-chart"></i> <span>统计图表</span>
-                            </a>
-                        </li>
-                        <li role="presentation" class="">
-                            <a data-toggle="tab" href="#admui-navTabsItem-6" aria-controls="admui-navTabsItem-6" role="tab" aria-expanded="false">
-                                <i class="icon fa-bars"></i> <span>菜单示例</span>
-                            </a>
-                        </li>
-                        <li role="presentation" class="">
-                            <a data-toggle="tab" href="#admui-navTabsItem-7" aria-controls="admui-navTabsItem-7" role="tab" aria-expanded="false">
-                                <i class="icon wb-settings"></i> <span>系统管理</span>
-                            </a>
-                        </li>
-                        <li class="dropdown" id="admui-navbarSubMenu">
+                   		<c:forEach items="${sessionScope.right}" var="topRight">
+                   			<c:if test="${topRight.pid=='0'}">
+                   				<!-- 添加top部位菜单 -->
+                   				<li role="presentation" class="${topRightNum==1?'active':''}">
+		                            <a data-toggle="tab" href="#admui-navTabsItem-${topRight.id}" aria-controls="admui-navTabsItem-${topRight.id}" role="tab" aria-expanded="false">
+		                                <i class="icon ${topRight.icon}"></i> <span>${topRight.rightName}</span>
+		                            </a>
+		                        </li>
+                   			</c:if>
+                   		</c:forEach>
+                   		<li class="dropdown" id="admui-navbarSubMenu">
                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-animation="slide-bottom" aria-expanded="true" role="button">
                                 <i class="icon wb-more-vertical"></i>
                             </a>
                             <ul class="dropdown-menu" role="menu">
-                                <li class="no-menu" role="presentation">
-                                    <a href="/sitemap.html" target="_blank" role="menuitem" data-pjax>
-                                        <i class="icon wb-list-numbered"></i><span>网站地图</span>
-                                    </a>
-                                </li>
-                                <li class="no-menu" role="presentation">
-                                    <a href="/system/menu.html" target="_blank" role="menuitem" data-pjax>
-                                        <i class="icon wb-wrench"></i><span>菜单管理</span>
-                                    </a>
-                                </li>
                             </ul>
                         </li>
                     </ul>
@@ -106,22 +72,6 @@
                 <li class="hidden-xs" id="admui-QRcode" data-toggle="tooltip" data-placement="bottom" title="在手机上预览本页">
                     <a class="icon wb-mobile" href="#" data-toggle="modal" data-target="#admui-mobileView">
                         <span class="sr-only">在手机上预览</span></a>
-                </li>
-                <li class="hidden-xs" id="admui-demo-app" data-toggle="tooltip" data-placement="bottom" title="下载桌面版">
-                    <a class="icon wb-download dropdown-toggle" href="#" data-toggle="dropdown" aria-expanded="false" role="button">
-                        <span class="sr-only">下载桌面版</span></a>
-                    <ul class="dropdown-menu dropdown-menu-success bullet dropdown-menu-right" aria-labelledby="demoApp" role="menu">
-                        <li role="presentation">
-                            <a href="http://dl.admui.com/app/win/admui-demo.zip" role="menuitem"><i class="icon fa-windows"></i> Windows 版</a>
-                        </li>
-                        <li role="presentation">
-                            <a href="http://dl.admui.com/app/mac/admui-demo.zip" role="menuitem"><i class="icon fa-apple"></i> MacOS 版</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="open-kf" id="admui-service" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="在线咨询">
-                    <a class="icon wb-user" href="#" role="button">
-                        <span class="sr-only">在线咨询</span></a>
                 </li>
                 <li class="hidden-xs" id="admui-navbarFullscreen" data-toggle="tooltip" data-placement="bottom" title="全屏">
                     <a class="icon icon-fullscreen" data-toggle="fullscreen" href="#" role="button">
@@ -141,46 +91,20 @@
 <nav class="site-menubar site-menubar-dark">
     <div class="site-menubar-body">
         <div class="tab-content height-full" id="admui-navTabs">
-        	<!-- 一级菜单 -->
-            <div class="tab-pane animation-fade height-full active" id="admui-navTabsItem-1" role="tabpanel">
-                <div>
-                    <ul class="site-menu">
-                    	<!-- 二级菜单 -->
-                    	<li class="site-menu-category">UI 示例</li>
-                    	<!-- 三级菜单 -->
-                        <li class="site-menu-item has-sub ">
-                            <a href="javascript:;"><i class="site-menu-icon fa-laptop" aria-hidden="true"></i><span class="site-menu-title">布局</span><span class="site-menu-arrow"></span></a>
-                            <ul class="site-menu-sub">
-                            	<!-- 四级菜单 -->
-<!--                                	<li class="site-menu-item has-sub "> -->
-<!--                                     <a href="javascript:;"> -->
-<!--                                     	<span class="site-menu-title">栅格</span><span class="site-menu-arrow"></span></a> -->
-<!--                                     <ul class="site-menu-sub"> -->
-<!--                                 	五级菜单 -->
-<!--                                 		<li class="site-menu-item "> -->
-<!--                                             <a data-pjax href="grids.html" target="_blank"> -->
-<!--                                                 <span class="site-menu-title">基本栅格</span> -->
-<!-- 											</a> -->
-<!--                                         </li> -->
-<!--                                 		<li class="site-menu-item "> -->
-<!--                                             <a data-pjax href="/components/layouts/layout-grid.html" target="_blank"> -->
-<!--                                                 <span class="site-menu-title">布局栅格</span> -->
-<!-- 											</a> -->
-<!--                                         </li> -->
-<!--                                 	五级菜单 -->
-<!--                                 	</ul> -->
-<!--                                	</li> -->
-                                <li class="site-menu-item ">
-                                    <a data-pjax href="/components/layouts/two-columns.html" target="_blank">
-                                    	<span class="site-menu-title">两栏式布局</span>
-                                    </a>
-                                </li>
-                                <!-- 四级菜单 -->
-                            </ul>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        	<!-- ====================================================左侧菜单开始======================================================= -->
+        	<c:forEach var="leftRight" items="${sessionScope.right}">
+	            <div class="tab-pane animation-fade height-full active" id="admui-navTabsItem-${leftRight.id}" role="tabpanel">
+	              <div>
+	                  <ul class="site-menu">
+	                  	<li class="site-menu-category">${leftRight.rightName }</li>
+                      	<c:set var="treeList" value="${leftRight.childNode}" scope="request"></c:set>
+			            <c:set var="flag" value="0" scope="request" />
+						<jsp:include page="commons/menu_r.jsp"></jsp:include>
+	                  </ul>
+	              </div>
+	            </div>
+        	</c:forEach>
+			<!-- ====================================================左侧菜单结束======================================================= -->
         </div>
     </div>
 </nav>

@@ -33,14 +33,14 @@ public class GlobalCacheUtils {
         return childMenu;  
 	}
 	
-	public static List<Map<String,Object>> orgTreeList(List<Map<?, ?>> rlist) {
+	public static List<Map<String,Object>> orgTreeList(List<Map<String, Object>> rlist) {
 		//state里面的内容,默认树的节点都是打开的 
 		Map<String,Object> state = new HashMap<String,Object>();
 		state.put("opened", true);
 		if(null!=rlist&&rlist.size()>0){
 			//只保留有用的的部分
 			List<Map<String,Object>> list = new ArrayList<Map<String,Object>>();
-			for (Map<?, ?> org : rlist) {  
+			for (Map<String,Object> org : rlist) {  
 				Map<String,Object> treeMap = new HashMap<String, Object>();
 				treeMap.put("id", org.get("id"));
 				treeMap.put("pid", org.get("pid"));

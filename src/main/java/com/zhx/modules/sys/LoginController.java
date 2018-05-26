@@ -1,6 +1,8 @@
 package com.zhx.modules.sys;
 
 import java.io.IOException;
+import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -68,8 +70,8 @@ public class LoginController extends BaseController {
 						String pwd = DESUtils.decrypt(loginUser.getPassword());//获取数据库中该用户的密码
 						if(pwd.equals(user.getPassword())){//如果密码一致，登录成功
 							//查询该登录用户的权限信息
-//							List<Map<String,Object>> right = (List<Map<String, Object>>) queryRights(loginUser.getId());
-//							session.setAttribute(Const.SESSION_RIGHT, right);//用户的权限
+							List<Map<String,Object>> right = (List<Map<String, Object>>) queryRights(loginUser.getId());
+							session.setAttribute(Const.SESSION_RIGHT, right);//用户的权限
 							session.setAttribute(Const.SESSION_USER, loginUser);//用户信息
 							session.setAttribute(Const.SESSION_USER_ID, loginUser.getId());//用户信息
 							session.setAttribute(Const.SESSION_USER_NAME, loginUser.getUserName());//用户名称
