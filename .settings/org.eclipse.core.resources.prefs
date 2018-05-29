@@ -3,4 +3,5 @@ encoding//src/main/resources=UTF-8
 encoding//src/main/webapp/WEB-INF/views/web/commons/footer.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/web/commons/menu.jsp=UTF-8
 encoding//src/main/webapp/WEB-INF/views/web/commons/menu_r.jsp=UTF-8
+encoding//src/main/webapp/static/admui/js/login.js=UTF-8
 encoding//src/test/resources=UTF-8

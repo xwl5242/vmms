@@ -22,9 +22,9 @@
 	    		</div>
 	    	</div>
 	    </div>
-<!-- 	    <div class="page-loading vertical-align text-center"> -->
-<!-- 	        <div class="page-loader loader-default loader vertical-align-middle" data-type="default"></div> -->
-<!-- 	    </div> -->
+	    <div class="page-loading vertical-align text-center">
+	        <div class="page-loader loader-default loader vertical-align-middle" data-type="default"></div>
+	    </div>
 	</main>
 	<jsp:include page="/WEB-INF/views/web/commons/footer.jsp"></jsp:include>
 </body>

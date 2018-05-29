@@ -1,6 +1,243 @@
-/**
- * Admui v1.0.0 (http://www.admui.com/)
- * Copyright 2015-2017 Admui Team
- * Licensed under the Admui License 1.0 (http://www.admui.com/about/#license)
- */
-var _0xeb45=['\x61\x70\x70\x6c\x79','\x75\x73\x65\x20\x73\x74\x72\x69\x63\x74','\x70\x6c\x75\x67\x69\x6e\x73','\x74\x6f\x6f\x6c\x74\x69\x70','\x31\x3a\x30\x30\x2d\x33\x3a\x30\x30','\x33\x3a\x30\x30\x2d\x36\x3a\x30\x30','\x36\x3a\x30\x30\x2d\x39\x3a\x30\x30','\x39\x3a\x30\x30\x2d\x31\x32\x3a\x30\x30','\x31\x38\x3a\x30\x30\x2d\x32\x31\x3a\x30\x30','\x73\x65\x72\x69\x65\x73\x2d\x31','\x73\x65\x72\x69\x65\x73\x2d\x32','\x39\x2e\x32','\x39\x2e\x33','\x39\x2e\x34','\x39\x2e\x36','\x39\x2e\x37','\x4c\x69\x6e\x65','\x64\x72\x61\x77','\x74\x79\x70\x65','\x70\x6f\x69\x6e\x74','\x65\x6c\x65\x6d\x65\x6e\x74','\x53\x76\x67','\x5f\x6e\x6f\x64\x65','\x65\x6c\x65\x6d','\x6c\x69\x6e\x65','\x63\x74\x2d\x70\x6f\x69\x6e\x74\x2d\x63\x6f\x6e\x74\x65\x6e\x74','\x7b\x7d\x2e\x63\x6f\x6e\x73\x74\x72\x75\x63\x74\x6f\x72\x28\x22\x72\x65\x74\x75\x72\x6e\x20\x74\x68\x69\x73\x22\x29\x28\x20\x29','\x63\x6f\x6e\x73\x6f\x6c\x65','\x6c\x6f\x67','\x77\x61\x72\x6e','\x64\x65\x62\x75\x67','\x69\x6e\x66\x6f','\x65\x72\x72\x6f\x72','\x65\x78\x63\x65\x70\x74\x69\x6f\x6e','\x74\x72\x61\x63\x65','\x2e\x61\x63\x74\x69\x76\x65','\x63\x68\x69\x6c\x64\x72\x65\x6e','\x61\x74\x74\x72','\x68\x72\x65\x66','\x23\x73\x63\x6f\x72\x65\x4c\x69\x6e\x65\x54\x6f\x44\x61\x79','\x23\x73\x63\x6f\x72\x65\x4c\x69\x6e\x65\x54\x6f\x57\x65\x65\x6b','\x23\x73\x63\x6f\x72\x65\x4c\x69\x6e\x65\x54\x6f\x4d\x6f\x6e\x74\x68','\x2e\x70\x72\x6f\x64\x75\x63\x74\x2d\x66\x69\x6c\x74\x65\x72\x73\x20\x6c\x69','\x63\x6c\x69\x63\x6b','\x73\x63\x72\x65\x65\x6e\x20\x61\x6e\x64\x20\x28\x6d\x61\x78\x2d\x77\x69\x64\x74\x68\x3a\x20\x36\x34\x30\x70\x78\x29','\x42\x61\x72','\x23\x70\x72\x6f\x64\x75\x63\x74\x4f\x70\x74\x69\x6f\x6e\x73\x44\x61\x74\x61\x20\x2e\x63\x74\x2d\x63\x68\x61\x72\x74','\x65\x61\x63\x68','\x23\x77\x65\x65\x6b\x53\x74\x61\x63\x6b\x65\x64\x42\x61\x72\x43\x68\x61\x72\x74','\x62\x61\x72','\x44\x6f\x6e\x75\x74','\x62\x72\x6f\x77\x65\x72\x73\x56\x69\x73\x74\x73\x44\x6f\x6e\x75\x74','\x43\x68\x72\x6f\x6d\x65','\x46\x69\x72\x66\x6f\x78','\x53\x61\x66\x61\x72\x69','\x23\x66\x39\x36\x38\x36\x38','\x23\x36\x32\x61\x39\x65\x62','\x23\x66\x33\x61\x37\x35\x34','\x6d\x6f\x72\x72\x69\x73','\x70\x75\x73\x68'];(function(_0x485caf,_0x579544){var _0x23d429=function(_0x1f0f85){while(--_0x1f0f85){_0x485caf['\x70\x75\x73\x68'](_0x485caf['\x73\x68\x69\x66\x74']());}};_0x23d429(++_0x579544);}(_0xeb45,0x1a4));var _0x5eb4=function(_0x19dffd,_0x29ec78){_0x19dffd=_0x19dffd-0x0;var _0x82212c=_0xeb45[_0x19dffd];return _0x82212c;};(function(_0x4e86bf,_0x7198dd,_0x552d01){var _0x21ceea=function(){var _0x1c746b=!![];return function(_0x1982f5,_0x2ee89b){var _0x41e3e9=_0x1c746b?function(){if(_0x2ee89b){var _0x980454=_0x2ee89b[_0x5eb4('0x0')](_0x1982f5,arguments);_0x2ee89b=null;return _0x980454;}}:function(){};_0x1c746b=![];return _0x41e3e9;};}();_0x5eb4('0x1');(function(){var _0x406036={'\x73\x68\x6f\x77\x41\x72\x65\x61':!![],'\x6c\x6f\x77':0x0,'\x68\x69\x67\x68':0x1f40,'\x68\x65\x69\x67\x68\x74':0xf0,'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x61\x78\x69\x73\x58':{'\x6f\x66\x66\x73\x65\x74':0x28},'\x61\x78\x69\x73\x59':{'\x6f\x66\x66\x73\x65\x74':0x1e,'\x6c\x61\x62\x65\x6c\x49\x6e\x74\x65\x72\x70\x6f\x6c\x61\x74\x69\x6f\x6e\x46\x6e\x63':function(_0x4f3844){if(_0x4f3844===0x0){return null;}return _0x4f3844/0x3e8+'\x6b';},'\x73\x63\x61\x6c\x65\x4d\x69\x6e\x53\x70\x61\x63\x65':0x28},'\x70\x6c\x75\x67\x69\x6e\x73':[Chartist[_0x5eb4('0x2')][_0x5eb4('0x3')]()]};var _0x484d08=[_0x5eb4('0x4'),_0x5eb4('0x5'),_0x5eb4('0x6'),_0x5eb4('0x7'),'\x31\x32\x3a\x30\x30\x2d\x31\x35\x3a\x30\x30','\x31\x35\x3a\x30\x30\x2d\x31\x38\x3a\x30\x30',_0x5eb4('0x8'),'\x32\x31\x3a\x30\x30\x2d\x31\x3a\x30\x30'];var _0xb2064c={'\x6e\x61\x6d\x65':_0x5eb4('0x9'),'\x64\x61\x74\x61':[0x0,0x1c84,0x1838,0x1ab1,0x1d90,0x120c,0x12f8,0xbb6]};var _0x56148d={'\x6e\x61\x6d\x65':_0x5eb4('0xa'),'\x64\x61\x74\x61':[0x0,0xc1c,0x1c20,0x1490,0x16ea,0x898,0xf0a,0x408]};var _0x1a4f23=['\u5468\u4e00','\u5468\u4e8c','\u5468\u4e09','\u5468\u56db','\u5468\u4e94','\u5468\u516d','\u5468\u65e5',''];var _0x208348={'\x6e\x61\x6d\x65':'\x73\x65\x72\x69\x65\x73\x2d\x31','\x64\x61\x74\x61':[0x0,0x960,0x1838,0x1e99,0x15c0,0xe24,0x12f8,0xbb6]};var _0x9fda71={'\x6e\x61\x6d\x65':_0x5eb4('0xa'),'\x64\x61\x74\x61':[0x0,0x1004,0x1a90,0x1490,0x16ea,0xc80,0xb22,0x408]};var _0x12f9b=['\x39\x2e\x31',_0x5eb4('0xb'),_0x5eb4('0xc'),_0x5eb4('0xd'),'\x39\x2e\x35',_0x5eb4('0xe'),_0x5eb4('0xf')];var _0x4a9c82={'\x6e\x61\x6d\x65':_0x5eb4('0x9'),'\x64\x61\x74\x61':[0x0,0x1900,0x1450,0x1e99,0x15c0,0xe24,0x16e0,0x0]};var _0x4e5c30={'\x6e\x61\x6d\x65':_0x5eb4('0xa'),'\x64\x61\x74\x61':[0x0,0xc1c,0x12c0,0x1490,0x1ad2,0xc80,0xb22,0x408]};var _0x10d168=function(_0x41a8a5,_0x343a10,_0x245080,_0x2a3fba,_0xe39d9a){var _0xffe7b9=new Chartist[_0x5eb4('0x10')](_0x41a8a5,{'\x6c\x61\x62\x65\x6c\x73':_0x343a10,'\x73\x65\x72\x69\x65\x73':[_0x245080,_0x2a3fba]},_0xe39d9a);_0xffe7b9['\x6f\x6e'](_0x5eb4('0x11'),function(_0x13f86a){var _0x52949e,_0x29e3a0;if(_0x13f86a[_0x5eb4('0x12')]===_0x5eb4('0x13')){_0x52949e=_0x13f86a[_0x5eb4('0x14')];_0x29e3a0=new Chartist[_0x5eb4('0x15')](_0x52949e[_0x5eb4('0x16')]['\x70\x61\x72\x65\x6e\x74\x4e\x6f\x64\x65']);_0x29e3a0[_0x5eb4('0x17')](_0x5eb4('0x18'),{'\x78\x31':_0x13f86a['\x78'],'\x79\x31':_0x13f86a['\x79'],'\x78\x32':_0x13f86a['\x78']+0.01,'\x79\x32':_0x13f86a['\x79'],'\x63\x6c\x61\x73\x73':_0x5eb4('0x19')});}});};var _0x325edc=function(_0x5ea235){var _0x531397=_0x21ceea(this,function(){var _0x2ef456=Function('\x72\x65\x74\x75\x72\x6e\x20\x28\x66\x75\x6e\x63\x74\x69\x6f\x6e\x28\x29\x20'+_0x5eb4('0x1a')+'\x29\x3b');var _0x222a06=function(){};var _0xeeb644=_0x2ef456();if(!_0xeeb644[_0x5eb4('0x1b')]){_0xeeb644[_0x5eb4('0x1b')]=function(_0x1f10b0){var _0x29d541={};_0x29d541[_0x5eb4('0x1c')]=_0x1f10b0;_0x29d541[_0x5eb4('0x1d')]=_0x1f10b0;_0x29d541[_0x5eb4('0x1e')]=_0x1f10b0;_0x29d541[_0x5eb4('0x1f')]=_0x1f10b0;_0x29d541[_0x5eb4('0x20')]=_0x1f10b0;_0x29d541[_0x5eb4('0x21')]=_0x1f10b0;_0x29d541['\x74\x72\x61\x63\x65']=_0x1f10b0;return _0x29d541;}(_0x222a06);}else{_0xeeb644[_0x5eb4('0x1b')][_0x5eb4('0x1c')]=_0x222a06;_0xeeb644[_0x5eb4('0x1b')][_0x5eb4('0x1d')]=_0x222a06;_0xeeb644[_0x5eb4('0x1b')][_0x5eb4('0x1e')]=_0x222a06;_0xeeb644[_0x5eb4('0x1b')][_0x5eb4('0x1f')]=_0x222a06;_0xeeb644['\x63\x6f\x6e\x73\x6f\x6c\x65']['\x65\x72\x72\x6f\x72']=_0x222a06;_0xeeb644['\x63\x6f\x6e\x73\x6f\x6c\x65'][_0x5eb4('0x21')]=_0x222a06;_0xeeb644[_0x5eb4('0x1b')][_0x5eb4('0x22')]=_0x222a06;}});_0x531397();var _0x13676c=_0x5ea235||_0x552d01('\x23\x70\x72\x6f\x64\x75\x63\x74\x4f\x76\x65\x72\x76\x69\x65\x77\x57\x69\x64\x67\x65\x74\x20\x2e\x70\x72\x6f\x64\x75\x63\x74\x2d\x66\x69\x6c\x74\x65\x72\x73')['\x63\x68\x69\x6c\x64\x72\x65\x6e'](_0x5eb4('0x23')),_0x33d160=_0x13676c[_0x5eb4('0x24')]('\x61')[_0x5eb4('0x25')](_0x5eb4('0x26'));switch(_0x33d160){case _0x5eb4('0x27'):_0x10d168(_0x33d160,_0x484d08,_0xb2064c,_0x56148d,_0x406036);break;case _0x5eb4('0x28'):_0x10d168(_0x33d160,_0x1a4f23,_0x208348,_0x9fda71,_0x406036);break;case _0x5eb4('0x29'):_0x10d168(_0x33d160,_0x12f9b,_0x4a9c82,_0x4e5c30,_0x406036);break;}};_0x325edc();_0x552d01(_0x5eb4('0x2a'))['\x6f\x6e'](_0x5eb4('0x2b'),function(){_0x325edc(_0x552d01(this));});}());(function(){var _0x334e50={'\x6c\x61\x62\x65\x6c\x73':['\x41','\x42','\x43','\x44','\x45','\x46','\x47','\x48'],'\x73\x65\x72\x69\x65\x73':[[0x3,0x4,0x6,0xa,0x8,0x6,0x3,0x4],[0x2,0x3,0x5,0x8,0x6,0x5,0x4,0x3]]};var _0x2bc93c={'\x6c\x61\x62\x65\x6c\x73':['\x41','\x42','\x43','\x44','\x45','\x46','\x47','\x48'],'\x73\x65\x72\x69\x65\x73':[[0x2,0x4,0x5,0xa,0x6,0x8,0x3,0x5],[0x3,0x5,0x6,0x5,0x4,0x6,0x3,0x3]]};var _0x1e98d7={'\x6c\x61\x62\x65\x6c\x73':['\x41','\x42','\x43','\x44','\x45','\x46','\x47','\x48'],'\x73\x65\x72\x69\x65\x73':[[0x5,0x2,0x6,0x7,0xa,0x8,0x6,0x5],[0x4,0x3,0x5,0x6,0x8,0x6,0x4,0x3]]};var _0x5ea78e=[_0x334e50,_0x2bc93c,_0x1e98d7,_0x1e98d7];var _0x2f47d7={'\x6c\x6f\x77':0x0,'\x68\x69\x67\x68':0xa,'\x73\x65\x72\x69\x65\x73\x42\x61\x72\x44\x69\x73\x74\x61\x6e\x63\x65':0x6,'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x6c\x65\x66\x74':0x1e}};var _0x56c199=[[_0x5eb4('0x2c'),{'\x73\x65\x72\x69\x65\x73\x42\x61\x72\x44\x69\x73\x74\x61\x6e\x63\x65':0x6,'\x61\x78\x69\x73\x58':{'\x6c\x61\x62\x65\x6c\x49\x6e\x74\x65\x72\x70\x6f\x6c\x61\x74\x69\x6f\x6e\x46\x6e\x63':function(_0x2b2d7c){return _0x2b2d7c[0x0];}}}]];var _0x3e33e0=function(_0x3ca063,_0x5104c2,_0x5c6d64,_0xd4ac0d){new Chartist[_0x5eb4('0x2d')](_0x3ca063,_0x5104c2,_0x5c6d64,_0xd4ac0d);};_0x552d01(_0x5eb4('0x2e'))[_0x5eb4('0x2f')](function(_0x5187f7){_0x3e33e0(this,_0x5ea78e[_0x5187f7],_0x2f47d7,_0x56c199);});}());(function(){new Chartist['\x42\x61\x72'](_0x5eb4('0x30'),{'\x6c\x61\x62\x65\x6c\x73':['\u5468\u4e00','\u5468\u4e8c','\u5468\u4e09','\u5468\u56db','\u5468\u4e94','\u5468\u516d','\u5468\u65e5'],'\x73\x65\x72\x69\x65\x73':[[0x4,4.5,0x5,0x6,0x7,7.5,0x7],[0x6,5.5,0x5,0x4,0x3,2.5,0x3]]},{'\x73\x74\x61\x63\x6b\x42\x61\x72\x73':!![]})['\x6f\x6e'](_0x5eb4('0x11'),function(_0xb65b7b){if(_0xb65b7b[_0x5eb4('0x12')]===_0x5eb4('0x31')){_0xb65b7b[_0x5eb4('0x14')][_0x5eb4('0x25')]({'\x73\x74\x79\x6c\x65':'\x73\x74\x72\x6f\x6b\x65\x2d\x77\x69\x64\x74\x68\x3a\x20\x32\x30\x70\x78'});}});}());(function(){var _0x287349=Morris[_0x5eb4('0x32')]({'\x72\x65\x73\x69\x7a\x65':!![],'\x65\x6c\x65\x6d\x65\x6e\x74':_0x5eb4('0x33'),'\x64\x61\x74\x61':[{'\x6c\x61\x62\x65\x6c':_0x5eb4('0x34'),'\x76\x61\x6c\x75\x65':0x1a9},{'\x6c\x61\x62\x65\x6c':_0x5eb4('0x35'),'\x76\x61\x6c\x75\x65':0x686},{'\x6c\x61\x62\x65\x6c':_0x5eb4('0x36'),'\x76\x61\x6c\x75\x65':0x44c}],'\x63\x6f\x6c\x6f\x72\x73':[_0x5eb4('0x37'),_0x5eb4('0x38'),_0x5eb4('0x39')]});_0x7198dd[_0x5eb4('0x3a')]=[];_0x7198dd[_0x5eb4('0x3a')][_0x5eb4('0x3b')](_0x287349);}());}(document,window,jQuery));
+(function (document, window, $) {
+    'use strict';
+
+    // 折线图提示
+    // ------------------------------
+    (function () {
+
+        var options = {
+            showArea: true,
+            low: 0,
+            high: 8000,
+            height: 240,
+            fullWidth: true,
+            axisX: {
+                offset: 40
+            },
+            axisY: {
+                offset: 30,
+                labelInterpolationFnc: function (value) {
+                    if (value === 0) {
+                        return null;
+                    }
+                    return value / 1000 + 'k';
+                },
+                scaleMinSpace: 40
+            },
+            plugins: [
+                Chartist.plugins.tooltip()
+            ]
+        };
+
+        //本日
+        var dayLabelList = ['1:00-3:00', '3:00-6:00', '6:00-9:00', '9:00-12:00', '12:00-15:00', '15:00-18:00', '18:00-21:00', '21:00-1:00'];
+        var daySeries1List = {
+            name: 'series-1',
+            data: [0, 7300, 6200, 6833, 7568, 4620, 4856, 2998]
+        };
+        var daySeries2List = {
+            name: 'series-2',
+            data: [0, 3100, 7200, 5264, 5866, 2200, 3850, 1032]
+        };
+
+        //本周
+        var weekLabelList = ['周一', '周二', '周三', '周四', '周五', '周六', '周日', ''];
+        var weekSeries1List = {
+            name: 'series-1',
+            data: [0, 2400, 6200, 7833, 5568, 3620, 4856, 2998]
+        };
+        var weekSeries2List = {
+            name: 'series-2',
+            data: [0, 4100, 6800, 5264, 5866, 3200, 2850, 1032]
+        };
+
+        //本月
+        var monthLabelList = ["9.1", "9.2", "9.3", "9.4", "9.5", "9.6", "9.7"];
+        var monthSeries1List = {
+            name: 'series-1',
+            data: [0, 6400, 5200, 7833, 5568, 3620, 5856, 0]
+        };
+        var monthSeries2List = {
+            name: 'series-2',
+            data: [0, 3100, 4800, 5264, 6866, 3200, 2850, 1032]
+        };
+
+        var newScoreLineChart = function (chartId, labelList, series1List, series2List, options) {
+
+            var lineChart = new Chartist.Line(chartId, {
+                labels: labelList,
+                series: [series1List, series2List]
+            }, options);
+
+            //开始创建
+            lineChart.on('draw', function (data) {
+                var elem, parent;
+                if (data.type === 'point') {
+                    elem = data.element;
+                    parent = new Chartist.Svg(elem._node.parentNode);
+
+                    parent.elem('line', {
+                        x1: data.x,
+                        y1: data.y,
+                        x2: data.x + 0.01,
+                        y2: data.y,
+                        "class": 'ct-point-content'
+                    });
+                }
+            });
+        };
+
+        var createKindChart = function (clickli) {
+            var selectLi = clickli || $("#productOverviewWidget .product-filters").children(".active"),
+                chartId = selectLi.children("a").attr("href");
+
+            switch (chartId) {
+                case "#scoreLineToDay":
+                    newScoreLineChart(chartId, dayLabelList,
+                        daySeries1List, daySeries2List, options);
+                    break;
+                case "#scoreLineToWeek":
+                    newScoreLineChart(chartId, weekLabelList,
+                        weekSeries1List, weekSeries2List, options);
+                    break;
+                case "#scoreLineToMonth":
+                    newScoreLineChart(chartId, monthLabelList,
+                        monthSeries1List, monthSeries2List, options);
+                    break;
+            }
+        };
+
+        createKindChart();
+
+        $(".product-filters li").on("click", function () {
+            createKindChart($(this));
+        });
+
+    })();
+
+    //// 浏览器排行
+    // ------------------------------
+    (function () {
+        var overlappingBarsDataOne = {
+            labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+            series: [
+                [3, 4, 6, 10, 8, 6, 3, 4],
+                [2, 3, 5, 8, 6, 5, 4, 3]
+            ]
+        };
+        var overlappingBarsDataTwo = {
+            labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+            series: [
+                [2, 4, 5, 10, 6, 8, 3, 5],
+                [3, 5, 6, 5, 4, 6, 3, 3]
+            ]
+        };
+        var overlappingBarsDataThree = {
+            labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+            series: [
+                [5, 2, 6, 7, 10, 8, 6, 5],
+                [4, 3, 5, 6, 8, 6, 4, 3]
+            ]
+        };
+        /*var overlappingBarsDataFour = {
+         labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+         series: [
+         [2, 1, 5, 6, 7, 10, 8, 5],
+         [4, 3, 4, 5, 5, 8, 6, 3]
+         ]
+         };*/
+
+        var barsData = [overlappingBarsDataOne, overlappingBarsDataTwo, overlappingBarsDataThree, overlappingBarsDataThree];
+
+        var overlappingBarsOptions = {
+            low: 0,
+            high: 10,
+            seriesBarDistance: 6,
+            fullWidth: true,
+            axisX: {
+                showLabel: false,
+                showGrid: false,
+                offset: 0
+            },
+            axisY: {
+                showLabel: false,
+                showGrid: false,
+                offset: 0
+            },
+            chartPadding: {
+                //   top: 20,
+                //   right: 115,
+                //   bottom: 55,
+                left: 30
+            }
+        };
+
+        var responsiveOptions = [
+            ['screen and (max-width: 640px)', {
+                seriesBarDistance: 6,
+                axisX: {
+                    labelInterpolationFnc: function (value) {
+                        return value[0];
+                    }
+                }
+            }]
+        ];
+
+        var createBar = function (chartId, data, options, responsiveOptions) {
+            new Chartist.Bar(chartId, data, options, responsiveOptions);
+        };
+
+        $("#productOptionsData .ct-chart").each(function (index) {
+            createBar(this, barsData[index], overlappingBarsOptions, responsiveOptions);
+        });
+
+    })();
+
+    //// 周条形图
+    // ------------------------------
+    (function () {
+        new Chartist.Bar('#weekStackedBarChart', {
+                labels: ['周一', '周二', '周三', '周四', '周五', '周六', '周日'],
+                series: [
+                    [4, 4.5, 5, 6, 7, 7.5, 7],
+                    [6, 5.5, 5, 4, 3, 2.5, 3]
+                ]
+            }, {
+                stackBars: true
+            }
+        ).on('draw', function (data) {
+            if (data.type === 'bar') {
+                data.element.attr({
+                    style: 'stroke-width: 20px'
+                });
+            }
+        });
+    })();
+
+
+    // 环形图
+    // ---------------------
+    (function () {
+
+        var map = Morris.Donut({
+            resize: true,
+            element: 'browersVistsDonut',
+            data: [{
+                label: 'Chrome',
+                value: 425
+            }, {
+                label: 'Firfox',
+                value: 1670
+            }, {
+                label: 'Safari',
+                value: 1100
+            }],
+            colors: ['#f96868', '#62a9eb', '#f3a754']
+        });
+
+        window.morris = [];
+        window.morris.push(map);
+
+    })();
+
+})(document, window, jQuery);

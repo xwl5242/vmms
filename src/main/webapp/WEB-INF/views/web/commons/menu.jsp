@@ -14,8 +14,8 @@
             <i class="icon wb-more-horizontal" aria-hidden="true"></i>
         </button>
         <div class="navbar-brand navbar-brand-center site-gridmenu-toggle" data-toggle="gridmenu">
-            <img class="navbar-brand-logo visible-lg visible-xs navbar-logo" src="<%=path%>/static/admui/images/logo-white.svg" title="Admui">
-            <img class="navbar-brand-logo hidden-xs hidden-lg navbar-logo-mini" src="<%=path%>/static/admui/images/logo-white-min.svg" title="Admui">
+            <img class="navbar-brand-logo visible-lg visible-xs navbar-logo" src="<%=path%>/static/admui/images/logo-white.svg">
+            <img class="navbar-brand-logo hidden-xs hidden-lg navbar-logo-mini" src="<%=path%>/static/admui/images/logo-white-min.svg">
         </div>
     </div>
     <div class="navbar-container container-fluid">
@@ -29,12 +29,12 @@
                         </i>
                     </a>
                 </li>
-                <li class="navbar-menu nav-tabs-horizontal nav-tabs-animate is-load" id="admui-navMenu">
+                <li class="navbar-menu nav-tabs-horizontal nav-tabs-animate is-load" id="admui-navbar">
                     <ul class="nav navbar-toolbar nav-tabs" role="tablist">
-                   		<c:forEach items="${sessionScope.right}" var="topRight">
+                   		<c:forEach items="${sessionScope.right}" var="topRight" varStatus="status">
                    			<c:if test="${topRight.pid=='0'}">
                    				<!-- 添加top部位菜单 -->
-                   				<li role="presentation" class="${topRightNum==1?'active':''}">
+                   				<li role="presentation" class="${status.index==1?'active':''}">
 		                            <a data-toggle="tab" href="#admui-navTabsItem-${topRight.id}" aria-controls="admui-navTabsItem-${topRight.id}" role="tab" aria-expanded="false">
 		                                <i class="icon ${topRight.icon}"></i> <span>${topRight.rightName}</span>
 		                            </a>
@@ -67,7 +67,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="icon fa-sign-out" id="admui-signOut" data-ctx="" data-user="9" href="/system/logout" role="button">
+                    <a class="icon fa-sign-out" id="admui-signOut" data-ctx="/vmms" data-user="9" href="/system/logout" role="button">
                     	<span class="sr-only">退出</span>
                    	</a>
                 </li>
@@ -76,7 +76,7 @@
         </div>
     </div>
 </nav>
-<nav class="site-menubar site-menubar-dark">
+<nav class="site-menubar site-menubar-dark" id="admui-siteMenubar">
     <div class="site-menubar-body">
         <div class="tab-content height-full" id="admui-navTabs">
         	<!-- ====================================================左侧菜单开始======================================================= -->
@@ -103,7 +103,7 @@
     <div class="contabs-scroll pull-left">
         <ul class="nav con-tabs">
             <li class="active">
-                <a data-pjax href="/home.html" rel="contents"><span>首页</span></a>
+                <a href="/home.html" rel="contents"><span>首页</span></a>
             </li>
         </ul>
     </div>

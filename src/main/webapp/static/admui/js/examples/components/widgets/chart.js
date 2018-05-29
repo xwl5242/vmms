@@ -1,6 +1,679 @@
-/**
- * Admui v1.0.0 (http://www.admui.com/)
- * Copyright 2015-2017 Admui Team
- * Licensed under the Admui License 1.0 (http://www.admui.com/about/#license)
- */
-var _0x3907=['\u661f\u671f\u65e5','\u661f\u671f\u4e00','\u661f\u671f\u4e8c','\u661f\u671f\u4e09','\u661f\u671f\u56db','\u661f\u671f\u516d','\x50\x69\x65','\x23\x63\x68\x61\x72\x74\x4c\x69\x6e\x65\x50\x69\x65\x20\x2e\x63\x68\x61\x72\x74\x2d\x70\x69\x65','\x42\x61\x72','\x23\x63\x68\x61\x72\x74\x42\x61\x72\x50\x69\x65\x20\x2e\x63\x68\x61\x72\x74\x2d\x62\x61\x72','\x23\x63\x68\x61\x72\x74\x42\x61\x72\x50\x69\x65\x20\x2e\x63\x68\x61\x72\x74\x2d\x70\x69\x65','\x23\x63\x68\x61\x72\x74\x42\x61\x72\x53\x74\x61\x63\x6b\x65\x64\x20\x2e\x63\x74\x2d\x63\x68\x61\x72\x74','\x23\x63\x68\x61\x72\x74\x50\x69\x65\x20\x2e\x63\x74\x2d\x63\x68\x61\x72\x74','\x23\x63\x68\x61\x72\x74\x42\x61\x72\x53\x69\x6d\x70\x6c\x65\x20\x2e\x63\x74\x2d\x63\x68\x61\x72\x74','\x4c\x69\x6e\x65','\x23\x63\x68\x61\x72\x74\x4c\x69\x6e\x65\x61\x72\x65\x61\x53\x69\x6d\x70\x6c\x65\x20\x2e\x63\x74\x2d\x63\x68\x61\x72\x74','\x23\x63\x68\x61\x72\x74\x4c\x69\x6e\x65\x61\x72\x65\x61\x57\x69\x74\x68\x66\x6f\x6f\x74\x65\x72\x20\x2e\x63\x74\x2d\x63\x68\x61\x72\x74','\x23\x63\x68\x61\x72\x74\x4c\x69\x6e\x65\x62\x61\x72\x4c\x61\x72\x67\x65\x20\x2e\x63\x68\x61\x72\x74\x2d\x6c\x69\x6e\x65','\x31\x30\u6708','\x31\x31\u6708','\x23\x63\x68\x61\x72\x74\x4c\x69\x6e\x65\x62\x61\x72\x4c\x61\x72\x67\x65\x20\x2e\x63\x68\x61\x72\x74\x2d\x62\x61\x72','\x67\x65\x74\x54\x69\x6d\x65','\x73\x68\x69\x66\x74','\x6c\x65\x6e\x67\x74\x68','\x72\x61\x6e\x64\x6f\x6d','\x70\x75\x73\x68','\x23\x63\x68\x61\x72\x74\x4c\x69\x6e\x65\x54\x69\x6d\x65\x20\x2e\x63\x68\x61\x72\x74\x2d\x6c\x69\x6e\x65','\x23\x63\x68\x61\x72\x74\x4c\x69\x6e\x65\x54\x69\x6d\x65\x20\x2e\x63\x68\x61\x72\x74\x2d\x70\x69\x65\x2d\x6c\x65\x66\x74','\x23\x63\x68\x61\x72\x74\x42\x61\x72\x6c\x69\x6e\x65\x4d\x69\x78\x20\x2e\x63\x68\x61\x72\x74\x2d\x6c\x69\x6e\x65','\x23\x63\x68\x61\x72\x74\x42\x61\x72\x6c\x69\x6e\x65\x4d\x69\x78\x54\x77\x6f\x20\x2e\x73\x6d\x61\x6c\x6c\x2d\x62\x61\x72\x2d\x6f\x6e\x65','\x23\x63\x68\x61\x72\x74\x42\x61\x72\x6c\x69\x6e\x65\x4d\x69\x78\x54\x77\x6f\x20\x2e\x6c\x69\x6e\x65\x2d\x63\x68\x61\x72\x74','\x23\x63\x68\x61\x72\x4c\x69\x6e\x65\x61\x72\x65\x61\x54\x77\x6f\x20\x2e\x63\x74\x2d\x63\x68\x61\x72\x74','\u661f\u671f\u4e94','\x23\x63\x68\x61\x72\x74\x4c\x69\x6e\x65\x70\x6f\x69\x6e\x74\x20\x2e\x63\x74\x2d\x63\x68\x61\x72\x74','\x23\x63\x68\x61\x72\x74\x54\x69\x6d\x65\x6c\x69\x6e\x65\x54\x77\x6f\x20\x2e\x63\x74\x2d\x63\x68\x61\x72\x74','\x23\x63\x68\x61\x72\x74\x53\x74\x61\x63\x6b\x65\x64\x42\x61\x72\x20\x2e\x63\x74\x2d\x63\x68\x61\x72\x74','\x61\x70\x70\x6c\x79','\x72\x65\x74\x75\x72\x6e\x20\x28\x66\x75\x6e\x63\x74\x69\x6f\x6e\x28\x29\x20','\x7b\x7d\x2e\x63\x6f\x6e\x73\x74\x72\x75\x63\x74\x6f\x72\x28\x22\x72\x65\x74\x75\x72\x6e\x20\x74\x68\x69\x73\x22\x29\x28\x20\x29','\x63\x6f\x6e\x73\x6f\x6c\x65','\x6c\x6f\x67','\x77\x61\x72\x6e','\x64\x65\x62\x75\x67','\x69\x6e\x66\x6f','\x65\x72\x72\x6f\x72','\x65\x78\x63\x65\x70\x74\x69\x6f\x6e','\x74\x72\x61\x63\x65','\x75\x73\x65\x20\x73\x74\x72\x69\x63\x74','\x43\x6f\x6e\x74\x65\x6e\x74','\x23\x63\x68\x61\x72\x74\x54\x68\x72\x65\x65\x4c\x69\x6e\x65\x61\x72\x65\x61\x20\x2e\x63\x74\x2d\x63\x68\x61\x72\x74'];(function(_0x585454,_0x2bc629){var _0x5696fb=function(_0x5d18b2){while(--_0x5d18b2){_0x585454['\x70\x75\x73\x68'](_0x585454['\x73\x68\x69\x66\x74']());}};_0x5696fb(++_0x2bc629);}(_0x3907,0x1e6));var _0x7390=function(_0x1baf01,_0x3a3177){_0x1baf01=_0x1baf01-0x0;var _0x280450=_0x3907[_0x1baf01];return _0x280450;};(function(_0x892d0e,_0x475668){var _0x2adf40=function(){var _0x11cdfe=!![];return function(_0x33cc86,_0x58a9f4){var _0x3c4b14=_0x11cdfe?function(){if(_0x58a9f4){var _0x56d698=_0x58a9f4[_0x7390('0x0')](_0x33cc86,arguments);_0x58a9f4=null;return _0x56d698;}}:function(){};_0x11cdfe=![];return _0x3c4b14;};}();var _0x47f773=_0x2adf40(this,function(){var _0x2fb4a9=Function(_0x7390('0x1')+_0x7390('0x2')+'\x29\x3b');var _0x31b1c2=function(){};var _0xac5f81=_0x2fb4a9();if(!_0xac5f81['\x63\x6f\x6e\x73\x6f\x6c\x65']){_0xac5f81[_0x7390('0x3')]=function(_0x288871){var _0x2ac1a8={};_0x2ac1a8[_0x7390('0x4')]=_0x288871;_0x2ac1a8[_0x7390('0x5')]=_0x288871;_0x2ac1a8[_0x7390('0x6')]=_0x288871;_0x2ac1a8[_0x7390('0x7')]=_0x288871;_0x2ac1a8[_0x7390('0x8')]=_0x288871;_0x2ac1a8[_0x7390('0x9')]=_0x288871;_0x2ac1a8[_0x7390('0xa')]=_0x288871;return _0x2ac1a8;}(_0x31b1c2);}else{_0xac5f81['\x63\x6f\x6e\x73\x6f\x6c\x65'][_0x7390('0x4')]=_0x31b1c2;_0xac5f81['\x63\x6f\x6e\x73\x6f\x6c\x65'][_0x7390('0x5')]=_0x31b1c2;_0xac5f81[_0x7390('0x3')][_0x7390('0x6')]=_0x31b1c2;_0xac5f81[_0x7390('0x3')][_0x7390('0x7')]=_0x31b1c2;_0xac5f81['\x63\x6f\x6e\x73\x6f\x6c\x65'][_0x7390('0x8')]=_0x31b1c2;_0xac5f81['\x63\x6f\x6e\x73\x6f\x6c\x65'][_0x7390('0x9')]=_0x31b1c2;_0xac5f81[_0x7390('0x3')][_0x7390('0xa')]=_0x31b1c2;}});_0x47f773();_0x7390('0xb');_0x475668[_0x7390('0xc')]={'\x72\x75\x6e':function(){new Chartist['\x4c\x69\x6e\x65'](_0x7390('0xd'),{'\x6c\x61\x62\x65\x6c\x73':[_0x7390('0xe'),_0x7390('0xf'),_0x7390('0x10'),_0x7390('0x11'),_0x7390('0x12'),'\u661f\u671f\u4e94',_0x7390('0x13')],'\x73\x65\x72\x69\x65\x73':[[0x4,4.5,4.3,0x4,0x5,0x6,5.5],[0x3,2.5,0x3,3.5,4.2,0x4,0x5],[0x1,0x2,2.5,0x2,0x3,2.8,0x4]]},{'\x6c\x6f\x77':0x0,'\x73\x68\x6f\x77\x41\x72\x65\x61':!![],'\x73\x68\x6f\x77\x50\x6f\x69\x6e\x74':![],'\x73\x68\x6f\x77\x4c\x69\x6e\x65':![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':0x0,'\x72\x69\x67\x68\x74':0x0,'\x62\x6f\x74\x74\x6f\x6d':0x0,'\x6c\x65\x66\x74':0x0},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}});new Chartist['\x4c\x69\x6e\x65']('\x23\x63\x68\x61\x72\x74\x4c\x69\x6e\x65\x50\x69\x65\x20\x2e\x63\x68\x61\x72\x74\x2d\x6c\x69\x6e\x65',{'\x6c\x61\x62\x65\x6c\x73':['\x31','\x32','\x33','\x34','\x35','\x36','\x37','\x38'],'\x73\x65\x72\x69\x65\x73':[[0x4,0x5,0x3,0x6,0x7,5.5,5.8,4.6]]},{'\x6c\x6f\x77':0x0,'\x73\x68\x6f\x77\x41\x72\x65\x61':![],'\x73\x68\x6f\x77\x50\x6f\x69\x6e\x74':!![],'\x73\x68\x6f\x77\x4c\x69\x6e\x65':!![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x6c\x69\x6e\x65\x53\x6d\x6f\x6f\x74\x68':![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':0x4,'\x72\x69\x67\x68\x74':0x4,'\x62\x6f\x74\x74\x6f\x6d':-0x14,'\x6c\x65\x66\x74':0x4},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}});new Chartist[_0x7390('0x14')](_0x7390('0x15'),{'\x73\x65\x72\x69\x65\x73':[0x23,0x41]},{'\x64\x6f\x6e\x75\x74':!![],'\x64\x6f\x6e\x75\x74\x57\x69\x64\x74\x68':0xa,'\x73\x74\x61\x72\x74\x41\x6e\x67\x6c\x65':0x0,'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![]});new Chartist[_0x7390('0x16')](_0x7390('0x17'),{'\x6c\x61\x62\x65\x6c\x73':['\x41','\x42','\x43','\x44','\x45','\x46','\x47','\x48','\x49','\x4a','\x4b','\x4c'],'\x73\x65\x72\x69\x65\x73':[[0x32,0x5a,0x64,0x5a,0x6e,0x64,0x78,0x82,0x73,0x5f,0x50,0x55]]},{'\x6c\x6f\x77':0x0,'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':0x0,'\x72\x69\x67\x68\x74':0x0,'\x62\x6f\x74\x74\x6f\x6d':0x0,'\x6c\x65\x66\x74':0x0},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}});new Chartist[_0x7390('0x14')](_0x7390('0x18'),{'\x73\x65\x72\x69\x65\x73':[0x46,0x1e]},{'\x64\x6f\x6e\x75\x74':!![],'\x64\x6f\x6e\x75\x74\x57\x69\x64\x74\x68':0xa,'\x73\x74\x61\x72\x74\x41\x6e\x67\x6c\x65':0x0,'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![]});new Chartist[_0x7390('0x16')](_0x7390('0x19'),{'\x6c\x61\x62\x65\x6c\x73':['\x41','\x42','\x43','\x44','\x45','\x46','\x47','\x48','\x49','\x4b','\x4c','\x4d'],'\x73\x65\x72\x69\x65\x73':[[0xb,0x13,0x11,0xd,0x2,0xb,0x1a,0x14,0x1b,0x5,0x16,0x4],[0x6,0x12,0x7,0x9,0x1a,0x18,0x3,0x12,0x1c,0x15,0x13,0xc],[0x9,0xa,0x16,0xe,0x17,0x13,0xf,0x19,0x1c,0x15,0x11,0x11]]},{'\x73\x74\x61\x63\x6b\x42\x61\x72\x73':!![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x73\x65\x72\x69\x65\x73\x42\x61\x72\x44\x69\x73\x74\x61\x6e\x63\x65':0x0,'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':-0xa,'\x72\x69\x67\x68\x74':0x0,'\x62\x6f\x74\x74\x6f\x6d':0x0,'\x6c\x65\x66\x74':0x0},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':!![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x1e},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':!![],'\x73\x68\x6f\x77\x47\x72\x69\x64':!![],'\x6f\x66\x66\x73\x65\x74':0x1e}});new Chartist[_0x7390('0x14')](_0x7390('0x1a'),{'\x73\x65\x72\x69\x65\x73':[0x23,0x14,0x2d]},{'\x64\x6f\x6e\x75\x74':!![],'\x64\x6f\x6e\x75\x74\x57\x69\x64\x74\x68':0xa,'\x73\x74\x61\x72\x74\x41\x6e\x67\x6c\x65':0x0,'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![]});new Chartist[_0x7390('0x16')](_0x7390('0x1b'),{'\x6c\x61\x62\x65\x6c\x73':['\x41','\x42','\x43','\x44','\x45','\x46','\x47','\x48','\x49','\x4a','\x4b','\x4c','\x4d','\x4e','\x4f','\x50','\x51','\x52','\x53','\x54'],'\x73\x65\x72\x69\x65\x73':[[0x6,0x3,0x2,0x5,0x4,0x7,0x5,0x9,0x4,0x5,0x4,0x9,0x8,0x3,0x6,0x4,0x8,0x6,0x8,0x6,0x4]]},{'\x6c\x6f\x77':0x0,'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':0x0,'\x72\x69\x67\x68\x74':0x0,'\x62\x6f\x74\x74\x6f\x6d':0x0,'\x6c\x65\x66\x74':0x0},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}});new Chartist[_0x7390('0x1c')](_0x7390('0x1d'),{'\x6c\x61\x62\x65\x6c\x73':['\x41','\x42','\x43','\x44','\x45','\x46','\x47','\x48','\x49','\x4a','\x4b','\x4c','\x4d','\x4e','\x4f','\x50','\x51','\x52','\x53','\x54'],'\x73\x65\x72\x69\x65\x73':[[0x1,0x6,0x4,0x9,0x1,0x6,0x4,0x9,0x8,0x6,0x5,0x1,0x4,0x6,0x4,0x9,0x1,0x3,0x1,0x9]]},{'\x6c\x6f\x77':0x0,'\x73\x68\x6f\x77\x41\x72\x65\x61':!![],'\x73\x68\x6f\x77\x50\x6f\x69\x6e\x74':![],'\x73\x68\x6f\x77\x4c\x69\x6e\x65':!![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x6c\x69\x6e\x65\x53\x6d\x6f\x6f\x74\x68':![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':0x0,'\x72\x69\x67\x68\x74':0x0,'\x62\x6f\x74\x74\x6f\x6d':0x0,'\x6c\x65\x66\x74':0x0},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}});new Chartist['\x4c\x69\x6e\x65'](_0x7390('0x1e'),{'\x6c\x61\x62\x65\x6c\x73':['\x41','\x42','\x43','\x44','\x45','\x46','\x47'],'\x73\x65\x72\x69\x65\x73':[[0x1,0x6,0x4,0x9,0x1,0x6,0x4,0x9]]},{'\x6c\x6f\x77':0x0,'\x73\x68\x6f\x77\x41\x72\x65\x61':!![],'\x73\x68\x6f\x77\x50\x6f\x69\x6e\x74':![],'\x73\x68\x6f\x77\x4c\x69\x6e\x65':!![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x6c\x69\x6e\x65\x53\x6d\x6f\x6f\x74\x68':![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':0x0,'\x72\x69\x67\x68\x74':0x0,'\x62\x6f\x74\x74\x6f\x6d':0x0,'\x6c\x65\x66\x74':0x0},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}});new Chartist[_0x7390('0x16')]('\x23\x63\x68\x61\x72\x74\x42\x61\x72\x57\x69\x74\x68\x66\x6f\x6f\x74\x65\x72\x20\x2e\x63\x74\x2d\x63\x68\x61\x72\x74',{'\x6c\x61\x62\x65\x6c\x73':['\x41','\x42','\x43','\x44','\x45','\x46','\x47','\x48','\x49','\x4a','\x4b','\x4c','\x4d','\x4e','\x4f'],'\x73\x65\x72\x69\x65\x73':[[0xa0,0xc8,0x96,0x190,0x1cc,0x1b8,0xf0,0xfa,0x32,0xc8,0x168,0x96,0x17c,0xf0,0x1cc],[0x258-0xa0,0x258-0xc8,0x258-0x96,0x258-0x190,0x258-0x1cc,0x258-0x1b8,0x258-0xf0,0x258-0xfa,0x258-0x32,0x258-0xc8,0x258-0x168,0x258-0x96,0x258-0x17c,0x258-0xf0,0x258-0x1cc]]},{'\x73\x74\x61\x63\x6b\x42\x61\x72\x73':!![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x73\x65\x72\x69\x65\x73\x42\x61\x72\x44\x69\x73\x74\x61\x6e\x63\x65':0x0,'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}});new Chartist[_0x7390('0x1c')](_0x7390('0x1f'),{'\x6c\x61\x62\x65\x6c\x73':['\x31\u6708','\x32\u6708','\x33\u6708','\x34\u6708','\x35\u6708','\x36\u6708','\x37\u6708','\x38\u6708','\x39\u6708',_0x7390('0x20'),_0x7390('0x21'),'\x31\x32\u6708'],'\x73\x65\x72\x69\x65\x73':[[0x14,0x32,0x46,0x6e,0x64,0xc8,0xe6,0x32,0x50,0x8c,0x82,0x96]]},{'\x6c\x6f\x77':0x0,'\x73\x68\x6f\x77\x41\x72\x65\x61':![],'\x73\x68\x6f\x77\x50\x6f\x69\x6e\x74':![],'\x73\x68\x6f\x77\x4c\x69\x6e\x65':!![],'\x6c\x69\x6e\x65\x53\x6d\x6f\x6f\x74\x68':![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':0x0,'\x72\x69\x67\x68\x74':0xa,'\x62\x6f\x74\x74\x6f\x6d':0x0,'\x6c\x65\x66\x74':0xa},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':!![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x1e},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':!![],'\x73\x68\x6f\x77\x47\x72\x69\x64':!![],'\x6f\x66\x66\x73\x65\x74':0x1e}});new Chartist['\x42\x61\x72'](_0x7390('0x22'),{'\x6c\x61\x62\x65\x6c\x73':['\x41','\x42','\x43','\x44','\x45','\x46','\x47','\x48','\x49','\x4a','\x4b','\x4c','\x4d','\x4e','\x4f','\x50','\x51','\x52','\x53','\x54','\x55','\x56','\x57','\x58'],'\x73\x65\x72\x69\x65\x73':[[0x6,0x3,0x2,0x5,0x4,0x7,0x5,0x9,0x4,0x5,0x4,0x9,0x8,0x3,0x6,0x4,0x8,0x6,0x8,0x6,0x4,0x3,0x6,0x4]]},{'\x73\x74\x61\x63\x6b\x42\x61\x72\x73':!![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x73\x65\x72\x69\x65\x73\x42\x61\x72\x44\x69\x73\x74\x61\x6e\x63\x65':0x0,'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}});var _0x3b4262=[];var _0x121b06=[];var _0x12c93b=0x64;var _0x49c8f2=0x3e8;var _0x4ff0db=new Date()[_0x7390('0x23')]();function _0x4d3908(){_0x3b4262[_0x7390('0x24')]();_0x121b06[_0x7390('0x24')]();while(_0x121b06[_0x7390('0x25')]<_0x12c93b){var _0x4834a8=Math[_0x7390('0x26')]()*0x64;_0x3b4262[_0x7390('0x27')](_0x4ff0db+=_0x49c8f2);_0x121b06[_0x7390('0x27')](_0x4834a8);}}var _0x3a37cc={'\x6c\x61\x62\x65\x6c\x73':_0x3b4262,'\x73\x65\x72\x69\x65\x73':[_0x121b06]};var _0x33ee12={'\x6c\x6f\x77':0x0,'\x73\x68\x6f\x77\x41\x72\x65\x61':![],'\x73\x68\x6f\x77\x50\x6f\x69\x6e\x74':![],'\x73\x68\x6f\x77\x4c\x69\x6e\x65':!![],'\x6c\x69\x6e\x65\x53\x6d\x6f\x6f\x74\x68':![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':0x0,'\x72\x69\x67\x68\x74':0x0,'\x62\x6f\x74\x74\x6f\x6d':0x0,'\x6c\x65\x66\x74':0x0},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}};var _0x42c127=null;function _0x1fbd17(){if(_0x475668[_0x7390('0xc')]===null){clearTimeout(_0x42c127);return;}_0x4d3908();new Chartist['\x4c\x69\x6e\x65'](_0x7390('0x28'),_0x3a37cc,_0x33ee12);_0x42c127=setTimeout(_0x1fbd17,0x7d0);}_0x1fbd17();new Chartist[_0x7390('0x14')](_0x7390('0x29'),{'\x73\x65\x72\x69\x65\x73':[0x32,0x32]},{'\x64\x6f\x6e\x75\x74':!![],'\x64\x6f\x6e\x75\x74\x57\x69\x64\x74\x68':0xa,'\x73\x74\x61\x72\x74\x41\x6e\x67\x6c\x65':0x0,'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![]});new Chartist['\x50\x69\x65']('\x23\x63\x68\x61\x72\x74\x4c\x69\x6e\x65\x54\x69\x6d\x65\x20\x2e\x63\x68\x61\x72\x74\x2d\x70\x69\x65\x2d\x72\x69\x67\x68\x74',{'\x73\x65\x72\x69\x65\x73':[0x50,0x14]},{'\x64\x6f\x6e\x75\x74':!![],'\x64\x6f\x6e\x75\x74\x57\x69\x64\x74\x68':0xa,'\x73\x74\x61\x72\x74\x41\x6e\x67\x6c\x65':0x0,'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![]});var _0x1c3e2c={'\x6c\x61\x62\x65\x6c\x73':['\x41','\x42','\x43','\x44','\x45','\x46','\x47','\x48','\x49','\x4a','\x4b','\x4c','\x4d','\x4e','\x4f'],'\x73\x65\x72\x69\x65\x73':[[0x32,0x5a,0x64,0x5a,0x6e,0x64,0x78,0x82,0x73,0x5f,0x50,0x55,0x3c,0x64,0x5a]]};new Chartist[_0x7390('0x1c')](_0x7390('0x2a'),_0x1c3e2c,{'\x6c\x6f\x77':0x0,'\x73\x68\x6f\x77\x41\x72\x65\x61':![],'\x73\x68\x6f\x77\x50\x6f\x69\x6e\x74':![],'\x73\x68\x6f\x77\x4c\x69\x6e\x65':!![],'\x6c\x69\x6e\x65\x53\x6d\x6f\x6f\x74\x68':![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':0x32,'\x72\x69\x67\x68\x74':0x4,'\x62\x6f\x74\x74\x6f\x6d':0x0,'\x6c\x65\x66\x74':0x4},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}});new Chartist[_0x7390('0x16')](_0x7390('0x2b'),{'\x6c\x61\x62\x65\x6c\x73':['\x41','\x42','\x43','\x44','\x45','\x46','\x47','\x48'],'\x73\x65\x72\x69\x65\x73':[[0x32,0x5a,0x64,0x5a,0x6e,0x64,0x78,0x82]]},{'\x6c\x6f\x77':0x0,'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':-0xa,'\x72\x69\x67\x68\x74':0x0,'\x62\x6f\x74\x74\x6f\x6d':0x0,'\x6c\x65\x66\x74':0x14},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}});new Chartist[_0x7390('0x16')]('\x23\x63\x68\x61\x72\x74\x42\x61\x72\x6c\x69\x6e\x65\x4d\x69\x78\x54\x77\x6f\x20\x2e\x73\x6d\x61\x6c\x6c\x2d\x62\x61\x72\x2d\x74\x77\x6f',{'\x6c\x61\x62\x65\x6c\x73':['\x41','\x42','\x43','\x44','\x45','\x46','\x47','\x48'],'\x73\x65\x72\x69\x65\x73':[[0x32,0x5a,0x64,0x5a,0x6e,0x64,0x78,0x78]]},{'\x6c\x6f\x77':0x0,'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':-0xa,'\x72\x69\x67\x68\x74':0x0,'\x62\x6f\x74\x74\x6f\x6d':0x0,'\x6c\x65\x66\x74':0x14},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}});new Chartist[_0x7390('0x1c')](_0x7390('0x2c'),{'\x6c\x61\x62\x65\x6c\x73':[_0x7390('0xe'),_0x7390('0xf'),'\u661f\u671f\u4e8c','\u661f\u671f\u4e09',_0x7390('0x12'),'\u661f\u671f\u4e94',_0x7390('0x13')],'\x73\x65\x72\x69\x65\x73':[[0x14,0x32,0x46,0x6e,0x64,0xc8,0xe6],[0x32,0x50,0x8c,0x82,0x96,0x6e,0xa0]]},{'\x6c\x6f\x77':0x0,'\x73\x68\x6f\x77\x41\x72\x65\x61':![],'\x73\x68\x6f\x77\x50\x6f\x69\x6e\x74':![],'\x73\x68\x6f\x77\x4c\x69\x6e\x65':!![],'\x6c\x69\x6e\x65\x53\x6d\x6f\x6f\x74\x68':![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':0x0,'\x72\x69\x67\x68\x74':0xa,'\x62\x6f\x74\x74\x6f\x6d':0x0,'\x6c\x65\x66\x74':0xa},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':!![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x1e},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':!![],'\x73\x68\x6f\x77\x47\x72\x69\x64':!![],'\x6f\x66\x66\x73\x65\x74':0x1e}});new Chartist['\x4c\x69\x6e\x65'](_0x7390('0x2d'),{'\x6c\x61\x62\x65\x6c\x73':['\u661f\u671f\u65e5',_0x7390('0xf'),'\u661f\u671f\u4e8c',_0x7390('0x11'),_0x7390('0x12'),_0x7390('0x2e'),'\u661f\u671f\u516d'],'\x73\x65\x72\x69\x65\x73':[[0x0,2.5,0x2,2.8,2.6,3.8,0x0],[0x0,1.4,0.5,0x2,1.2,0.9,0x0]]},{'\x6c\x6f\x77':0x0,'\x73\x68\x6f\x77\x41\x72\x65\x61':!![],'\x73\x68\x6f\x77\x50\x6f\x69\x6e\x74':![],'\x73\x68\x6f\x77\x4c\x69\x6e\x65':![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':0x0,'\x72\x69\x67\x68\x74':0xa,'\x62\x6f\x74\x74\x6f\x6d':0x0,'\x6c\x65\x66\x74':0x0},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6c\x61\x62\x65\x6c\x4f\x66\x66\x73\x65\x74':{'\x78':-0xe,'\x79':0x0}},'\x61\x78\x69\x73\x59':{'\x6c\x61\x62\x65\x6c\x4f\x66\x66\x73\x65\x74':{'\x78':-0xa,'\x79':0x0},'\x6c\x61\x62\x65\x6c\x49\x6e\x74\x65\x72\x70\x6f\x6c\x61\x74\x69\x6f\x6e\x46\x6e\x63':function(_0x5b303b){return _0x5b303b%0x1===0x0?_0x5b303b:![];}}});new Chartist['\x4c\x69\x6e\x65'](_0x7390('0x2f'),{'\x6c\x61\x62\x65\x6c\x73':['\x31','\x32','\x33','\x34','\x35','\x36'],'\x73\x65\x72\x69\x65\x73':[[0x1,1.5,0.5,0x2,2.5,1.5]]},{'\x6c\x6f\x77':0x0,'\x73\x68\x6f\x77\x41\x72\x65\x61':![],'\x73\x68\x6f\x77\x50\x6f\x69\x6e\x74':!![],'\x73\x68\x6f\x77\x4c\x69\x6e\x65':!![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x6c\x69\x6e\x65\x53\x6d\x6f\x6f\x74\x68':![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':0xa,'\x72\x69\x67\x68\x74':-0x4,'\x62\x6f\x74\x74\x6f\x6d':0xa,'\x6c\x65\x66\x74':-0x4},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}});var _0xb3cec9=[];var _0x10bc4f=[];var _0xda3bfa=[];var _0x3b4f1b=0x14;var _0x2816e6=0x3e8;var _0x55dcd9=new Date()[_0x7390('0x23')]();function _0x2f745c(){_0xb3cec9[_0x7390('0x24')]();_0x10bc4f[_0x7390('0x24')]();_0xda3bfa[_0x7390('0x24')]();while(_0x10bc4f[_0x7390('0x25')]<_0x3b4f1b){var _0x3f08f3=Math[_0x7390('0x26')]()*0x64+0x320;var _0x5b8cca=Math[_0x7390('0x26')]()*0x64+0x190;_0xb3cec9[_0x7390('0x27')](_0x55dcd9+=_0x2816e6);_0x10bc4f[_0x7390('0x27')](_0x3f08f3);_0xda3bfa['\x70\x75\x73\x68'](_0x5b8cca);}}var _0x5aedb7={'\x6c\x61\x62\x65\x6c\x73':_0xb3cec9,'\x73\x65\x72\x69\x65\x73':[_0x10bc4f,_0xda3bfa]};var _0x20659e={'\x6c\x6f\x77':0x0,'\x73\x68\x6f\x77\x41\x72\x65\x61':!![],'\x73\x68\x6f\x77\x50\x6f\x69\x6e\x74':![],'\x73\x68\x6f\x77\x4c\x69\x6e\x65':![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':0x0,'\x72\x69\x67\x68\x74':0x0,'\x62\x6f\x74\x74\x6f\x6d':0x0,'\x6c\x65\x66\x74':0x0},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}};var _0x32d68a=null;function _0x4e2018(){if(_0x475668['\x43\x6f\x6e\x74\x65\x6e\x74']===null){clearTimeout(_0x32d68a);return;}_0x2f745c();new Chartist[_0x7390('0x1c')](_0x7390('0x30'),_0x5aedb7,_0x20659e);setTimeout(_0x4e2018,_0x2816e6);}_0x4e2018();new Chartist[_0x7390('0x16')](_0x7390('0x31'),{'\x6c\x61\x62\x65\x6c\x73':['\x41','\x42','\x43','\x44','\x45','\x46','\x47','\x48','\x49','\x4a','\x4b','\x4c','\x4d','\x4e','\x4f','\x50','\x51','\x52','\x53','\x54','\x55','\x56','\x57','\x58','\x59','\x5a'],'\x73\x65\x72\x69\x65\x73':[[0x32,0x5a,0x64,0x5a,0x6e,0x64,0x78,0x82,0x73,0x5f,0x50,0x55,0x64,0x8c,0x82,0x78,0x87,0x6e,0x78,0x69,0x64,0x69,0x5a,0x6e,0x64,0x3c],[0x96,0xbe,0xc8,0xbe,0xd2,0xc8,0xdc,0xe6,0xd7,0xc3,0xb4,0xb9,0xc8,0xf0,0xe6,0xdc,0xeb,0xd2,0xdc,0xcd,0xc8,0xcd,0xbe,0xd2,0xc8,0xa0]]},{'\x73\x74\x61\x63\x6b\x42\x61\x72\x73':!![],'\x66\x75\x6c\x6c\x57\x69\x64\x74\x68':!![],'\x73\x65\x72\x69\x65\x73\x42\x61\x72\x44\x69\x73\x74\x61\x6e\x63\x65':0x0,'\x63\x68\x61\x72\x74\x50\x61\x64\x64\x69\x6e\x67':{'\x74\x6f\x70':0x0,'\x72\x69\x67\x68\x74':0x1e,'\x62\x6f\x74\x74\x6f\x6d':0x1e,'\x6c\x65\x66\x74':0x14},'\x61\x78\x69\x73\x58':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0},'\x61\x78\x69\x73\x59':{'\x73\x68\x6f\x77\x4c\x61\x62\x65\x6c':![],'\x73\x68\x6f\x77\x47\x72\x69\x64':![],'\x6f\x66\x66\x73\x65\x74':0x0}});}};}(document,window));
+(function (document, window) {
+    'use strict';
+
+    // 图表小工具
+    window.Content = {
+        run: function () {
+
+            new Chartist.Line('#chartThreeLinearea .ct-chart', {
+                labels: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+                series: [
+                    [4, 4.5, 4.3, 4, 5, 6, 5.5],
+                    [3, 2.5, 3, 3.5, 4.2, 4, 5],
+                    [1, 2, 2.5, 2, 3, 2.8, 4]
+                ]
+            }, {
+                low: 0,
+                showArea: true,
+                showPoint: false,
+                showLine: false,
+                fullWidth: true,
+                chartPadding: {
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    left: 0
+                },
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            });
+
+            new Chartist.Line("#chartLinePie .chart-line", {
+                labels: ['1', '2', '3', '4', '5', '6', '7', '8'],
+                series: [
+                    [4, 5, 3, 6, 7, 5.5, 5.8, 4.6]
+                ]
+            }, {
+                low: 0,
+                showArea: false,
+                showPoint: true,
+                showLine: true,
+                fullWidth: true,
+                lineSmooth: false,
+                chartPadding: {
+                    top: 4,
+                    right: 4,
+                    bottom: -20,
+                    left: 4
+                },
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            });
+
+            new Chartist.Pie('#chartLinePie .chart-pie', {
+                series: [35, 65]
+            }, {
+                donut: true,
+                donutWidth: 10,
+                startAngle: 0,
+                showLabel: false
+            });
+
+            new Chartist.Bar("#chartBarPie .chart-bar", {
+                labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L'],
+                series: [
+                    [50, 90, 100, 90, 110, 100, 120, 130, 115, 95, 80, 85]
+                ]
+            }, {
+                low: 0,
+                fullWidth: true,
+                chartPadding: {
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    left: 0
+                },
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            });
+
+            new Chartist.Pie('#chartBarPie .chart-pie', {
+                series: [70, 30]
+            }, {
+                donut: true,
+                donutWidth: 10,
+                startAngle: 0,
+                showLabel: false
+            });
+
+            new Chartist.Bar('#chartBarStacked .ct-chart', {
+                labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'K', 'L', 'M'],
+                series: [
+                    [11, 19, 17, 13, 2, 11, 26, 20, 27, 5, 22, 4],
+                    [6, 18, 7, 9, 26, 24, 3, 18, 28, 21, 19, 12],
+                    [9, 10, 22, 14, 23, 19, 15, 25, 28, 21, 17, 17]
+                ]
+            }, {
+                stackBars: true,
+                fullWidth: true,
+                seriesBarDistance: 0,
+                chartPadding: {
+                    top: -10,
+                    right: 0,
+                    bottom: 0,
+                    left: 0
+                },
+                axisX: {
+                    showLabel: true,
+                    showGrid: false,
+                    offset: 30
+                },
+                axisY: {
+                    showLabel: true,
+                    showGrid: true,
+                    offset: 30
+                }
+            });
+
+            new Chartist.Pie('#chartPie .ct-chart', {
+                series: [35, 20, 45]
+            }, {
+                donut: true,
+                donutWidth: 10,
+                startAngle: 0,
+                showLabel: false
+            });
+
+            new Chartist.Bar("#chartBarSimple .ct-chart", {
+                labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'],
+                series: [
+                    [6, 3, 2, 5, 4, 7, 5, 9, 4, 5, 4, 9, 8, 3, 6, 4, 8, 6, 8, 6, 4]
+                ]
+            }, {
+                low: 0,
+                fullWidth: true,
+                chartPadding: {
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    left: 0
+                },
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            });
+
+            new Chartist.Line('#chartLineareaSimple .ct-chart', {
+                labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T'],
+                series: [
+                    [1, 6, 4, 9, 1, 6, 4, 9, 8, 6, 5, 1, 4, 6, 4, 9, 1, 3, 1, 9]
+
+                ]
+            }, {
+                low: 0,
+                showArea: true,
+                showPoint: false,
+                showLine: true,
+                fullWidth: true,
+                lineSmooth: false,
+                chartPadding: {
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    left: 0
+                },
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            });
+
+            new Chartist.Line('#chartLineareaWithfooter .ct-chart', {
+                labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G'],
+                series: [
+                    [1, 6, 4, 9, 1, 6, 4, 9]
+                ]
+            }, {
+                low: 0,
+                showArea: true,
+                showPoint: false,
+                showLine: true,
+                fullWidth: true,
+                lineSmooth: false,
+                chartPadding: {
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    left: 0
+                },
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            });
+
+            new Chartist.Bar('#chartBarWithfooter .ct-chart', {
+                labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O'],
+                series: [
+                    [160, 200, 150, 400, 460, 440, 240, 250, 50, 200, 360, 150, 380, 240, 460],
+                    [600 - 160, 600 - 200, 600 - 150, 600 - 400, 600 - 460, 600 - 440, 600 - 240, 600 - 250, 600 - 50, 600 - 200, 600 - 360, 600 - 150, 600 - 380, 600 - 240, 600 - 460]
+                ]
+            }, {
+                stackBars: true,
+                fullWidth: true,
+                seriesBarDistance: 0,
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            });
+
+            new Chartist.Line("#chartLinebarLarge .chart-line", {
+                labels: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月', '10月', '11月', '12月'],
+                series: [
+                    [20, 50, 70, 110, 100, 200, 230, 50, 80, 140, 130, 150]
+                ]
+            }, {
+                low: 0,
+                showArea: false,
+                showPoint: false,
+                showLine: true,
+                lineSmooth: false,
+                fullWidth: true,
+                chartPadding: {
+                    top: 0,
+                    right: 10,
+                    bottom: 0,
+                    left: 10
+                },
+                axisX: {
+                    showLabel: true,
+                    showGrid: false,
+                    offset: 30
+                },
+                axisY: {
+                    showLabel: true,
+                    showGrid: true,
+                    offset: 30
+                }
+            });
+
+            new Chartist.Bar('#chartLinebarLarge .chart-bar', {
+                labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X'],
+                series: [
+                    [6, 3, 2, 5, 4, 7, 5, 9, 4, 5, 4, 9, 8, 3, 6, 4, 8, 6, 8, 6, 4, 3, 6, 4]
+                ]
+            }, {
+                stackBars: true,
+                fullWidth: true,
+                seriesBarDistance: 0,
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            });
+
+            var line_time_labels = [];
+            var line_time_data = [];
+            var line_time_totalPoints = 100;
+            var line_time_updateInterval = 1000;
+            var line_time_now = new Date().getTime();
+
+            function line_time_getData() {
+                line_time_labels.shift();
+                line_time_data.shift();
+
+                while (line_time_data.length < line_time_totalPoints) {
+                    var x = Math.random() * 100;
+                    line_time_labels.push(line_time_now += line_time_updateInterval);
+                    line_time_data.push(x);
+                }
+            }
+
+            var lineTime = {
+                labels: line_time_labels,
+                series: [
+                    line_time_data
+                ]
+            };
+
+            var lineTimeOptions = {
+                low: 0,
+                showArea: false,
+                showPoint: false,
+                showLine: true,
+                lineSmooth: false,
+                fullWidth: true,
+                chartPadding: {
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    left: 0
+                },
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            };
+
+            var timer = null;
+
+            function line_time_update() {
+                if (window.Content === null) {
+                    clearTimeout(timer);
+                    return;
+                }
+
+                line_time_getData();
+
+                new Chartist.Line("#chartLineTime .chart-line", lineTime, lineTimeOptions);
+
+                timer = setTimeout(line_time_update, 2000);
+            }
+
+
+            line_time_update();
+
+
+            new Chartist.Pie('#chartLineTime .chart-pie-left', {
+                series: [50, 50]
+            }, {
+                donut: true,
+                donutWidth: 10,
+                startAngle: 0,
+                showLabel: false
+            });
+
+            new Chartist.Pie('#chartLineTime .chart-pie-right', {
+                series: [80, 20]
+            }, {
+                donut: true,
+                donutWidth: 10,
+                startAngle: 0,
+                showLabel: false
+            });
+
+            var mix_data = {
+                labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O'],
+                series: [
+                    [50, 90, 100, 90, 110, 100, 120, 130, 115, 95, 80, 85, 60, 100, 90]
+                ]
+            };
+
+
+            new Chartist.Line("#chartBarlineMix .chart-line", mix_data, {
+                low: 0,
+                showArea: false,
+                showPoint: false,
+                showLine: true,
+                lineSmooth: false,
+                fullWidth: true,
+                chartPadding: {
+                    top: 50,
+                    right: 4,
+                    bottom: 0,
+                    left: 4
+                },
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            });
+
+            new Chartist.Bar("#chartBarlineMixTwo .small-bar-one", {
+                labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+                series: [
+                    [50, 90, 100, 90, 110, 100, 120, 130]
+                ]
+            }, {
+                low: 0,
+                fullWidth: true,
+                chartPadding: {
+                    top: -10,
+                    right: 0,
+                    bottom: 0,
+                    left: 20
+                },
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            });
+
+            new Chartist.Bar("#chartBarlineMixTwo .small-bar-two", {
+                labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H'],
+                series: [
+                    [50, 90, 100, 90, 110, 100, 120, 120]
+                ]
+            }, {
+                low: 0,
+                fullWidth: true,
+                chartPadding: {
+                    top: -10,
+                    right: 0,
+                    bottom: 0,
+                    left: 20
+                },
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            });
+
+            new Chartist.Line("#chartBarlineMixTwo .line-chart", {
+                labels: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+                series: [
+                    [20, 50, 70, 110, 100, 200, 230],
+                    [50, 80, 140, 130, 150, 110, 160]
+                ]
+            }, {
+                low: 0,
+                showArea: false,
+                showPoint: false,
+                showLine: true,
+                lineSmooth: false,
+                fullWidth: true,
+                chartPadding: {
+                    top: 0,
+                    right: 10,
+                    bottom: 0,
+                    left: 10
+                },
+                axisX: {
+                    showLabel: true,
+                    showGrid: false,
+                    offset: 30
+                },
+                axisY: {
+                    showLabel: true,
+                    showGrid: true,
+                    offset: 30
+                }
+            });
+
+            new Chartist.Line('#charLineareaTwo .ct-chart', {
+                labels: ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六'],
+                series: [
+                    [0, 2.5, 2, 2.8, 2.6, 3.8, 0],
+                    [0, 1.4, 0.5, 2, 1.2, 0.9, 0]
+                ]
+            }, {
+                low: 0,
+                showArea: true,
+                showPoint: false,
+                showLine: false,
+                fullWidth: true,
+                chartPadding: {
+                    top: 0,
+                    right: 10,
+                    bottom: 0,
+                    left: 0
+                },
+                axisX: {
+                    showGrid: false,
+                    labelOffset: {
+                        x: -14,
+                        y: 0
+                    }
+                },
+                axisY: {
+                    labelOffset: {
+                        x: -10,
+                        y: 0
+                    },
+                    labelInterpolationFnc: function (num) {
+                        return num % 1 === 0 ? num : false;
+                    }
+                }
+            });
+
+            new Chartist.Line("#chartLinepoint .ct-chart", {
+                labels: ['1', '2', '3', '4', '5', '6'],
+                series: [
+                    [1, 1.5, 0.5, 2, 2.5, 1.5]
+                ]
+            }, {
+                low: 0,
+                showArea: false,
+                showPoint: true,
+                showLine: true,
+                fullWidth: true,
+                lineSmooth: false,
+                chartPadding: {
+                    top: 10,
+                    right: -4,
+                    bottom: 10,
+                    left: -4
+                },
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            });
+
+            var timeline_labels = [];
+            var timeline_data1 = [];
+            var timeline_data2 = [];
+            var totalPoints = 20;
+            var updateInterval = 1000;
+            var now = new Date().getTime();
+
+            function getData() {
+                timeline_labels.shift();
+                timeline_data1.shift();
+                timeline_data2.shift();
+
+                while (timeline_data1.length < totalPoints) {
+                    var x = Math.random() * 100 + 800;
+                    var y = Math.random() * 100 + 400;
+                    timeline_labels.push(now += updateInterval);
+                    timeline_data1.push(x);
+                    timeline_data2.push(y);
+                }
+            }
+
+            var timlelineData = {
+                labels: timeline_labels,
+                series: [
+                    timeline_data1,
+                    timeline_data2
+                ]
+            };
+
+            var timelineOptions = {
+                low: 0,
+                showArea: true,
+                showPoint: false,
+                showLine: false,
+                fullWidth: true,
+                chartPadding: {
+                    top: 0,
+                    right: 0,
+                    bottom: 0,
+                    left: 0
+                },
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            };
+
+            var timer1 = null;
+
+            function update() {
+                if (window.Content === null) {
+                    clearTimeout(timer1);
+                    return;
+                }
+
+                getData();
+
+                new Chartist.Line("#chartTimelineTwo .ct-chart", timlelineData, timelineOptions);
+                setTimeout(update, updateInterval);
+            }
+
+            update();
+
+
+            new Chartist.Bar('#chartStackedBar .ct-chart', {
+                labels: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'],
+                series: [
+                    [50, 90, 100, 90, 110, 100, 120, 130, 115, 95, 80, 85, 100, 140, 130, 120, 135, 110, 120, 105, 100, 105, 90, 110, 100, 60],
+                    [150, 190, 200, 190, 210, 200, 220, 230, 215, 195, 180, 185, 200, 240, 230, 220, 235, 210, 220, 205, 200, 205, 190, 210, 200, 160]
+                ]
+            }, {
+                stackBars: true,
+                fullWidth: true,
+                seriesBarDistance: 0,
+                chartPadding: {
+                    top: 0,
+                    right: 30,
+                    bottom: 30,
+                    left: 20
+                },
+                axisX: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                },
+                axisY: {
+                    showLabel: false,
+                    showGrid: false,
+                    offset: 0
+                }
+            });
+        }
+    };
+
+})(document, window);
