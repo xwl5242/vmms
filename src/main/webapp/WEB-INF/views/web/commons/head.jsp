@@ -46,4 +46,14 @@
 <script src="<%=path %>/static/admui/themes/classic/global/js/configs/site-configs.js"></script>
 <script src="<%=path %>/static/admui/themes/classic/global/js/components.js"></script>
 
-<script>var root = '<%=path%>';</script>
+<!-- 布局 -->
+<script src="<%=path%>/static/admui/themes/classic/base/js/sections/menu.js"></script>
+<script src="<%=path%>/static/admui/themes/classic/base/js/sections/media-menu.js"></script>
+<script src="<%=path%>/static/admui/themes/classic/base/js/sections/content-tabs.js"></script>
+
+<!-- 插件 -->
+<script src="<%=path%>/static/admui/plugins/jquery-pjax/jquery.pjax.min.js"></script>
+<script src="<%=path%>/static/admui/themes/classic/global/js/plugins/responsive-tabs.js"></script>
+<script src="<%=path%>/static/admui/plugins/ashoverscroll/jquery-asHoverScroll.min.js"></script>
+<script src="<%=path%>/static/admui/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<script src="<%=path%>/static/admui/plugins/screenfull/screenfull.min.js"></script>

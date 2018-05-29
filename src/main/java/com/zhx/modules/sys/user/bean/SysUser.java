@@ -17,6 +17,8 @@ public class SysUser implements Serializable {
 	private String age;
 	private String type;
 	private	String useStatus;
+	private String lastLoginTime;
+	private String loginTotal;
 	private String isDel;
 	private String creator;
 	private String createTime;
@@ -88,6 +90,18 @@ public class SysUser implements Serializable {
 	public void setUseStatus(String useStatus) {
 		this.useStatus = useStatus;
 	}
+	public String getLastLoginTime() {
+		return lastLoginTime;
+	}
+	public void setLastLoginTime(String lastLoginTime) {
+		this.lastLoginTime = lastLoginTime;
+	}
+	public String getLoginTotal() {
+		return loginTotal;
+	}
+	public void setLoginTotal(String loginTotal) {
+		this.loginTotal = loginTotal;
+	}
 	public String getIsDel() {
 		return isDel;
 	}
@@ -122,7 +136,7 @@ public class SysUser implements Serializable {
 	public String toString() {
 		return "user=[id:"+this.id+",userCode:"+this.userCode+",userName:"+this.userName+",password:"+this.password
 			   +",nickName:"+this.nickName+",phone:"+this.phone+",mail:"+this.mail+",sex:"+this.sex+",age:"+this.age
-			   +",type:"+this.type+",idDel:"+this.isDel+",useStaus:"+this.useStatus
+			   +",type:"+this.type+",lastLoginTime:"+this.lastLoginTime+",loginTotal:"+this.loginTotal+",idDel:"+this.isDel+",useStaus:"+this.useStatus
 			   +",creator:"+this.creator+",createTime:"+this.createTime+",updator:"+this.updator+",updateTime:"+this.updateTime+"]";
 	}
 	

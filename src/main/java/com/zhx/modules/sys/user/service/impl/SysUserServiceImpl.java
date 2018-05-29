@@ -56,21 +56,20 @@ public class SysUserServiceImpl implements SysUserService {
 	/**
 	 * 修改用户
 	 */
+	@Transactional(readOnly=false)
 	@Override
 	public int editUser(SysUser user) throws Exception{
-//		int insertRet = 0;
-//		try {
-//			user.setPassword(DESUtils.encrypt(user.getPassword()));
-//			user.setUpdateTime(DateUtils.date2yyyyMMddHHmmssStr(null));
-//			insertRet = userDao.updateUser(user);
-//			if(insertRet==0){
-//				throw new DBException();
-//			}
-//		} catch (Exception e) {
-//			throw e;
-//		}
-//		return insertRet;
-		return userDao.update(user);
+		int insertRet = 0;
+		try {
+			user.setUpdateTime(DateUtils.date2yyyyMMddHHmmssStr(null));
+			insertRet = userDao.update(user);
+			if(insertRet==0){
+				throw new DBException();
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+		return insertRet;
 	}
 
 	/**

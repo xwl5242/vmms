@@ -4,11 +4,13 @@
 <%
 	String path = request.getContextPath().toString();
 %>
+<c:set var="ctx" value="${pageContext.request.contextPath}" />
 <c:set var="level" value="${level+1 }" scope="request" />
-<c:forEach var="right" items="${treeList}">  
+<c:forEach var="right" items="${treeList}">
+	<c:set var="isUrl" value="${right.rightUrl=='#'?false:true }"></c:set>  
 	<c:if test="${level==1 }">				
 		<li class="site-menu-item has-sub ">
-        	<a href="javascript:;">
+        	<a href="${isUrl?right.rightUrl:''}" ${isUrl?' data-pjax target="_blank"':'' }>
                 <i class="site-menu-icon fa-laptop" aria-hidden="true"></i>
                 <span class="site-menu-title">${right.rightName }</span>
                 <span class="site-menu-arrow"></span>
@@ -19,7 +21,7 @@
         </c:if>
 	</c:if>					
 	<c:if test="${level==2 }">						
-		<a href="javascript:;">
+		<a href="${isUrl?right.rightUrl:''}" ${isUrl?' data-pjax target="_blank"':'' }>
 			<span class="site-menu-title">${right.rightName }</span>
 			<span class="site-menu-arrow"></span>
 		</a>
@@ -29,7 +31,7 @@
 	</c:if>							
 	<c:if test="${level==3 }">						
 		<li class="site-menu-item ">
-			<a data-pjax href="/components/layouts/grids.html" target="_blank">
+			<a href="${isUrl?right.rightUrl:''}" ${isUrl?' data-pjax target="_blank"':'' }>
 				<span class="site-menu-title">${right.rightName }</span>
 			</a>
 		</li>
@@ -45,7 +47,7 @@
 	<c:choose>
 		<c:when test="${fn:length(right.childNode) > 0}">
 			<c:set var="treeList" value="${right.childNode}" scope="request" />
-	  		<c:import url="commons/menu_r.jsp"></c:import>
+	  		<c:import url="menu_r.jsp"></c:import>
 		</c:when>
 		<c:otherwise>
 			<c:set var="flag" value="1"></c:set>

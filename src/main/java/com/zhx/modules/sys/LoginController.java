@@ -100,6 +100,11 @@ public class LoginController extends BaseController {
 		return "redirect:/login";
 	}
 	
+	@RequestMapping(value="/",method=RequestMethod.GET)
+	public String toIndex(){
+		return "web/index";
+	}
+	
 	@RequestMapping(value="/index",method=RequestMethod.GET)
 	public String index(){
 		return "web/index";
