@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <sitemesh>
-    <!-- path 是指要进行装饰的页面 如 /index.jsp 对应 http://localhost:8080/index.jsp -->
-    <!-- decorator 是指装饰器页面 /decorators/default.jsp 对应位置为 src/main/webapp/decorators/default.jsp--> 
-    <!-- sitemesh3 会在 index.jsp 页面返回时提取 title head body 中的内容, 然后在 default.jsp 根据输出标签进行对应输出 -->
+
+	<!--默认情况下， sitemesh 只对 HTTP 响应头中 Content-Type 为 text/html 的类型进行拦截和装饰， 我们可以添加更多的 mime 类型-->
+	<mime-type>text/html</mime-type>
+    <mime-type>application/vnd.wap.xhtml+xml</mime-type>
+    <mime-type>application/xhtml+xml</mime-type>
+    
+    <!-- 默认装饰器，当下面的路径都不匹配时，启用该装饰器进行装饰 -->
     <mapping path="/**" decorator="/WEB-INF/views/layouts/default.jsp"/>
+    
+    <!-- 排除，不进行装饰的路径或请求 -->
     <mapping path="/login" exclue="true"></mapping>
     <mapping path="/loginIn" exclue="true"></mapping>
     <mapping path="/loginOut" exclue="true"></mapping>
-    <mapping path="/pjax/**" exclue="true"></mapping>
+    
+    <!-- 自定义Tag规则 -->
+    <content-processor>
+    	<tag-rule-bundle class="com.zhx.filter.CustomTagRuleBundle" />
+	</content-processor>
 </sitemesh>

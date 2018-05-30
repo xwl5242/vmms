@@ -10,6 +10,7 @@
 <jsp:include page="/WEB-INF/views/web/commons/menu.jsp"></jsp:include>
 	<main class="site-page">
 	    <div class="page-container" id="admui-pageContent">
+			<sitemesh:write property="myCss"/>
 			<sitemesh:write property="body"/>
 		</div>
 	    <div class="page-loading vertical-align text-center">

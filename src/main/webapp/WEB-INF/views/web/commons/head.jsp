@@ -57,3 +57,11 @@
 <script src="<%=path%>/static/admui/plugins/ashoverscroll/jquery-asHoverScroll.min.js"></script>
 <script src="<%=path%>/static/admui/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 <script src="<%=path%>/static/admui/plugins/screenfull/screenfull.min.js"></script>
+
+<!-- dataTables -->
+<script src="<%=path %>/static/admui/plugins/datatables/jquery.dataTables.min.js" data-name="dataTables"></script>
+<script src="<%=path %>/static/admui/plugins/datatables-bootstrap/dataTables.bootstrap.min.js" data-deps="dataTables"></script>
+<script src="<%=path %>/static/admui/plugins/datatables-responsive/dataTables.responsive.min.js" data-deps="dataTables"></script>
+<script src="<%=path %>/static/admui/plugins/highlight/highlight.pack.min.js"></script>
+<script src="<%=path %>/static/admui/themes/classic/base/js/app.js" data-name="app"></script>
+<script src="<%=path %>/static/admui/js/examples/tables/data-tables/common.js" data-deps="app"></script>
