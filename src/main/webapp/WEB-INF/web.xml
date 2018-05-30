@@ -34,6 +34,16 @@
     <url-pattern>/*</url-pattern>
   </filter-mapping>
   <filter>
+    <filter-name>sitemesh</filter-name>
+    <!-- 自定义拦截器，做到根据请求调用不同的模板 -->
+    <filter-class>com.zhx.filter.ParamConfigurableSiteMeshFilter</filter-class>
+	</filter>
+	<filter-mapping>
+	    <filter-name>sitemesh</filter-name>
+	    <!-- 如果项目中的页面地址以  .do 或者 .action 结尾可以使用 *.do 或 *.action-->
+	    <url-pattern>/*</url-pattern>
+	</filter-mapping>
+  <filter>
     <filter-name>HiddenHttpMethodFilter</filter-name>
     <filter-class>org.springframework.web.filter.HiddenHttpMethodFilter</filter-class>
   </filter>

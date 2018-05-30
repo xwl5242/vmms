@@ -163,7 +163,7 @@
         getPath: function () {
             var pathname = location.pathname,
                 title = $('#admui-pageContent').find('title').text();
-
+            if(!title) title=$('#admui-pageContent').find('div:eq(0)').attr('title');
             if (pathname !== $.ctx + '/') {
                 this.buildTag({name: title, url: pathname});
             }
@@ -187,7 +187,6 @@
             }
 
             $labelNav.find("li.active").removeClass("active");
-
             $labelNav.append('<li class="active"><a data-pjax="#admui-pageContent" href="' + opt.url + '" title="' + opt.name + '' +
                 '" rel="contents"><span>' + opt.name + '</span><i class="icon wb-close-mini"></i></a></li>');
 

@@ -10,7 +10,7 @@
 	<c:set var="isUrl" value="${right.rightUrl=='#'?false:true }"></c:set>  
 	<c:if test="${level==1 }">				
 		<li class="site-menu-item has-sub ">
-        	<a href="${isUrl?right.rightUrl:''}" ${isUrl?' data-pjax target="_blank"':'' }>
+        	<a href="<%=path %>/${isUrl?right.rightUrl:''}" ${isUrl?' data-pjax target="_blank"':'' }>
                 <i class="site-menu-icon fa-laptop" aria-hidden="true"></i>
                 <span class="site-menu-title">${right.rightName }</span>
                 <span class="site-menu-arrow"></span>
@@ -21,7 +21,7 @@
         </c:if>
 	</c:if>					
 	<c:if test="${level==2 }">						
-		<a href="${isUrl?right.rightUrl:''}" ${isUrl?' data-pjax target="_blank"':'' }>
+		<a href="<%=path %>/${isUrl?right.rightUrl:''}" ${isUrl?' data-pjax target="_blank"':'' }>
 			<span class="site-menu-title">${right.rightName }</span>
 			<span class="site-menu-arrow"></span>
 		</a>
@@ -31,7 +31,7 @@
 	</c:if>							
 	<c:if test="${level==3 }">						
 		<li class="site-menu-item ">
-			<a href="${isUrl?right.rightUrl:''}" ${isUrl?' data-pjax target="_blank"':'' }>
+			<a href="<%=path %>/${isUrl?right.rightUrl:''}" ${isUrl?' data-pjax target="_blank"':'' }>
 				<span class="site-menu-title">${right.rightName }</span>
 			</a>
 		</li>

@@ -28,7 +28,7 @@ import com.zhx.modules.utils.CommonExcelExport;
 import com.zhx.modules.utils.DESUtils;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping(value={"/user","/pjax/user"})
 public class SysUserController extends BaseController {
 	
 	private Logger logger = LoggerFactory.getLogger(SysUserController.class);
@@ -49,6 +49,16 @@ public class SysUserController extends BaseController {
 	public String userList(){
 		return "web/user/list";
 	}
+	
+	/**
+	 * 跳转到用户列表页面
+	 * @return
+	 */
+	@RequestMapping(value="/lista",method=RequestMethod.GET)
+	public String userLista(){
+		return "web/user/list";
+	}
+	
 	
 	/**
 	 * 获取用户列表

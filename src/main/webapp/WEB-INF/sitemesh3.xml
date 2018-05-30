@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<sitemesh>
+    <!-- path 是指要进行装饰的页面 如 /index.jsp 对应 http://localhost:8080/index.jsp -->
+    <!-- decorator 是指装饰器页面 /decorators/default.jsp 对应位置为 src/main/webapp/decorators/default.jsp--> 
+    <!-- sitemesh3 会在 index.jsp 页面返回时提取 title head body 中的内容, 然后在 default.jsp 根据输出标签进行对应输出 -->
+    <mapping path="/**" decorator="/WEB-INF/views/layouts/default.jsp"/>
+    <mapping path="/login" exclue="true"></mapping>
+    <mapping path="/loginIn" exclue="true"></mapping>
+    <mapping path="/loginOut" exclue="true"></mapping>
+    <mapping path="/pjax/**" exclue="true"></mapping>
+</sitemesh>

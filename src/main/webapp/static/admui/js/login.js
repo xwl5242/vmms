@@ -41,4 +41,9 @@
         }
     });
 
+    $('.reload-vify').on('click', function () { // 验证码刷新
+        var $img = $(this).children('img'),
+            URL = $img.prop('src');
+        $img.prop('src', URL + '?tm=' + Math.random());
+    });
 })(window, document, jQuery);
