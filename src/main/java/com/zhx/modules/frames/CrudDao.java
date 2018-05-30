@@ -1,6 +1,7 @@
 package com.zhx.modules.frames;
 
 import java.util.List;
+import java.util.Map;
 
 public interface CrudDao<T> {
 
@@ -31,7 +32,15 @@ public interface CrudDao<T> {
 	 * @param where where条件语句 
 	 * @return
 	 */
-	List<T> findAllList(String where);
+	List<T> findAllList(String where,String sort);
+	
+	/**
+	 * 获取列表
+	 * @param params where条件map
+	 * @param sort
+	 * @return
+	 */
+	List<T> findAllList(Map<String,Object> params,String sort);
 	
 	/**
 	 * 获取列表
@@ -39,7 +48,7 @@ public interface CrudDao<T> {
 	 * @param args
 	 * @return
 	 */
-	List<T> findAllList(String where,Object[] args);
+	List<T> findAllList(String where,Object[] args,String sort);
 	
 	/**
 	 * 新增

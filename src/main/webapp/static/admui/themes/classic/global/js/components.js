@@ -261,6 +261,24 @@
 })(window, document, jQuery);
 (function(window, document, $){
     "use strict";
+
+    $.components.register("datetimepicker", {
+        mode: "default",
+        defaults: {
+        	language: 'zh-CN',  //日期
+        	format: "yyyy-mm-dd hh:ii",
+            weekStart: true,
+            todayBtn: true,
+            todayHighlight: true,
+            startView: 2,
+            minView: 2,
+            forceParse: false,
+            autoclose: true
+        }
+    });
+})(window, document, jQuery);
+(function(window, document, $){
+    "use strict";
     /*global moment*/
 
     $.components.register("daterangepicker", {
@@ -489,6 +507,8 @@
 
     $.components.register("dataTable", {
         defaults: {
+        	processing:true,
+        	pagingType: "full_numbers",
             responsive: true,
             dom: "<'row'<'col-xs-6'<'hidden-xs'l>><'col-xs-6'f>>" + "<'row'<'col-xs-12'tr>>" + "<'row'<'col-sm-5'i><'col-sm-7'p>>",
             language: {

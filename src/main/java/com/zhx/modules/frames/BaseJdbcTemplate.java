@@ -10,6 +10,8 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Set;
 
 import javax.sql.DataSource;
 
@@ -113,8 +115,53 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
 	 * @param where 查询语句不带?要传递实际值,最前面可带可不带and
 	 * @return
 	 */
-	public List<T> findAllList(String where) {
-		return queryForBeanList(where,null);
+	public List<T> findAllList(String where,String sort) {
+		return findAllList(where,null,sort);
+	}
+	
+	/**
+	 * 查询list
+	 * @param params 查询参数map
+	 * @return
+	 */
+	public List<T> findAllList(Map<String,Object> params,String sort){
+		List<T> list = null;
+		Set<String> keys = params.keySet();
+		if(null!=keys&&keys.size()>0){
+			boolean pageFlag = false;
+			StringBuilder where = new StringBuilder();//存储拼接后的sql
+			Object[] objects = new Object[keys.size()];//存储查询条件相对应的值
+			if(keys.contains("start")&&null!=params.get("length")){//需要分页
+				objects = new Object[keys.size()-2];
+				pageFlag=true;//分页操作
+			}
+			int i=0;
+			for(String key:keys){
+				if(!"start".equals(key)&&!"length".equals(key)){//页码和每页条数不需要作为where条件
+					objects[i]=params.get(key);
+					//分析params中的key，转换为数据库表中列名称的格式
+					key=!key.contains("_")?MyStringUtils.humpStrTo_Str(key):key.toLowerCase();
+					where.append(" and ").append(key).append("=?");
+					i++;
+				}
+			}
+			if(StringUtils.isNotEmpty(sort.trim())){//sort排序条件去除首尾空格，并且部位空或null
+				sort = sort.toLowerCase().replace("order by", "");
+				where.append(" order by ").append(sort);//拼接sort排序
+			}
+			if(pageFlag){
+				int pageNo = Integer.parseInt(params.get("start").toString());
+				int pageSize = Integer.parseInt(params.get("length").toString());
+				int low = (pageNo-1)*pageSize;
+				int up = pageNo*pageSize;
+				//mysql分页sql用limit
+				where.append(" LIMIT ").append(low).append(",").append(up);
+			}
+			list = findAllList(where.toString(),objects,"");
+		}else{
+			list = findAllList("",null,sort);
+		}
+		return list;
 	}
 	
 	/**
@@ -123,12 +170,21 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
 	 * @param args 相对应?的实际值
 	 * @return
 	 */
-	public List<T> findAllList(String where,Object[] args){
+	public List<T> findAllList(String where,Object[] args,String sort){
 		log.info("根据主键获取对象信息,where条件:"+where);
-		String w4 = where.substring(0,4).toLowerCase();
-		String sql = GlobalCache.selectAllStrMap.get(getTableName())+(w4.startsWith("and ")?where:"and "+where);
-		log.info("根据主键获取对象信息,select sql:"+sql);
-		return queryForBeanList(sql,args);
+		//获取业务表的所有列的select语句，select c1,c2,c3... from tablename where 1=1
+		String sql = GlobalCache.selectAllStrMap.get(getTableName());
+		StringBuilder sqlStr = new StringBuilder(sql);//存储sql
+		if(StringUtils.isNotEmpty(where.trim())){//where查询条件去除首尾空格，并且部位空或null
+			String w4 = where.substring(0,4).toLowerCase();
+			sqlStr.append(w4.startsWith("and ")?where:"and "+where);//拼接where条件
+		}
+		if(StringUtils.isNotEmpty(sort.trim())){//sort排序条件去除首尾空格，并且部位空或null
+			sort = sort.toLowerCase().replace("order by", "");
+			sqlStr.append(" order by ").append(sort);//拼接sort排序
+		}
+		log.info("根据主键获取对象信息,select sql:"+sqlStr.toString());
+		return queryForBeanList(sqlStr.toString(),args);
 	}
 	
 	/**
@@ -235,38 +291,6 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
 	 */
 	public int batchDelete(String ids){
 		return batchDelete(ids.split(","));
-	}
-	
-	/**
-     * 分页查询table数据
-     * @param sql 分页查询语句
-     * @param pageNo 页码
-     * @param pageSize 页行数
-     * @return
-     */
-	public Map queryTableList(String sql,int pageNo,int pageSize){
-		String rowsSql = pageSql4mysql(sql,pageNo,pageSize);
-		String totalSql = "select count(1) from ("+sql+") total";
-		Map result = new HashMap();
-		result.put("total", queryForObject(totalSql, int.class));
-		result.put("rows", queryForList(rowsSql));
-		return result;
-	}
-	
-	/**
-	 * 获取mysql分页sql
-	 * @param sql 源sql
-	 * @param pageNo 页码
-	 * @param pageSize 页行数
-	 * @return
-	 */
-	private String pageSql4mysql(String sql, int pageNo, int pageSize) {
-		int low = (pageNo-1)*pageSize;
-		int up = pageNo*pageSize;
-		StringBuffer sb = new StringBuffer();
-		//mysql分页sql用limit
-		sb.append(sql).append(" LIMIT ").append(low).append(",").append(up);
-		return sb.toString();
 	}
 	
 	/**

@@ -15,7 +15,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-import com.alibaba.druid.sql.visitor.functions.Right;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.zhx.modules.constants.Const;
@@ -28,7 +27,7 @@ public class BaseController {
 	
 	private final Logger logger = LoggerFactory.getLogger(BaseController.class);
 
-	private static final ObjectMapper objectMapper = new ObjectMapper();
+	public static final ObjectMapper objectMapper = new ObjectMapper();
 	
 	@Autowired
 	private JdbcTemplate jdbcTemplate; 

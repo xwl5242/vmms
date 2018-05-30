@@ -59,9 +59,15 @@
 <script src="<%=path%>/static/admui/plugins/screenfull/screenfull.min.js"></script>
 
 <!-- dataTables -->
-<script src="<%=path %>/static/admui/plugins/datatables/jquery.dataTables.min.js" data-name="dataTables"></script>
-<script src="<%=path %>/static/admui/plugins/datatables-bootstrap/dataTables.bootstrap.min.js" data-deps="dataTables"></script>
-<script src="<%=path %>/static/admui/plugins/datatables-responsive/dataTables.responsive.min.js" data-deps="dataTables"></script>
+<script src="<%=path %>/static/admui/plugins/datatables/jquery.dataTables.min.js"></script>
+<script src="<%=path %>/static/admui/plugins/datatables-bootstrap/dataTables.bootstrap.min.js"></script>
+<script src="<%=path %>/static/admui/plugins/datatables-responsive/dataTables.responsive.min.js"></script>
 <script src="<%=path %>/static/admui/plugins/highlight/highlight.pack.min.js"></script>
-<script src="<%=path %>/static/admui/themes/classic/base/js/app.js" data-name="app"></script>
-<script src="<%=path %>/static/admui/js/examples/tables/data-tables/common.js" data-deps="app"></script>
+<script src="<%=path %>/static/admui/themes/classic/base/js/app.js"></script>
+<script src="<%=path %>/static/admui/js/examples/tables/data-tables/common.js"></script>
+
+<!-- select -->
+<script src="<%=path %>/static/admui/plugins/bootstrap-select/bootstrap-select.min.js"></script>
+<!-- datetimepicker -->
+<script src="<%=path %>/static/admui/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="<%=path %>/static/admui/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>

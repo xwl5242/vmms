@@ -10,31 +10,75 @@ String path = request.getContextPath().toString();
 		<link rel="stylesheet" href="<%=path %>/static/admui/plugins/highlight/github-gist.css">
 		<link rel="stylesheet" href="<%=path %>/static/admui/plugins/highlight/highlight.css">
 		<link rel="stylesheet" href="<%=path %>/static/admui/css/examples/tables/data-tables/examples.css">
+		<link rel="stylesheet" href="<%=path %>/static/admui/plugins/bootstrap-select/bootstrap-select.css">
+		<link rel="stylesheet" href="<%=path %>/static/admui/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.css">
 	</myCss>
 	<div class="page animation-fade page-index" title="用户管理">
 		<div class="page page-full animation-fade page-data-tables">
 		    <div class="page-main">
 		        <div class="page-content" id="DTConent">
 		        	<div class="panel">
+		        		<div class="panel-heading">
+					    	<h3 class="panel-title">&nbsp;</h3>
+					    </div>
 		        		<div class="panel-body">
-		        			<form class="form-horizontal">
+		        			<form class="form-horizontal" id="userSearForm">
 		        				<div class="row">
-			                        <div class="form-group col-sm-4">
-			                            <label class="col-sm-3 control-label">您的姓名：</label>
+			                        <div class="form-group col-sm-3">
+			                            <label class="col-sm-3 control-label">用户名：</label>
 			                            <div class="col-sm-9">
-			                                <input type="text" class="form-control" name="name" placeholder="姓名" autocomplete="off">
+			                                <input type="text" class="form-control" name="userName" placeholder="用名" autocomplete="off">
 			                            </div>
 			                        </div>
-			                        <div class="form-group  col-sm-4">
-			                            <label class="col-sm-3 control-label">您的电话：</label>
+			                        <div class="form-group  col-sm-3">
+			                            <label class="col-sm-3 control-label">登录名：</label>
 			                            <div class="col-sm-9">
-			                                <input type="text" class="form-control" name="name" placeholder="姓名" autocomplete="off">
+			                                <input type="text" class="form-control" name="userCode" placeholder="登录名" autocomplete="off">
 			                            </div>
 			                        </div>
-			                        <div class="form-group col-sm-4">
-			                            <label class="col-sm-3 control-label">您的邮箱：</label>
+			                        <div class="form-group col-sm-6">
+			                            <label class="col-sm-2 control-label">登录时间：</label>
+		                                <div class="input-daterange col-sm-6">
+		                                    <div class="input-group">
+		                                        <span class="input-group-addon">
+		                                            <i class="icon wb-calendar" aria-hidden="true"></i>
+		                                        </span>
+		                                        <input type="text" data-plugin="datetimepicker" class="form-control" name="start">
+		                                        <span class="input-group-addon"> 至 </span>
+		                                        <input type="text" data-plugin="datetimepicker" class="form-control" name="end">
+		                                    </div>
+		                                </div>
+		                        	</div>
+		                        </div>
+		                        <div class="row">
+			                        <div class="form-group col-sm-3">
+			                            <label class="col-sm-3 control-label">电话：</label>
 			                            <div class="col-sm-9">
-			                                <input type="email" class="form-control" name="email" placeholder="@email.com" autocomplete="off">
+			                                <input type="tel" class="form-control" name="phone" placeholder="电话" autocomplete="off">
+			                            </div>
+			                        </div>
+			                        <div class="form-group  col-sm-3">
+			                            <label class="col-sm-3 control-label">邮箱：</label>
+			                            <div class="col-sm-9">
+			                                <input type="email" class="form-control" name="mail" placeholder="邮箱" autocomplete="off">
+			                            </div>
+			                        </div>
+			                        <div class="form-group col-sm-3">
+			                            <label class="col-sm-3 control-label">使用状态：</label>
+			                            <div class="col-sm-9">
+			                                <select data-plugin="selectpicker">
+			                                    <option value="0">禁用</option>
+			                                    <option value="1">启用</option>
+			                                </select>
+			                            </div>
+			                        </div>
+			                        <div class="form-group col-sm-3">
+			                            <label class="col-sm-3 control-label">是否删除：</label>
+			                            <div class="col-sm-9">
+			                                <select data-plugin="selectpicker">
+			                                    <option value="0">否</option>
+			                                    <option value="1">是</option>
+			                                </select>
 			                            </div>
 			                        </div>
 		                        </div>
@@ -51,122 +95,25 @@ String path = request.getContextPath().toString();
 		                    </form>
 		        		</div>
 		        	</div>
-					<div class="panel">
-					    <div class="alert alert-warning" role="alert">
-					        <p>这里展示下面列表的使用方式说明</p>
+					<div class="panel panel-bordered">
+					    <div class="panel-heading">
+					    	<h3 class="panel-title">用户列表</h3>
 					    </div>
 					    <div class="panel-body">
-					        <table class="table table-bordered table-hover dataTable table-striped width-full text-nowrap" id="dataTableExample" data-plugin="dataTable">
-					            <thead>
+					        <table id="userTable" class="table table-bordered table-hover dataTable table-striped width-full text-nowrap">
+					        	<thead>
 					            <tr>
-					                <th>姓名</th>
-					                <th>职位</th>
-					                <th>工作地点</th>
-					                <th>年龄</th>
-					                <th>入职时间</th>
-					                <th>年薪</th>
+					                <th>用户名</th>
+					                <th>登录名称</th>
+					                <th>密码</th>
+					                <th>登录次数</th>
+					                <th>上次登录时间</th>
+					                <th>电话</th>
+					                <th>邮箱</th>
+					                <th>使用状态</th>
+					                <th>是否删除</th>
 					            </tr>
 					            </thead>
-					            <tfoot>
-					            <tr>
-					                <th>姓名</th>
-					                <th>职位</th>
-					                <th>工作地点</th>
-					                <th>年龄</th>
-					                <th>入职时间</th>
-					                <th>年薪</th>
-					            </tr>
-					            </tfoot>
-					            <tbody>
-					            <tr>
-					                <td>李霞</td>
-					                <td>系统架构师</td>
-					                <td>北京</td>
-					                <td>61</td>
-					                <td>2011/04/25</td>
-					                <td>&yen;320,800</td>
-					            </tr>
-					            <tr>
-					                <td>杜重治</td>
-					                <td>会计</td>
-					                <td>上海</td>
-					                <td>63</td>
-					                <td>2011/07/25</td>
-					                <td>&yen;170,750</td>
-					            </tr>
-					            <tr>
-					                <td>陈锋</td>
-					                <td>初级开发者</td>
-					                <td>深圳</td>
-					                <td>66</td>
-					                <td>2009/01/12</td>
-					                <td>&yen;86,000</td>
-					            </tr>
-					            <tr>
-					                <td>郑伯宁</td>
-					                <td>高级JavaScript开发者</td>
-					                <td>北京</td>
-					                <td>22</td>
-					                <td>2012/03/29</td>
-					                <td>&yen;433,060</td>
-					            </tr>
-					            <tr>
-					                <td>施华军</td>
-					                <td>会计</td>
-					                <td>上海</td>
-					                <td>33</td>
-					                <td>2008/11/28</td>
-					                <td>&yen;162,700</td>
-					            </tr>
-					            <tr>
-					                <td>吴书振</td>
-					                <td>集成专家</td>
-					                <td>南京</td>
-					                <td>61</td>
-					                <td>2012/12/02</td>
-					                <td>&yen;372,000</td>
-					            </tr>
-					            <tr>
-					                <td>张宁</td>
-					                <td>销售代表</td>
-					                <td>深圳</td>
-					                <td>59</td>
-					                <td>2012/08/06</td>
-					                <td>&yen;137,500</td>
-					            </tr>
-					            <tr>
-					                <td>马世波</td>
-					                <td>集成专家</td>
-					                <td>上海</td>
-					                <td>55</td>
-					                <td>2010/10/14</td>
-					                <td>&yen;327,900</td>
-					            </tr>
-					            <tr>
-					                <td>马世波</td>
-					                <td>集成专家</td>
-					                <td>上海</td>
-					                <td>55</td>
-					                <td>2010/10/14</td>
-					                <td>&yen;327,900</td>
-					            </tr>
-					            <tr>
-					                <td>马世波</td>
-					                <td>集成专家</td>
-					                <td>上海</td>
-					                <td>55</td>
-					                <td>2010/10/14</td>
-					                <td>&yen;327,900</td>
-					            </tr>
-					            <tr>
-					                <td>马世波</td>
-					                <td>集成专家</td>
-					                <td>上海</td>
-					                <td>55</td>
-					                <td>2010/10/14</td>
-					                <td>&yen;327,900</td>
-					            </tr>
-					            </tbody>
 					        </table>
 					    </div>
 					</div>
@@ -174,4 +121,27 @@ String path = request.getContextPath().toString();
 		    </div>
 		</div>
 	</div>
+	<script>
+	$('#userTable').DataTable($.po('dataTable', {
+		"ajax":{
+			"url":"<%=path%>/user/list",
+			"type":"PATCH"
+		},
+		"columns":[
+		    {data: "userName"},
+		    {data: "userCode"},
+		    {data: "password"},
+		    {data: "loginTotal"},
+		    {data: "lastLoginTime"},
+		    {data: "phone"},
+		    {data: "mail"},
+		    {data: "useStatus",render:function(data, type, row, meta){
+		    	return data==0?'禁用':'启用';
+		    }},
+		    {data: "isDel",render:function(data, type, row, meta){
+		    	return data==0?'否':'是';
+		    }}
+		]
+	}));
+	</script>
 </body>

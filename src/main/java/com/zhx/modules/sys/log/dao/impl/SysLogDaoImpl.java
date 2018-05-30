@@ -36,7 +36,8 @@ public class SysLogDaoImpl extends BaseJdbcTemplate<SysLog> implements SysLogDao
 			sql += " and opt_type = '"+params.get("optType")+"'";
 		}
 		sql+=" order by create_time desc";
-		return queryTableList(sql,Integer.valueOf(params.get("pageNumber")), Integer.valueOf(params.get("pageSize")));
+//		return queryTableList(sql,Integer.valueOf(params.get("pageNumber")), Integer.valueOf(params.get("pageSize")));
+		return null;
 	}
 
 }

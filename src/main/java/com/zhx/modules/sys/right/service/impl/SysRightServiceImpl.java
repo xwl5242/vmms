@@ -106,7 +106,7 @@ public class SysRightServiceImpl implements SysRightService {
 			int c = rightDao.selectRoleRightCountByRightId(ids);
 			int e = rightDao.batchDelete(ids);
 			if(e==c+1){
-				List<?> rlist = rightDao.findAllList("pid=?",new Object[]{right.getPid()});
+				List<?> rlist = rightDao.findAllList("pid=?",new Object[]{right.getPid()},"");
 				if(null==rlist||rlist.size()<=0){
 					//添加成功，修改父节点信息
 					rightDao.updateLeafAndIcon(right.getPid(),"1",Const.RIGHT_CION_HTML);
