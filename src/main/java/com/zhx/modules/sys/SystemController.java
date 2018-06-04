@@ -21,4 +21,9 @@ public class SystemController {
 		return "web/system/maintenance";
 	}
 	
+	@RequestMapping("/settings/display")
+	public String display(){
+		return "web/system/settings/display";
+	}
+	
 }

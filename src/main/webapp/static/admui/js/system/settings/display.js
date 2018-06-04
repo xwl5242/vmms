@@ -45,10 +45,10 @@
                 return value;
             }
         };
-
+        $.ctx = $('#admui-signOut').data('ctx') || $.ctx;
         var Skintools = {
             storageKey: 'admui.base.skinTools',
-            path: $.ctx + '/themes/classic/base',
+            path: $.ctx + '/static/admui/themes/classic/base',
             $siteSidebar: $('.site-menubar'),
             $siteNavbar: $('.site-navbar'),
             navbarSkins: 'bg-primary-600 bg-brown-600 bg-cyan-600 bg-green-600 bg-grey-600 bg-indigo-600 bg-orange-600 bg-pink-600 bg-purple-600 bg-red-600 bg-teal-600 bg-yellow-700',
@@ -224,8 +224,8 @@
                 }
             },
             primaryImprove: function (val) {
-                var $link = $('#admui-siteStyle', $('head')), href,
-                    etx = $link.prop('href').indexOf('?v=') === -1 ? '' : '.min' ;
+                var $link = $('#siteStyle', $('head')), href,
+                    etx = $link.prop('href')!=null&&$link.prop('href').indexOf('?v=') === -1 ? '' : '.min' ;
 
                 if (val === 'primary') {
                     href = this.path + '/css/site' + etx + '.css';

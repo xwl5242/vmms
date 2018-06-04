@@ -20,6 +20,7 @@
 <meta name="msapplication-TileColor" content="#62a8ea">
 
 <!-- 样式 -->
+<link rel="stylesheet" href="<%=path %>/static/admui/themes/classic/global/css/bootstarp.css">
 <link rel="stylesheet" href="<%=path %>/static/admui/themes/classic/base/css/site.css" id="siteStyle">
 
 <!-- 图标 CSS-->
@@ -71,3 +72,6 @@
 <!-- datetimepicker -->
 <script src="<%=path %>/static/admui/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script src="<%=path %>/static/admui/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+
+
+<script src="<%=path %>/static/admui/plugins/switchery/switchery.min.js"></script>

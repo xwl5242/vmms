@@ -34,32 +34,28 @@
                    		<c:forEach items="${sessionScope.right}" var="topRight" varStatus="status">
                    			<c:if test="${topRight.pid=='0'}">
                    				<!-- 添加top部位菜单 -->
-                   				<li role="presentation" class="${status.index==1?'active':''}">
+                   				<li role="presentation" class="${status.index==0?'active':''}">
 		                            <a data-toggle="tab" href="#admui-navTabsItem-${topRight.id}" aria-controls="admui-navTabsItem-${topRight.id}" role="tab" aria-expanded="false">
 		                                <i class="icon ${topRight.icon}"></i> <span>${topRight.rightName}</span>
 		                            </a>
 		                        </li>
                    			</c:if>
                    		</c:forEach>
-                   		<li class="dropdown" id="admui-navbarSubMenu">
-                            <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-animation="slide-bottom" aria-expanded="true" role="button">
-                                <i class="icon wb-more-vertical"></i>
-                            </a>
-                            <ul class="dropdown-menu" role="menu">
-                            </ul>
-                        </li>
+<!--                    		<li class="dropdown" id="admui-navbarSubMenu"> -->
+<!--                             <a class="dropdown-toggle" data-toggle="dropdown" href="#" data-animation="slide-bottom" aria-expanded="true" role="button"> -->
+<!--                                 <i class="icon wb-more-vertical"></i> -->
+<!--                             </a> -->
+<!--                             <ul class="dropdown-menu" role="menu"> -->
+<!--                             </ul> -->
+<!--                         </li> -->
                     </ul>
                 </li>
             </ul>
             <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
                 <li class="hidden-xs" id="admui-navbarDisplay" data-toggle="tooltip" data-placement="bottom" title="设置主题与布局等">
-                    <a class="icon wb-layout" href="/system/settings/display.html" target="_blank" data-pjax>
+                    <a class="icon wb-layout" href="<%=path %>/system/settings/display" target="_blank" data-pjax>
                         <span class="sr-only">主题与布局</span>
                     </a>
-                </li>
-                <li class="hidden-xs" id="admui-QRcode" data-toggle="tooltip" data-placement="bottom" title="在手机上预览本页">
-                    <a class="icon wb-mobile" href="#" data-toggle="modal" data-target="#admui-mobileView">
-                        <span class="sr-only">在手机上预览</span></a>
                 </li>
                 <li class="hidden-xs" id="admui-navbarFullscreen" data-toggle="tooltip" data-placement="bottom" title="全屏">
                     <a class="icon icon-fullscreen" data-toggle="fullscreen" href="#" role="button">
@@ -67,7 +63,7 @@
                     </a>
                 </li>
                 <li>
-                    <a class="icon fa-sign-out" id="admui-signOut" data-ctx="/vmms" data-user="9" href="/system/logout" role="button">
+                    <a class="icon fa-sign-out" id="admui-signOut" data-ctx="/vmms" data-user="9" href="<%=path %>/loginOut" role="button">
                     	<span class="sr-only">退出</span>
                    	</a>
                 </li>
@@ -103,7 +99,7 @@
     <div class="contabs-scroll pull-left">
         <ul class="nav con-tabs">
             <li class="active">
-                <a href="/home.html" rel="contents"><span>首页</span></a>
+                <a href="<%=path %>/index" rel="contents"><span>首页</span></a>
             </li>
         </ul>
     </div>

@@ -9,7 +9,7 @@
 <c:forEach var="right" items="${treeList}">
 	<c:set var="isUrl" value="${right.rightUrl=='#'?false:true }"></c:set>  
 	<c:if test="${level==1 }">				
-		<li class="site-menu-item has-sub ">
+		<li class="site-menu-item ${fn:length(right.childNode)>0?'has-sub':'' } ">
         	<a href="<%=path %>/${isUrl?right.rightUrl:''}" ${isUrl?' data-pjax target="_blank"':'' }>
                 <i class="site-menu-icon fa-laptop" aria-hidden="true"></i>
                 <span class="site-menu-title">${right.rightName }</span>
@@ -17,13 +17,15 @@
             </a>
         <c:if test="${fn:length(right.childNode) > 0}">
         	<ul class="site-menu-sub">
-			<li class="site-menu-item has-sub ">
+			<li class="site-menu-item ${fn:length(right.childNode)>0?'has-sub':'' } ">
         </c:if>
 	</c:if>					
 	<c:if test="${level==2 }">						
 		<a href="<%=path %>/${isUrl?right.rightUrl:''}" ${isUrl?' data-pjax target="_blank"':'' }>
 			<span class="site-menu-title">${right.rightName }</span>
-			<span class="site-menu-arrow"></span>
+			<c:if test="${fn:length(right.childNode) > 0 }">
+				<span class="site-menu-arrow"></span>
+			</c:if>
 		</a>
 		<c:if test="${fn:length(right.childNode) > 0 }">
 			<ul class="site-menu-sub">
