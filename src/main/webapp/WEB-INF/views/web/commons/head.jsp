@@ -77,12 +77,15 @@
 <script src="<%=path %>/static/admui/plugins/switchery/switchery.min.js"></script>
 <script>
 	//用户样式的运用
-	var userTheme = '${userTheme}';
-	//设置本地缓存对象
-	localStorage.setItem("admui.base.skinTools",userTheme);
-	//替换样式文件的引用
-	var cssHref = $("#siteStyle").attr("href");//原样式
-	cssHref = cssHref.substring(0,cssHref.lastIndexOf("/"));//处理样式路径
-	cssHref = cssHref.substring(0,cssHref.lastIndexOf("/"))+"/skins/"+JSON.parse(userTheme).themeColor+".css";//处理样式路径
-	$("#siteStyle").attr('href',cssHref);//替换样式路径
+	userTheme = '${userTheme}';
+	console.log(userTheme);
+	if(userTheme!=''){
+		//设置本地缓存对象
+		localStorage.setItem("admui.base.skinTools",userTheme);
+		//替换样式文件的引用
+		var cssHref = $("#siteStyle").attr("href");//原样式
+		cssHref = cssHref.substring(0,cssHref.lastIndexOf("/"));//处理样式路径
+		cssHref = cssHref.substring(0,cssHref.lastIndexOf("/"))+"/skins/"+JSON.parse(userTheme).themeColor+".css";//处理样式路径
+		$("#siteStyle").attr('href',cssHref);//替换样式路径
+	}
 </script>

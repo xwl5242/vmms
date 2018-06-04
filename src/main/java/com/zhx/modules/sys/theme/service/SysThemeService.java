@@ -5,4 +5,8 @@ import com.zhx.modules.sys.theme.bean.SysTheme;
 public interface SysThemeService {
 
 	SysTheme get(String id);
+
+	int save(SysTheme theme);
+	
+	int edit(SysTheme theme);
 }

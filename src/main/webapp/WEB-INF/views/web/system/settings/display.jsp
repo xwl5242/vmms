@@ -205,7 +205,7 @@
             <hr>
             <div class="form-group">
                 <div class="col-sm-10 col-sm-offset-2 margin-top-20">
-                    <button type="submit" class="btn btn-primary" name="save" value="true">保存</button>
+                    <button type="button" class="btn btn-primary" name="save" value="true">保存</button>
                     <button type="button" class="btn btn-outline btn-default" name="reset" value="reset" id="skintoolsReset">恢复默认
                     </button>
                 </div>
@@ -213,5 +213,14 @@
         </form>
     </div>
 </div>
-
 <script src="<%=path %>/static/admui/js/system/settings/display.js"></script>
+<script>
+	//保存主题样式操作
+	$("button[name='save']").click(function(){
+		console.log($("#displayForm").serialize());
+		var url = userTheme!=''?'<%=path %>/sysTheme/edit':'<%=path %>/sysTheme/save';
+		$.post(url,$("#displayForm").serialize(),function(result){
+			console.log(result);
+		},'json');
+	});
+</script>

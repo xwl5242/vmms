@@ -18,4 +18,14 @@ public class SysThemeServiceImpl implements SysThemeService {
 		return systheDao.get(id);
 	}
 
+	@Override
+	public int save(SysTheme theme) {
+		return systheDao.insert(theme);
+	}
+
+	@Override
+	public int edit(SysTheme theme) {
+		return systheDao.update(theme);
+	}
+
 }
