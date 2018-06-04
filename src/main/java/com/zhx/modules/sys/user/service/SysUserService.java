@@ -20,6 +20,12 @@ public interface SysUserService {
 	 * @param params
 	 * @return
 	 */
-	List<SysUser> queryList(Map<String, Object> params);
+	List<SysUser> queryList(Map<String,String> params);
+
+	/**
+	 * 更新用户信息
+	 * @param loginUser
+	 */
+	int editUser(SysUser user);
 	
 }

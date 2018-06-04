@@ -1,6 +1,7 @@
 package com.zhx.modules.sys;
 
 import java.io.IOException;
+import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
@@ -8,6 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,6 +30,7 @@ import com.zhx.modules.frames.BaseController;
 import com.zhx.modules.sys.user.bean.SysUser;
 import com.zhx.modules.sys.user.service.SysUserService;
 import com.zhx.modules.utils.DESUtils;
+import com.zhx.modules.utils.DateUtils;
 
 /**
  * 登录controller
@@ -69,6 +72,12 @@ public class LoginController extends BaseController {
 					}else{
 						String pwd = DESUtils.decrypt(loginUser.getPassword());//获取数据库中该用户的密码
 						if(pwd.equals(user.getPassword())){//如果密码一致，登录成功
+							//登录成功后更新上次登录时间和登录次数
+							String lastLoginTime = DateUtils.date2yyyyMMddHHmmssStr(new Date());
+							int loginTotal = StringUtils.isEmpty(loginUser.getLoginTotal())?0:Integer.parseInt(loginUser.getLoginTotal());
+							loginUser.setLastLoginTime(lastLoginTime);
+							loginUser.setLoginTotal(loginTotal+1+"");
+							userService.editUser(loginUser);
 							//查询该登录用户的权限信息
 							List<Map<String,Object>> right = (List<Map<String, Object>>) queryRights(loginUser.getId());
 							session.setAttribute(Const.SESSION_RIGHT, right);//用户的权限

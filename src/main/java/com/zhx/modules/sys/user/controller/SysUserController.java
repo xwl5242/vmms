@@ -13,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
@@ -50,13 +49,12 @@ public class SysUserController extends BaseController {
 	 * @throws JsonProcessingException 
 	 */
 	@OpLog(optName="查询用户列表",optKey="用户管理",optType=Const.OPLOG_TYPE_SELECT)
-	@RequestMapping(value="/list",method=RequestMethod.PATCH)
+	@RequestMapping(value="/pagelist",method=RequestMethod.GET)
 	@ResponseBody
-	public String userList(HttpServletRequest request,HttpServletResponse response
-			,@RequestParam Map<String,Object> params) throws JsonProcessingException{
-		logger.info("获取用户列表：params="+params);
+	public String userList(HttpServletRequest request,HttpServletResponse response,String params) throws JsonProcessingException{
+		logger.info("获取用户列表");
 		Map<String,Object> map = new HashMap<String,Object>();
-		List<SysUser> list = userService.queryList(params);
+		List<SysUser> list = userService.queryList(paramsStr2Map(params));
 		map.put("data", list);
 		return objectMapper.writeValueAsString(map);
 	}

@@ -36,14 +36,6 @@ public interface CrudDao<T> {
 	
 	/**
 	 * 获取列表
-	 * @param params where条件map
-	 * @param sort
-	 * @return
-	 */
-	List<T> findAllList(Map<String,Object> params,String sort);
-	
-	/**
-	 * 获取列表
 	 * @param where
 	 * @param args
 	 * @return

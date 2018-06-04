@@ -27,7 +27,7 @@ String path = request.getContextPath().toString();
 			                        <div class="form-group col-sm-3">
 			                            <label class="col-sm-3 control-label">用户名：</label>
 			                            <div class="col-sm-9">
-			                                <input type="text" class="form-control" name="userName" placeholder="用名" autocomplete="off">
+			                                <input type="text" class="form-control" id="userName" name="userName" placeholder="用名" autocomplete="off">
 			                            </div>
 			                        </div>
 			                        <div class="form-group  col-sm-3">
@@ -37,8 +37,8 @@ String path = request.getContextPath().toString();
 			                            </div>
 			                        </div>
 			                        <div class="form-group col-sm-6">
-			                            <label class="col-sm-2 control-label">登录时间：</label>
-		                                <div class="input-daterange col-sm-6">
+			                            <label class="col-sm-2 control-label" style="text-align: left;width: 12%">登录时间：</label>
+		                                <div class="input-daterange col-sm-9" style="width: 80%;">
 		                                    <div class="input-group">
 		                                        <span class="input-group-addon">
 		                                            <i class="icon wb-calendar" aria-hidden="true"></i>
@@ -66,16 +66,16 @@ String path = request.getContextPath().toString();
 			                        <div class="form-group col-sm-3">
 			                            <label class="col-sm-3 control-label">使用状态：</label>
 			                            <div class="col-sm-9">
-			                                <select data-plugin="selectpicker">
-			                                    <option value="0">禁用</option>
+			                                <select data-plugin="selectpicker" name="useStatus">
 			                                    <option value="1">启用</option>
+			                                    <option value="0">禁用</option>
 			                                </select>
 			                            </div>
 			                        </div>
 			                        <div class="form-group col-sm-3">
 			                            <label class="col-sm-3 control-label">是否删除：</label>
 			                            <div class="col-sm-9">
-			                                <select data-plugin="selectpicker">
+			                                <select data-plugin="selectpicker" name="isDel">
 			                                    <option value="0">否</option>
 			                                    <option value="1">是</option>
 			                                </select>
@@ -87,7 +87,7 @@ String path = request.getContextPath().toString();
 		                        	<div class="form-group col-sm-4"></div>
 			                        <div class="form-group col-sm-4">
 			                            <div style="float: right;padding: 0px 12px;">
-			                                <button type="button" class="btn btn-primary">查询</button>
+			                                <button id="searchUser" type="button" class="btn btn-primary">查询</button>
 			                                <button type="reset" class="btn btn-default btn-outline">重置</button>
 			                            </div>
 			                        </div>
@@ -122,26 +122,31 @@ String path = request.getContextPath().toString();
 		</div>
 	</div>
 	<script>
-	$('#userTable').DataTable($.po('dataTable', {
-		"ajax":{
-			"url":"<%=path%>/user/list",
-			"type":"PATCH"
-		},
-		"columns":[
-		    {data: "userName"},
-		    {data: "userCode"},
-		    {data: "password"},
-		    {data: "loginTotal"},
-		    {data: "lastLoginTime"},
-		    {data: "phone"},
-		    {data: "mail"},
-		    {data: "useStatus",render:function(data, type, row, meta){
-		    	return data==0?'禁用':'启用';
-		    }},
-		    {data: "isDel",render:function(data, type, row, meta){
-		    	return data==0?'否':'是';
-		    }}
-		]
-	}));
+		var table = $('#userTable').DataTable($.po('dataTable', {
+			"ajax":{
+				"url":"<%=path%>/user/pagelist",
+				"data": function ( d ) {
+			        d.params = $("#userSearForm").serialize()
+			    }
+			},
+			"columns":[
+			    {data: "userName"},
+			    {data: "userCode"},
+			    {data: "password"},
+			    {data: "loginTotal"},
+			    {data: "lastLoginTime"},
+			    {data: "phone"},
+			    {data: "mail"},
+			    {data: "useStatus",render:function(data, type, row, meta){
+			    	return data==0?'禁用':'启用';
+			    }},
+			    {data: "isDel",render:function(data, type, row, meta){
+			    	return data==0?'否':'是';
+			    }}
+			]
+		}));
+		$("#searchUser").click(function(){
+			table.ajax.reload();
+		});
 	</script>
 </body>

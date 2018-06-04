@@ -10,8 +10,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Map.Entry;
-import java.util.Set;
 
 import javax.sql.DataSource;
 
@@ -121,51 +119,6 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
 	
 	/**
 	 * 查询list
-	 * @param params 查询参数map
-	 * @return
-	 */
-	public List<T> findAllList(Map<String,Object> params,String sort){
-		List<T> list = null;
-		Set<String> keys = params.keySet();
-		if(null!=keys&&keys.size()>0){
-			boolean pageFlag = false;
-			StringBuilder where = new StringBuilder();//存储拼接后的sql
-			Object[] objects = new Object[keys.size()];//存储查询条件相对应的值
-			if(keys.contains("start")&&null!=params.get("length")){//需要分页
-				objects = new Object[keys.size()-2];
-				pageFlag=true;//分页操作
-			}
-			int i=0;
-			for(String key:keys){
-				if(!"start".equals(key)&&!"length".equals(key)){//页码和每页条数不需要作为where条件
-					objects[i]=params.get(key);
-					//分析params中的key，转换为数据库表中列名称的格式
-					key=!key.contains("_")?MyStringUtils.humpStrTo_Str(key):key.toLowerCase();
-					where.append(" and ").append(key).append("=?");
-					i++;
-				}
-			}
-			if(StringUtils.isNotEmpty(sort.trim())){//sort排序条件去除首尾空格，并且部位空或null
-				sort = sort.toLowerCase().replace("order by", "");
-				where.append(" order by ").append(sort);//拼接sort排序
-			}
-			if(pageFlag){
-				int pageNo = Integer.parseInt(params.get("start").toString());
-				int pageSize = Integer.parseInt(params.get("length").toString());
-				int low = (pageNo-1)*pageSize;
-				int up = pageNo*pageSize;
-				//mysql分页sql用limit
-				where.append(" LIMIT ").append(low).append(",").append(up);
-			}
-			list = findAllList(where.toString(),objects,"");
-		}else{
-			list = findAllList("",null,sort);
-		}
-		return list;
-	}
-	
-	/**
-	 * 查询list
 	 * @param where 查询语句带?,最前面可带可不带and
 	 * @param args 相对应?的实际值
 	 * @return
@@ -176,6 +129,7 @@ public class BaseJdbcTemplate<T> extends JdbcTemplate {
 		String sql = GlobalCache.selectAllStrMap.get(getTableName());
 		StringBuilder sqlStr = new StringBuilder(sql);//存储sql
 		if(StringUtils.isNotEmpty(where.trim())){//where查询条件去除首尾空格，并且部位空或null
+			where = where.trim();
 			String w4 = where.substring(0,4).toLowerCase();
 			sqlStr.append(w4.startsWith("and ")?where:"and "+where);//拼接where条件
 		}
