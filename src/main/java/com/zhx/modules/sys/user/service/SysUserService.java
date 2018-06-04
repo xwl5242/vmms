@@ -3,6 +3,7 @@ package com.zhx.modules.sys.user.service;
 import java.util.List;
 import java.util.Map;
 
+import com.zhx.modules.sys.theme.bean.SysTheme;
 import com.zhx.modules.sys.user.bean.SysUser;
 
 
@@ -27,5 +28,7 @@ public interface SysUserService {
 	 * @param loginUser
 	 */
 	int editUser(SysUser user);
+
+	SysTheme getCurUserTheme(String themeId);
 	
 }

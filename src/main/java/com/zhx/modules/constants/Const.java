@@ -16,6 +16,7 @@ public class Const {
 	public static final String SESSION_RIGHT = "right";//session中当前登录用户的菜单权限
 	public static final String SESSION_RIGHT_CHANGED = "rightChanged";//session中当前用户是否权限有变化
 	public static final String SESSION_RIGHT_CHANGED_MENU = "rightChangedMenu";//session中当前登录用户的操作哪个菜单导致权限的变化
+	public static final String SESSION_THEME = "userTheme";
 	
 	/**
 	 * 验证码相关

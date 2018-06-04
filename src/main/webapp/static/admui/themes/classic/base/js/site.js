@@ -11,7 +11,6 @@
         run: function () {
 
             $.ctx = $('#admui-signOut').data('ctx') || $.ctx;
-            console.log($.ctx);
             function hideNavbar(){
                 var $body = $('body');
 

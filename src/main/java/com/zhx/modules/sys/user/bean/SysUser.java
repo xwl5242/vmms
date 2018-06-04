@@ -24,6 +24,7 @@ public class SysUser implements Serializable {
 	private String createTime;
 	private String updator;
 	private String updateTime;
+	private String themeId;
 	public String getId() {
 		return id;
 	}
@@ -132,12 +133,24 @@ public class SysUser implements Serializable {
 	public void setUpdateTime(String updateTime) {
 		this.updateTime = updateTime;
 	}
+	
+	public String getThemeId() {
+		return themeId;
+	}
+	public void setThemeId(String themeId) {
+		this.themeId = themeId;
+	}
 	@Override
 	public String toString() {
-		return "user=[id:"+this.id+",userCode:"+this.userCode+",userName:"+this.userName+",password:"+this.password
-			   +",nickName:"+this.nickName+",phone:"+this.phone+",mail:"+this.mail+",sex:"+this.sex+",age:"+this.age
-			   +",type:"+this.type+",lastLoginTime:"+this.lastLoginTime+",loginTotal:"+this.loginTotal+",idDel:"+this.isDel+",useStaus:"+this.useStatus
-			   +",creator:"+this.creator+",createTime:"+this.createTime+",updator:"+this.updator+",updateTime:"+this.updateTime+"]";
+		return "SysUser [id=" + id + ", userCode=" + userCode + ", userName="
+				+ userName + ", password=" + password + ", nickName="
+				+ nickName + ", phone=" + phone + ", mail=" + mail + ", sex="
+				+ sex + ", age=" + age + ", type=" + type + ", useStatus="
+				+ useStatus + ", lastLoginTime=" + lastLoginTime
+				+ ", loginTotal=" + loginTotal + ", isDel=" + isDel
+				+ ", creator=" + creator + ", createTime=" + createTime
+				+ ", updator=" + updator + ", updateTime=" + updateTime
+				+ ", themeId=" + themeId + "]";
 	}
 	
 }

@@ -27,6 +27,7 @@ import com.zhx.log.OpLog;
 import com.zhx.modules.common.Global;
 import com.zhx.modules.constants.Const;
 import com.zhx.modules.frames.BaseController;
+import com.zhx.modules.sys.theme.bean.SysTheme;
 import com.zhx.modules.sys.user.bean.SysUser;
 import com.zhx.modules.sys.user.service.SysUserService;
 import com.zhx.modules.utils.DESUtils;
@@ -84,6 +85,8 @@ public class LoginController extends BaseController {
 							session.setAttribute(Const.SESSION_USER, loginUser);//用户信息
 							session.setAttribute(Const.SESSION_USER_ID, loginUser.getId());//用户信息
 							session.setAttribute(Const.SESSION_USER_NAME, loginUser.getUserName());//用户名称
+							SysTheme theme = userService.getCurUserTheme(loginUser.getThemeId());
+							session.setAttribute(Const.SESSION_THEME, objectMapper.writeValueAsString(theme));
 //							session.setAttribute(Const.SESSION_RIGHT_CHANGED, false);//用户名称
 //							session.setAttribute(Const.SESSION_RIGHT_CHANGED_MENU, "");//用户名称
 							logger.info("login success,user info:"+loginUser);

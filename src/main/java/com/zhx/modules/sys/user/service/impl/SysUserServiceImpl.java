@@ -8,6 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.zhx.modules.sys.theme.bean.SysTheme;
+import com.zhx.modules.sys.theme.service.SysThemeService;
 import com.zhx.modules.sys.user.bean.SysUser;
 import com.zhx.modules.sys.user.dao.SysUserDao;
 import com.zhx.modules.sys.user.service.SysUserService;
@@ -17,6 +19,9 @@ public class SysUserServiceImpl implements SysUserService {
 
 	@Autowired
 	private SysUserDao userDao;
+	
+	@Autowired
+	private SysThemeService sysThemeService;
 
 	/**
 	 * 根据用户code（登录名称）查询用户信息
@@ -66,6 +71,11 @@ public class SysUserServiceImpl implements SysUserService {
 	@Override
 	public int editUser(SysUser user) {
 		return userDao.update(user);
+	}
+
+	@Override
+	public SysTheme getCurUserTheme(String themeId) {
+		return sysThemeService.get(themeId);
 	}
 	
 }
