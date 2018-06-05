@@ -52,6 +52,10 @@
                 </li>
             </ul>
             <ul class="nav navbar-toolbar navbar-right navbar-toolbar-right">
+            	<li class="hidden-xs" id="admui-QRcode" data-toggle="tooltip" data-placement="bottom" title="锁屏">
+                    <a class="icon wb-mobile" href="<%=path %>/system/locked" target="_top">
+                        <span class="sr-only">锁屏</span></a>
+                </li>
                 <li class="hidden-xs" id="admui-navbarDisplay" data-toggle="tooltip" data-placement="bottom" title="设置主题与布局等">
                     <a class="icon wb-layout" href="<%=path %>/system/settings/display" target="_blank" data-pjax>
                         <span class="sr-only">主题与布局</span>

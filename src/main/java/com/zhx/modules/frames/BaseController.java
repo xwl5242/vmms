@@ -23,6 +23,7 @@ import com.zhx.modules.sys.user.bean.SysUser;
 import com.zhx.modules.utils.BeanMapUtils;
 import com.zhx.modules.utils.GlobalCacheUtils;
 
+@SuppressWarnings({"unchecked","deprecation"})
 public class BaseController {
 	
 	private final Logger logger = LoggerFactory.getLogger(BaseController.class);
@@ -169,4 +170,12 @@ public class BaseController {
 		return GlobalCacheUtils.menuTreeList(result, Const.RIGHT_ROOT);
 	}
 	
+	public void removeAllSession(HttpServletRequest request){
+		request.getSession().removeAttribute(Const.SESSION_USER);
+		request.getSession().removeAttribute(Const.SESSION_USER_ID);
+		request.getSession().removeAttribute(Const.SESSION_USER_NAME);
+		request.getSession().removeAttribute(Const.SESSION_RIGHT);
+		request.getSession().removeAttribute(Const.SESSION_RIGHT_CHANGED);
+		request.getSession().removeAttribute(Const.SESSION_RIGHT_CHANGED_MENU);
+	}
 }

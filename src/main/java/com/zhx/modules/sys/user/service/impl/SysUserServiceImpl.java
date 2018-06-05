@@ -13,6 +13,8 @@ import com.zhx.modules.sys.theme.service.SysThemeService;
 import com.zhx.modules.sys.user.bean.SysUser;
 import com.zhx.modules.sys.user.dao.SysUserDao;
 import com.zhx.modules.sys.user.service.SysUserService;
+import com.zhx.modules.utils.UUIDGenerator;
+import com.zhx.modules.utils.UserUtils;
 
 @Service
 public class SysUserServiceImpl implements SysUserService {
@@ -35,6 +37,7 @@ public class SysUserServiceImpl implements SysUserService {
 	/**
 	 * 根据查询参数（params）查询用户列表信息
 	 */
+	@Transactional(readOnly=true)
 	@Override
 	public List<SysUser> queryList(Map<String,String> params) {
 		StringBuilder sql = new StringBuilder();
@@ -68,14 +71,39 @@ public class SysUserServiceImpl implements SysUserService {
 	/**
 	 * 更新用户信息 
 	 */
+	@Transactional(readOnly=false)
 	@Override
 	public int editUser(SysUser user) {
 		return userDao.update(user);
 	}
 
+	/**
+	 * 获取当前登录用户的主题信息
+	 */
+	@Transactional(readOnly=true)
 	@Override
 	public SysTheme getCurUserTheme(String themeId) {
 		return sysThemeService.get(themeId);
+	}
+
+	/**
+	 * 更新当前用户的主题信息
+	 */
+	@Transactional(readOnly=false)
+	@Override
+	public int updateTheme(SysTheme theme) {
+		int result = 0;
+		String themeId = theme.getId();
+		if(StringUtils.isBlank(themeId)){
+			theme.setId(UUIDGenerator.getUUID());
+			result += sysThemeService.save(theme);
+		}else{
+			result += sysThemeService.edit(theme);
+		}
+		SysUser user = UserUtils.getCurUser();
+		user.setThemeId(theme.getId());
+		result += userDao.update(user);
+		return result;
 	}
 	
 }

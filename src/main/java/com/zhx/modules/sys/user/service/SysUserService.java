@@ -29,6 +29,18 @@ public interface SysUserService {
 	 */
 	int editUser(SysUser user);
 
+	/**
+	 * 获取当前登录用户的主题信息
+	 * @param themeId
+	 * @return
+	 */
 	SysTheme getCurUserTheme(String themeId);
+
+	/**
+	 * 用户更新系统设置中的主题信息
+	 * @param theme
+	 * @return
+	 */
+	int updateTheme(SysTheme theme);
 	
 }

@@ -43,6 +43,7 @@
             <mvc:exclude-mapping path="/login"/>
             <mvc:exclude-mapping path="/loginOut"/>
             <mvc:exclude-mapping path="/captcha"/>
+            <mvc:exclude-mapping path="/system/locked"/>
             <mvc:exclude-mapping path="/static/**"/>
             <mvc:exclude-mapping path="/script/**"/>
             <bean class="com.zhx.interceptor.BackSessionInterceptor"></bean>

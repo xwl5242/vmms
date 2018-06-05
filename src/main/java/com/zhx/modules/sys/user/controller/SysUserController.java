@@ -19,6 +19,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.zhx.log.OpLog;
 import com.zhx.modules.constants.Const;
 import com.zhx.modules.frames.BaseController;
+import com.zhx.modules.sys.theme.bean.SysTheme;
 import com.zhx.modules.sys.user.bean.SysUser;
 import com.zhx.modules.sys.user.service.SysUserService;
 
@@ -59,4 +60,15 @@ public class SysUserController extends BaseController {
 		return objectMapper.writeValueAsString(map);
 	}
 	
+	/**
+	 * 更新用户主题设置信息
+	 * @param theme 主题信息
+	 * @return
+	 */
+	@RequestMapping(value="/updateTheme",method=RequestMethod.POST)
+	@ResponseBody
+	public String updateTheme(HttpServletRequest request,HttpServletResponse response,SysTheme theme){
+		int result = userService.updateTheme(theme);
+		return result==2?"true":"false";
+	}
 }

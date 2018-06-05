@@ -38,6 +38,7 @@ import com.zhx.modules.utils.DateUtils;
  * @author xwl
  *
  */
+@SuppressWarnings("unchecked")
 @Controller
 public class LoginController extends BaseController {
 
@@ -56,14 +57,19 @@ public class LoginController extends BaseController {
 	@OpLog(optName="用户后台登录",optKey="用户登录",optType=Const.OPLOG_TYPE_SELECT)
 	@RequestMapping(value="/loginIn",method=RequestMethod.POST)
 	public String loginIn(HttpServletRequest request,HttpServletResponse response,
-			SysUser user,String validCode,RedirectAttributes model) {
+			SysUser user,String validCode,boolean needCaptcha,RedirectAttributes model) {
 		logger.info("user login,user info:"+user);
 		String result = "";
 		try {
 			HttpSession session = request.getSession();
+			//判断是否是锁屏后再次登录，needCaptcha：false为锁屏后再登录
+			boolean validFlag = true;
+			if(needCaptcha){
+				String code = session.getAttribute(Const.SESSION_CAPTCHA_CODE).toString();//获取session中的验证码
+				validFlag = code.toLowerCase().equals(validCode.toLowerCase());
+			}
 			//判断验证码是否正确
-			String code = session.getAttribute(Const.SESSION_CAPTCHA_CODE).toString();//获取session中的验证码
-			if(code.toLowerCase().equals(validCode.toLowerCase())){
+			if(validFlag){
 				//根据输入的用户名查询用户是否存在
 				SysUser loginUser = userService.queryByUserCode(user.getUserCode());
 				if(null!=loginUser){//用户存在
@@ -103,7 +109,7 @@ public class LoginController extends BaseController {
 					result = "该用户不存在！";
 				}
 			}else{
-				result = "您输出的验证码不正确！";
+				result = "您输入的验证码不正确！";
 			}
 		} catch (Exception e) {
 			result = e.getMessage();
@@ -147,12 +153,7 @@ public class LoginController extends BaseController {
 	@OpLog(optName="用户后台退出登录",optKey="退出登录",optType=Const.OPLOG_TYPE_SELECT)
 	@RequestMapping(value="/loginOut",method=RequestMethod.GET)
 	public String loginOut(HttpServletRequest request,HttpServletResponse response){
-		request.getSession().removeAttribute(Const.SESSION_USER);
-		request.getSession().removeAttribute(Const.SESSION_USER_ID);
-		request.getSession().removeAttribute(Const.SESSION_USER_NAME);
-		request.getSession().removeAttribute(Const.SESSION_RIGHT);
-		request.getSession().removeAttribute(Const.SESSION_RIGHT_CHANGED);
-		request.getSession().removeAttribute(Const.SESSION_RIGHT_CHANGED_MENU);
+		removeAllSession(request);
 		return "web/login";
 	}
 	

@@ -13,6 +13,7 @@
     <mapping path="/login" exclue="true"></mapping>
     <mapping path="/loginIn" exclue="true"></mapping>
     <mapping path="/loginOut" exclue="true"></mapping>
+    <mapping path="/system/locked" exclue="true"></mapping>
     
     <!-- 自定义Tag规则 -->
     <content-processor>

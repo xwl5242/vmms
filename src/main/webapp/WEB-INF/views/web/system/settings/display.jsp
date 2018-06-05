@@ -13,74 +13,74 @@
 <div class="page animation-fade page-display" title="系统设置">
     <div class="page-content">
         <form id="displayForm" class="form-horizontal padding-vertical-30">
-        
+        	<input type="hidden" id="id">
             <div class="form-group">
                 <label class="col-sm-2 control-label">导航条颜色：</label>
                 <div class="col-sm-10" id="skintoolsNavbar">
                     <ul class="list-unstyled list-inline color-radio">
                         <li>
                             <div class="radio-custom radio-primary">
-                                <input type="radio" checked name="navigationColor" value=""> <label></label>
+                                <input type="radio" checked name="navbar" value=""> <label></label>
                             </div>
                         </li>
                         <li>
                             <div class="radio-custom radio-brown">
-                                <input type="radio"  name="navigationColor" value="bg-brown-600"> <label></label>
+                                <input type="radio"  name="navbar" value="bg-brown-600"> <label></label>
                             </div>
                         </li>
                         <li>
                             <div class="radio-custom radio-cyan">
-                                <input type="radio"  name="navigationColor" value="bg-cyan-600"> <label></label>
+                                <input type="radio"  name="navbar" value="bg-cyan-600"> <label></label>
                             </div>
                         </li>
                         <li>
                             <div class="radio-custom radio-green">
-                                <input type="radio"  name="navigationColor" value="bg-green-600"> <label></label>
+                                <input type="radio"  name="navbar" value="bg-green-600"> <label></label>
                             </div>
                         </li>
                         <li>
                             <div class="radio-custom radio-grey">
-                                <input type="radio"  name="navigationColor" value="bg-grey-600"> <label></label>
+                                <input type="radio"  name="navbar" value="bg-grey-600"> <label></label>
                             </div>
                         </li>
                         <li>
                             <div class="radio-custom radio-indigo">
-                                <input type="radio"  name="navigationColor" value="bg-indigo-600"> <label></label>
+                                <input type="radio"  name="navbar" value="bg-indigo-600"> <label></label>
                             </div>
                         </li>
                         <li>
                             <div class="radio-custom radio-orange">
-                                <input type="radio"  name="navigationColor" value="bg-orange-600"> <label></label>
+                                <input type="radio"  name="navbar" value="bg-orange-600"> <label></label>
                             </div>
                         </li>
                         <li>
                             <div class="radio-custom radio-pink">
-                                <input type="radio"  name="navigationColor" value="bg-pink-600"> <label></label>
+                                <input type="radio"  name="navbar" value="bg-pink-600"> <label></label>
                             </div>
                         </li>
                         <li>
                             <div class="radio-custom radio-purple">
-                                <input type="radio"  name="navigationColor" value="bg-purple-600"> <label></label>
+                                <input type="radio"  name="navbar" value="bg-purple-600"> <label></label>
                             </div>
                         </li>
                         <li>
                             <div class="radio-custom radio-red">
-                                <input type="radio"  name="navigationColor" value="bg-red-600"> <label></label>
+                                <input type="radio"  name="navbar" value="bg-red-600"> <label></label>
                             </div>
                         </li>
                         <li>
                             <div class="radio-custom radio-teal">
-                                <input type="radio"  name="navigationColor" value="bg-teal-600"> <label></label>
+                                <input type="radio"  name="navbar" value="bg-teal-600"> <label></label>
                             </div>
                         </li>
                         <li>
                             <div class="radio-custom radio-yellow">
-                                <input type="radio"  name="navigationColor" value="bg-yellow-700"> <label></label>
+                                <input type="radio"  name="navbar" value="bg-yellow-700"> <label></label>
                             </div>
                         </li>
                     </ul>
                     <div class="checkbox-custom checkbox-primary margin-top-10">
-                        <input type="checkbox" checked id="navbarDisplay" name="acrossFlag" value="navbar-inverse">
+                        <input type="checkbox" checked id="navbarDisplay" name="navbarInverse" value="navbar-inverse">
                         <label for="navbarDisplay">通栏显示</label>
                     </div>
                 </div>
@@ -89,7 +89,7 @@
             <div class="form-group">
                 <label class="col-sm-2 control-label">菜单主题：</label>
                 <div class="col-sm-10">
-                    <select data-plugin="selectpicker" id="skintoolsSidebar" name="menuTheme">
+                    <select data-plugin="selectpicker" id="skintoolsSidebar" name="sidebar">
                         <option value="site-menubar-dark" selected>深色主题</option>
                         <option value="site-menubar-light" >浅色主题</option>
                     </select>
@@ -217,9 +217,7 @@
 <script>
 	//保存主题样式操作
 	$("button[name='save']").click(function(){
-		console.log($("#displayForm").serialize());
-		var url = userTheme!=''?'<%=path %>/sysTheme/edit':'<%=path %>/sysTheme/save';
-		$.post(url,$("#displayForm").serialize(),function(result){
+		$.post('<%=path %>/user/updateTheme',$("#displayForm").serialize(),function(result){
 			console.log(result);
 		},'json');
 	});

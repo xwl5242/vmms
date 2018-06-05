@@ -9,7 +9,7 @@ public class SysTheme {
 	private String themeColor;
 	private String menuDisplay;
 	private String menuTxtIcon;
-	private String tagFlag;
+	private String tabFlag;
 	public String getId() {
 		return id;
 	}
@@ -52,18 +52,18 @@ public class SysTheme {
 	public void setMenuTxtIcon(String menuTxtIcon) {
 		this.menuTxtIcon = menuTxtIcon;
 	}
-	public String getTagFlag() {
-		return tagFlag;
+	public String getTabFlag() {
+		return tabFlag;
 	}
-	public void setTagFlag(String tagFlag) {
-		this.tagFlag = tagFlag;
+	public void setTabFlag(String tabFlag) {
+		this.tabFlag = tabFlag;
 	}
 	@Override
 	public String toString() {
 		return "SysTheme [id=" + id + ", sidebar=" + sidebar + ", navbar="
 				+ navbar + ", navbarInverse=" + navbarInverse + ", themeColor="
 				+ themeColor + ", menuDisplay=" + menuDisplay
-				+ ", menuTxtIcon=" + menuTxtIcon + ", tagFlag=" + tagFlag + "]";
+				+ ", menuTxtIcon=" + menuTxtIcon + ", tabFlag=" + tabFlag + "]";
 	}
 	
 }

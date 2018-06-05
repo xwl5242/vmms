@@ -172,6 +172,9 @@
                                 break;
                             case 'tabFlag':
                                 $('input[value="' + v + '"]', '#displayForm').prop('checked', true);
+                                break;
+                            case 'id':
+                            	$('input[value="'+v+'"]','#id');
                         }
                     });
                 }

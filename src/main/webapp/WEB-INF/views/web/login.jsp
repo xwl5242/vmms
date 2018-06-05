@@ -49,6 +49,7 @@
                     <h3 class="hidden-xs">登录 </h3>
                     <p class="hidden-xs">后台管理系统</p>
                     <form action="<%=path %>/loginIn" class="login-form" method="post" id="loginForm">
+                    	<input type="hidden" name="needCaptcha" value="true">
                         <div class="form-group">
                             <label class="sr-only" for="username">用户名</label>
                             <input type="text" class="form-control" id="userCode" name="userCode" value="${user.userCode}" placeholder="请输入用户名">
